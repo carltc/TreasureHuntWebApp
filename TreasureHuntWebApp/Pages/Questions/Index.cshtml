@@ -28,6 +28,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.Question[0].Answer)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Question[0].AnswerIndex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Question[0].ClueIndex)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -48,6 +54,12 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Answer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnswerIndex)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClueIndex)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |

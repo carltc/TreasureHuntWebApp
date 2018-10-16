@@ -13,12 +13,12 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Question.ID" />
             <div class="form-group">
                 <label asp-for="Question.QuestionNumber" class="control-label"></label>
                 <input asp-for="Question.QuestionNumber" class="form-control" />
                 <span asp-validation-for="Question.QuestionNumber" class="text-danger"></span>
             </div>
-            <input type="hidden" asp-for="Question.ID" />
             <div class="form-group">
                 <label asp-for="Question.Title" class="control-label"></label>
                 <input asp-for="Question.Title" class="form-control" />
@@ -38,6 +38,16 @@
                 <label asp-for="Question.Answer" class="control-label"></label>
                 <input asp-for="Question.Answer" class="form-control" />
                 <span asp-validation-for="Question.Answer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Question.AnswerIndex" class="control-label"></label>
+                <input asp-for="Question.AnswerIndex" class="form-control" />
+                <span asp-validation-for="Question.AnswerIndex" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Question.ClueIndex" class="control-label"></label>
+                <input asp-for="Question.ClueIndex" class="form-control" />
+                <span asp-validation-for="Question.ClueIndex" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />
