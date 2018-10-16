@@ -35,3 +35,88 @@ body {
         display: none;
     }
 }
+
+.TreasureHuntTitle {
+    font-size: 20px;
+    padding: 30pt;
+    padding-bottom: 0pt;
+}
+
+.clueTitle {
+    font-size: 50px;
+    padding: 0pt;
+    padding-top: 40pt;
+    padding-bottom: 40pt;
+}
+
+.question {
+    font-size: 20px;
+    padding: 30pt;
+}
+
+.answer {
+    font-size: 40px;
+    padding: 30pt;
+}
+
+/* Change font size when screen size changes*/
+@media screen and (max-width: 1000px) {
+    .TreasureHuntTitle {
+        font-size: 15px;
+        padding: 20pt;
+        padding-bottom: 0pt;
+    }
+
+    .clueTitle {
+        font-size: 35px;
+        padding: 0pt;
+        padding-top: 30pt;
+        padding-bottom: 30pt;
+    }
+
+    .question {
+        font-size: 15px;
+        padding: 10pt;
+    }
+
+    .answer {
+        font-size: 30px;
+        padding: 10pt;
+    }
+}
+
+/* Change font size when screen size changes*/
+@media screen and (max-width: 720px) {
+    .TreasureHuntTitle {
+        font-size: 10px;
+        padding: 10pt;
+        padding-bottom: 0pt;
+    }
+
+    .clueTitle {
+        font-size: 20px;
+        padding: 0pt;
+        padding-top: 15pt;
+        padding-bottom: 15pt;
+    }
+
+    .question {
+        font-size: 10px;
+        padding: 10pt;
+    }
+
+    .answer {
+        font-size: 20px;
+        padding: 10pt;
+    }
+}
+
+/* Change font size when screen size changes*/
+@media screen and (max-width: 480px) {
+    .clueTitle {
+        font-size: 12px;
+        padding: 0pt;
+        padding-top: 5pt;
+        padding-bottom: 10pt;
+    }
+}
