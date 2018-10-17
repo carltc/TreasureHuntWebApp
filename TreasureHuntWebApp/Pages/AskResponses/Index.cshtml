@@ -1,0 +1,31 @@
+﻿@page "{ask?}"
+@model TreasureHuntWebApp.Pages.AskResponses.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="askInput">
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form>
+                <p>
+                    <input type="text" class="form-control askInput" name="ask" placeholder="type...">
+                    <input type="submit" style="visibility: hidden; height: 0pt" />
+                </p>
+            </form>
+            @{
+                int rndInd = 0;
+                if (Model.AskResponse.Count >= 1)
+                {
+                    Random rnd = new Random();
+                    rndInd = rnd.Next(1, Model.AskResponse.Count);
+                    @Html.DisplayFor(modelItem => Model.AskResponse[rndInd-1].Response)
+                }
+            }
+        </div>
+    </div>
+    
+    
+</div>

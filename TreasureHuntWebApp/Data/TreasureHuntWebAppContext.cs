@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using TreasureHuntWebApp.Models;
 
 namespace TreasureHuntWebApp.Models
 {
@@ -14,5 +15,7 @@ namespace TreasureHuntWebApp.Models
         }
 
         public DbSet<TreasureHuntWebApp.Models.Question> Question { get; set; }
+
+        public DbSet<TreasureHuntWebApp.Models.AskResponse> AskResponse { get; set; }
     }
 }

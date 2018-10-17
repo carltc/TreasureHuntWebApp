@@ -59,6 +59,16 @@ body {
     padding: 30pt;
 }
 
+.askInput {
+    margin: auto;
+    text-align: center;
+    text-align: center;
+}
+
+html, body, body-content {
+    height: 100%
+}
+
 /* Change font size when screen size changes*/
 @media screen and (max-width: 1000px) {
     .TreasureHuntTitle {
