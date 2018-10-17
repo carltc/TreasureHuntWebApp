@@ -39,21 +39,9 @@ namespace TreasureHuntWebApp.Pages.AskResponses
                                 select r;
                     responses = responses.Where(r => r.AskType == 1);
                     responses = responses.Where(r => culture.CompareInfo.IndexOf(ask, r.Question, CompareOptions.IgnoreCase) >= 0);
-                    
-                    //foreach (AskResponse response in responses)
-                    //{
-                    //    if (culture.CompareInfo.IndexOf(ask, response.Question, CompareOptions.IgnoreCase) >= 0)
-                    //    {
-                    //        int r = 1;
-                    //    }
-                    //}
 
                     if (!responses.Any())
                     {
-
-                        AskResponse newAsk = new AskResponse();
-                        newAsk.AskDate = DateTime.Now;
-
                         _context.AskResponse.AddRange(
                             new AskResponse
                             {
