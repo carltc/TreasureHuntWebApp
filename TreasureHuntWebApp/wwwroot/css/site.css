@@ -1,7 +1,7 @@
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification 
 for details on configuring this project to bundle and minify static web assets. */
 body {
-    padding-top: 50px;
+    padding-top: 80pt;
     padding-bottom: 20px;
 }
 
@@ -63,10 +63,25 @@ body {
     margin: auto;
     text-align: center;
     text-align: center;
+    padding: 5pt;
 }
 
 html, body, body-content {
     height: 100%
+}
+
+.lemonCubeLogo {
+    height: 60pt;
+    margin: auto;
+}
+
+.navbar-brand {
+    width: 100%;
+    height: 100%;
+}
+.navbar-header {
+    width: 100%;
+    height: 50pt;
 }
 
 /* Change font size when screen size changes*/
