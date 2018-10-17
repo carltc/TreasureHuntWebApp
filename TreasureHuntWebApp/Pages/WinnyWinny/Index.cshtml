@@ -1,0 +1,30 @@
+﻿@page
+@model TreasureHuntWebApp.Pages.WinnyWinny.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (Model.Winner != null && Model.Winner.Count >= 1)
+{
+    <h2 align="center">Congratulations @Html.DisplayFor(modelItem => Model.Winner[0].Name)</h2>
+
+    <p align="center">
+        The administrators will be in contact with you shortly if you gave a legible name.
+    </p>
+    <div style="height:5pt"></div>
+    <form action="./Index">
+        <input type="submit" value="Go Home" class="form-control askInput" />
+    </form>
+}
+else
+{
+    <h2 align="center">Yay! You won!</h2>
+    <form method="post">
+        <div class="form-group">
+            <input type="text" class="form-control askInput" name="winnerName" placeholder="Full Name...">
+            <div style="height:5pt"></div>
+            <input type="submit" class="form-control askInput" />
+        </div>
+    </form>
+}

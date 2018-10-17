@@ -17,5 +17,7 @@ namespace TreasureHuntWebApp.Models
         public DbSet<TreasureHuntWebApp.Models.Question> Question { get; set; }
 
         public DbSet<TreasureHuntWebApp.Models.AskResponse> AskResponse { get; set; }
+
+        public DbSet<TreasureHuntWebApp.Models.Winner> Winner { get; set; }
     }
 }

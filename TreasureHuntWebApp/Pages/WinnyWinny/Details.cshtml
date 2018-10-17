@@ -1,0 +1,31 @@
+﻿@page
+@model TreasureHuntWebApp.Pages.WinnyWinny.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Winner</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Winner.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Winner.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Winner.WinTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Winner.WinTime)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Winner.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
