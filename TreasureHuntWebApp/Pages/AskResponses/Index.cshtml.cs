@@ -19,10 +19,14 @@ namespace TreasureHuntWebApp.Pages.AskResponses
             _context = context;
         }
 
+        public string Question { get; set; }
+
         public IList<AskResponse> AskResponse { get;set; }
 
         public async Task OnGetAsync(string ask)
         {
+            Question = ask;
+
             var responses = from r in _context.AskResponse
                          select r;
 

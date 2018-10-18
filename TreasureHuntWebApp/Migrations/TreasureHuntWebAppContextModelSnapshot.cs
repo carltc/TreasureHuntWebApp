@@ -62,6 +62,21 @@ namespace TreasureHuntWebApp.Migrations
 
                     b.ToTable("Question");
                 });
+
+            modelBuilder.Entity("TreasureHuntWebApp.Models.Winner", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name");
+
+                    b.Property<DateTime>("WinTime");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Winner");
+                });
 #pragma warning restore 612, 618
         }
     }

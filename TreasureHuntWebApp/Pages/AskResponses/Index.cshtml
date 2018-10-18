@@ -2,7 +2,7 @@
 @model TreasureHuntWebApp.Pages.AskResponses.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Ask";
 }
 
 <div class="askInput">
@@ -23,6 +23,13 @@
                     rndInd = rnd.Next(1, Model.AskResponse.Count);
                     @Html.DisplayFor(modelItem => Model.AskResponse[rndInd-1].Response)
                 }
+            }
+
+            @if (Model.Question != null && Model.Question.Contains("E N T"))
+            {
+                <form action="./WinnyWinny">
+                    <input type="submit" value="Proceed" />
+                </form>
             }
         </div>
     </div>
