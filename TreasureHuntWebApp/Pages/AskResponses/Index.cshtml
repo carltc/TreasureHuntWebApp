@@ -25,7 +25,8 @@
                 }
             }
 
-            @if (Model.Question != null && Model.Question.Contains("E N T"))
+            @{ System.Globalization.CultureInfo tempCulture = new System.Globalization.CultureInfo("en-GB");}
+            @if (Model.Question != null && tempCulture.CompareInfo.IndexOf(Model.Question, "E N T", System.Globalization.CompareOptions.IgnoreCase) >= 0)
             {
                 <form action="./WinnyWinny">
                     <input type="submit" value="Proceed" />
