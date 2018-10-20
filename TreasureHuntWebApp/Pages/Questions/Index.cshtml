@@ -2,71 +2,84 @@
 @model TreasureHuntWebApp.Pages.Questions.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Happy Hunting!";
 }
 
-<h2>Index</h2>
+<div>
+    <div>
+        <div style="background: #51b6ff;">
+            <div style="text-align: center; vertical-align: middle">
+                <div class="TreasureHuntTitle" style="text-align: center; width: 80%; margin: auto; vertical-align: bottom;">
+                    <font color="white">Treasure Hunt 1</font>
+                </div>
+                <div class="clueTitle" style="text-align: center; width: 80%; margin: auto; vertical-align: middle;">
+                    <font color="red">_ _ _ _ _ _ _ _ </font><font color="white">@@ hotmail.com</font>
+                </div>
+            </div>
+        </div>
+        @foreach (var item in Model.Question)
+        {
+            <div style="background: #51b6ff;">
+                <div style="width: 80%; background-color: white; margin: auto; height: 1pt">
+                </div>
+                <div style="text-align: center; vertical-align: middle">
+                    <div class="question" style="text-align: center; width: 80%; margin: auto; vertical-align: middle;">
+                        @*<font color="white">@Html.DisplayFor(modelItem => item.Content)</font>*@
+                        <font color="white">
+                            @{int count = 0; bool activated = false;}
+                            @for (var i = 0; i < item.Content.Length; i++)
+                            {
+                                var character = item.Content[i];
+                                if (character.Equals(' '))
+                                {
+                                    count++;
+                                }
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Question[0].QuestionNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Question[0].Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Question[0].ReleaseDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Question[0].Content)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Question[0].Answer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Question[0].AnswerIndex)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Question[0].ClueIndex)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Question) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.QuestionNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReleaseDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Content)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Answer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AnswerIndex)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClueIndex)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                                if (count == item.ClueIndex - 1)
+                                {
+                                    activated = true;
+                                }
+                                else
+                                {
+                                    activated = false;
+                                }
+
+                                if (activated)
+                                {
+                                    <text><i><b>@character.ToString()</b></i></text>
+                                }
+                                else
+                                {
+                                    <text>@character.ToString()</text>
+                                }
+                            }
+                        </font>
+                    </div>
+                    <div class="answer" style="text-align: center; width: 80%; margin: auto; vertical-align: middle;">
+                        @{count = 0;}
+                        @for (var i = 0; i < item.Answer.Length; i++)
+                        {
+                            var character = item.Answer[i];
+                            if (character.Equals('_'))
+                            {
+                                count++;
+                                if (count == item.AnswerIndex)
+                                {
+                                    <text><font color="red">@character.ToString()</font></text>
+                                }
+                                else
+                                {
+                                    <text><font color="white">@character.ToString()</font></text>
+                                }
+                            }
+                            else
+                            {
+                                <text><font color="white">@character.ToString()</font></text>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

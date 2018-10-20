@@ -54,7 +54,8 @@ namespace TreasureHuntWebApp.Pages.WinnyWinny
                     new Winner
                     {
                         Name = winnerName,
-                        WinTime = DateTime.Now
+                        WinTime = DateTime.Now,
+                        HuntID = 1
                     }
                 );
                 await _context.SaveChangesAsync();

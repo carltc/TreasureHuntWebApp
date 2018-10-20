@@ -63,7 +63,7 @@ namespace TreasureHuntWebApp.Pages.WinnyWinny
                 }
             }
 
-            return RedirectToPage("./ViewWinners");
+            return RedirectToPage("./Index");
         }
 
         private bool WinnerExists(int id)

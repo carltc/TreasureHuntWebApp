@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace TreasureHuntWebApp.Models
 {
-    public class Winner
+    public class Scoreboard : DbContext
     {
-        public int ID { get; set; }
+        public System.Int64 ID { get; set; }
 
         public string Name { get; set; }
 
-        public DateTime WinTime { get; set; }
-
-        public int HuntID { get; set; }
+        public System.Int64 Score { get; set; }
 
     }
 }

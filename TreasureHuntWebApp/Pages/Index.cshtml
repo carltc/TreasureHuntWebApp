@@ -1,84 +1,42 @@
 ﻿@page
-@model TreasureHuntWebApp.Pages.Questions.IndexModel
+@model TreasureHuntWebApp.Pages.IndexModel
+
 @{
-    ViewData["Title"] = "Happy Hunting!";
+    ViewData["Title"] = "LemonCube";
 }
 
-<div>
-    <div>
-        <div style="background: #51b6ff;">
-            <div style="text-align: center; vertical-align: middle">
-                <div class="TreasureHuntTitle" style="text-align: center; width: 80%; margin: auto; vertical-align: bottom;">
-                    <font color="white">Treasure Hunt 1</font>
-                </div>
-                <div class="clueTitle" style="text-align: center; width: 80%; margin: auto; vertical-align: middle;">
-                    <font color="red">_ _ _ _ _ _ _ _ </font><font color="white">@@ hotmail.com</font>
-                </div>
-            </div>
-        </div>
-        @foreach (var item in Model.Question)
-        {
-        <div style="background: #51b6ff;">
-            <div style="width: 80%; background-color: white; margin: auto; height: 1pt">
-            </div>
-            <div style="text-align: center; vertical-align: middle">
-                <div class="question" style="text-align: center; width: 80%; margin: auto; vertical-align: middle;">
-                    @*<font color="white">@Html.DisplayFor(modelItem => item.Content)</font>*@
-                    <font color="white">
-                        @{int count = 0; bool activated = false;}
-                        @for (var i = 0; i < item.Content.Length; i++)
-                        {
-                            var character = item.Content[i];
-                            if (character.Equals(' '))
-                            {
-                                count++;
-                            }
+<div class="scoreBoard">
+    @*<header class="scoreBoardHeader">
+        <h1 class="scoreBoardTitle">Scoreboard</h1>
+    </header>*@
 
-                            if (count == item.ClueIndex - 1)
-                            {
-                                activated = true;
-                            }
-                            else
-                            {
-                                activated = false;
-                            }
+    <section class="scoreBoardSection">
 
-                            if (activated)
-                            {
-                                <text><i><b>@character.ToString()</b></i></text>
-                            }
-                            else
-                            {
-                                <text>@character.ToString()</text>
-                            }
-                        }
-                    </font>
-                </div>
-                <div class="answer" style="text-align: center; width: 80%; margin: auto; vertical-align: middle;">
-                    @{count = 0;}
-                    @for (var i = 0; i < item.Answer.Length; i++)
-                    {
-                        var character = item.Answer[i];
-                        if (character.Equals('_'))
-                        {
-                            count++;
-                            if (count == item.AnswerIndex)
-                            {
-                                <text><font color="red">@character.ToString()</font></text>
-                            }
-                            else
-                            {
-                                <text><font color="white">@character.ToString()</font></text>
-                            }
-                        }
-                        else
-                        {
-                            <text><font color="white">@character.ToString()</font></text>
-                        }
-                    }
-                </div>
-            </div>
-        </div>
-        }
-    </div>
+        <table class="scoreBoardTable">
+            <tr class="scoreBoardTableHeadings">
+                <th>Rank</th>
+                <th>Player Name</th>
+                <th>Score</th>
+            </tr>
+            @foreach (var item in Model.Scoreboard)
+            {
+                <tr style="color:#ffd800">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Model.PadNumber((int)item.Score,6)
+                    </td>
+                </tr>
+            }
+        </table>
+    </section>
+
+    <footer>
+        <p>Footer</p>
+    </footer>
 </div>
+

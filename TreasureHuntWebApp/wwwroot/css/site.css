@@ -1,3 +1,9 @@
+/* FONTS */
+@font-face {
+    font-family: Digital;
+    src: url('../DS-DIGIT.TTF');
+}
+
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification 
 for details on configuring this project to bundle and minify static web assets. */
 body {
@@ -84,6 +90,43 @@ html, body, body-content {
     height: 50pt;
 }
 
+#scoreBoard {
+    background-color: #000000;
+}
+
+.scoreBoard{
+    background: #000000;
+    padding: 10px;
+    font-family: courier;
+}
+
+.scoreBoardHeader {
+    border-style: solid;
+    background: #000000;
+    border-color: #ffffff;
+    border-width: 2px;
+}
+
+.scoreBoardTitle {
+    font-family: courier;
+    color: #4cff00;
+    padding: 10px;
+    text-align: center;
+}
+
+.scoreBoardSection {
+    font-size: 60pt;
+    font-family: Digital;
+}
+
+.scoreBoardTable {
+    width: 100%;
+}
+
+.scoreBoardTableHeadings {
+    color: #4cff00
+}
+
 /* Change font size when screen size changes*/
 @media screen and (max-width: 1000px) {
     .TreasureHuntTitle {
@@ -107,6 +150,11 @@ html, body, body-content {
     .answer {
         font-size: 30px;
         padding: 10pt;
+    }
+
+    .scoreBoardSection {
+        font-size: 30pt;
+        font-family: Digital;
     }
 }
 
@@ -133,6 +181,11 @@ html, body, body-content {
     .answer {
         font-size: 20px;
         padding: 10pt;
+    }
+
+    .scoreBoardSection {
+        font-size: 20pt;
+        font-family: Digital;
     }
 }
 

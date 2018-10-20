@@ -36,7 +36,7 @@ namespace TreasureHuntWebApp.Pages.WinnyWinny
             _context.Winner.Add(Winner);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./ViewWinners");
+            return RedirectToPage("./Index");
         }
     }
 }

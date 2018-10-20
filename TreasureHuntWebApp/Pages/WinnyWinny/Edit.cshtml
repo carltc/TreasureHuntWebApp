@@ -25,6 +25,11 @@
                 <span asp-validation-for="Winner.WinTime" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Winner.HuntID" class="control-label"></label>
+                <input asp-for="Winner.HuntID" class="form-control" />
+                <span asp-validation-for="Winner.HuntID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </form>
