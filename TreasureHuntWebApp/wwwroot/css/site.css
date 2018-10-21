@@ -94,10 +94,13 @@ html, body, body-content {
     background-color: #000000;
 }
 
-.scoreBoard{
+.scoreBoard {
     background: #000000;
     padding: 10px;
     font-family: courier;
+    border: 5pt;
+    border-color: #808080;
+    border-style: ridge;
 }
 
 .scoreBoardHeader {
@@ -109,7 +112,6 @@ html, body, body-content {
 
 .scoreBoardTitle {
     font-family: courier;
-    color: #4cff00;
     padding: 10px;
     text-align: center;
 }
@@ -121,10 +123,47 @@ html, body, body-content {
 
 .scoreBoardTable {
     width: 100%;
+    line-height: 45pt;
 }
 
 .scoreBoardTableHeadings {
-    color: #4cff00
+    color: #b2ff91;
+    text-shadow: 1px 1px 1px #4cff00,-1px -1px 1px #4cff00,1px -1px 1px #4cff00;
+}
+
+.scoreBoardDigits {
+    border: 1pt;
+    border: solid;
+    border-color: #808080;
+    margin: 5pt;
+    padding-left: 5pt;
+    padding-right: 5pt;
+    background-color: #292929;
+}
+
+#row1 {
+    color: #fff09d;
+    text-shadow: 1px 1px 1px #ffe65c,-1px -1px 1px #ffe65c,1px -1px 1px #ffe65c;
+}
+
+#row2 {
+    color: #ffc06f;
+    text-shadow: 1px 1px 1px #ffa736,-1px -1px 1px #ffa736,1px -1px 1px #ffa736;
+}
+
+#row3 {
+    color: #ffaf83;
+    text-shadow: 1px 1px 1px #fe762c,-1px -1px 1px #fe762c,1px -1px 1px #fe762c;
+}
+
+#row4 {
+    color: #ff8f6f;
+    text-shadow: 1px 1px 1px #fe4c19,-1px -1px 1px #fe4c19,1px -1px 1px #fe4c19;
+}
+
+.scoreBoardRow {
+    color: #ff6b6b;
+    text-shadow: 1px 1px 1px #ff0000,-1px -1px 1px #ff0000,1px -1px 1px #ff0000;
 }
 
 /* Change font size when screen size changes*/
@@ -155,6 +194,16 @@ html, body, body-content {
     .scoreBoardSection {
         font-size: 30pt;
         font-family: Digital;
+    }
+
+    .scoreBoardTable {
+        width: 100%;
+        line-height: 25pt;
+    }
+
+    .scoreBoardDigits {
+        padding-left: 17pt;
+        padding-right: 17pt;
     }
 }
 
@@ -187,6 +236,16 @@ html, body, body-content {
         font-size: 20pt;
         font-family: Digital;
     }
+
+    .scoreBoardTable {
+        width: 100%;
+        line-height: 15pt;
+    }
+
+    .scoreBoardDigits {
+        padding-left: 10pt;
+        padding-right: 10pt;
+    }
 }
 
 /* Change font size when screen size changes*/
@@ -196,5 +255,10 @@ html, body, body-content {
         padding: 0pt;
         padding-top: 5pt;
         padding-bottom: 10pt;
+    }
+
+    .scoreBoardDigits {
+        padding-left: 2pt;
+        padding-right: 2pt;
     }
 }

@@ -12,31 +12,34 @@
 
     <section class="scoreBoardSection">
 
-        <table class="scoreBoardTable">
+        <table class="scoreBoardTable" cellpadding="1">
             <tr class="scoreBoardTableHeadings">
-                <th>Rank</th>
-                <th>Player Name</th>
-                <th>Score</th>
+                <th><div class="scoreBoardDigits" style="text-align:center">Rank</div></th>
+                <th><div class="scoreBoardDigits">Player Name</div></th>
+                <th><div class="scoreBoardDigits" style="text-align:center">Score</div></th>
             </tr>
             @foreach (var item in Model.Scoreboard)
             {
-                <tr style="color:#ffd800">
+                string rowName = "row" + item.ID.ToString();
+                <tr class="scoreBoardRow" id="@rowName">
                     <td>
-                        @Html.DisplayFor(modelItem => item.ID)
+                        <div class="scoreBoardDigits" style="text-align:right">
+                            @Html.DisplayFor(modelItem => item.ID)
+                        </div>
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Name)
+                        <div class="scoreBoardDigits">
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </div>
                     </td>
                     <td>
-                        @Model.PadNumber((int)item.Score,6)
+                        <div class="scoreBoardDigits" style="text-align:center">
+                            @Model.PadNumber((int)item.Score, 6)
+                        </div>
                     </td>
                 </tr>
             }
         </table>
     </section>
-
-    <footer>
-        <p>Footer</p>
-    </footer>
 </div>
 
