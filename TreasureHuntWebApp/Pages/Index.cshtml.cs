@@ -32,9 +32,14 @@ namespace TreasureHuntWebApp.Pages
             return outputString;
         }
 
-        public IList<Scoreboard> Scoreboard { get; set; }
+        public IList<Scoreboard> ScoreboardResults { get; set; }
 
-        public async Task OnGetAsync()
+        public IList<Winner> Hunt1Winners { get; set; }
+        public IList<Winner> Hunt2Winners { get; set; }
+        public IList<Winner> Hunt3Winners { get; set; }
+        public IList<Winner> Hunt4Winners { get; set; }
+
+        public void OnGet()
         {
             string sqlQuery = ""
                 + "DECLARE @tableName VARCHAR(MAX) = 'x'; "
@@ -120,9 +125,33 @@ namespace TreasureHuntWebApp.Pages
                 + "DECLARE @fourthPortion NVARCHAR(MAX) = 'ORDER BY Score DESC' "
                 + "SET @fullSQLstatement = @fullSQLstatement + @fourthPortion; "
                 + "EXEC(@fullSQLstatement)";
+            
+            var scoreBoardResults = _context.Scoreboard.FromSql(sqlQuery);
+            ScoreboardResults = scoreBoardResults.ToList();
 
-            var results = _context.Scoreboard.FromSql(sqlQuery);
-            Scoreboard = await results.ToListAsync();
+            Hunt1Winners = _context.Winner.Where(field => field.HuntID == 2)
+                .GroupBy(item => item.Name)
+                .Select(grouping => grouping.FirstOrDefault())
+                .OrderBy(item => item.WinTime)
+                .ToList();
+
+            Hunt2Winners = _context.Winner.Where(field => field.HuntID == 1)
+                .GroupBy(item => item.Name)
+                .Select(grouping => grouping.FirstOrDefault())
+                .OrderBy(item => item.WinTime)
+                .ToList();
+
+            Hunt3Winners = _context.Winner.Where(field => field.HuntID == 3)
+                .GroupBy(item => item.Name)
+                .Select(grouping => grouping.FirstOrDefault())
+                .OrderBy(item => item.WinTime)
+                .ToList();
+
+            Hunt4Winners = _context.Winner.Where(field => field.HuntID == 4)
+                .GroupBy(item => item.Name)
+                .Select(grouping => grouping.FirstOrDefault())
+                .OrderBy(item => item.WinTime)
+                .ToList();
         }
     }
 }

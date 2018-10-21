@@ -73,7 +73,8 @@ body {
 }
 
 html, body, body-content {
-    height: 100%
+    height: 100%;
+    font-family: 'Courier';
 }
 
 .lemonCubeLogo {
@@ -127,7 +128,7 @@ html, body, body-content {
 }
 
 .scoreBoardTableHeadings {
-    color: #b2ff91;
+    color: #94ff66;
     text-shadow: 1px 1px 1px #4cff00,-1px -1px 1px #4cff00,1px -1px 1px #4cff00;
 }
 
@@ -164,6 +165,22 @@ html, body, body-content {
 .scoreBoardRow {
     color: #ff6b6b;
     text-shadow: 1px 1px 1px #ff0000,-1px -1px 1px #ff0000,1px -1px 1px #ff0000;
+}
+
+.huntLinkSection {
+    background-color: #000000;
+    margin: 20pt;
+}
+
+.huntLinkTable {
+    width:100%;
+    padding: 20pt;
+    color: white;
+}
+
+.huntLinkCell {
+    padding: 20pt;
+    text-align: center;
 }
 
 /* Change font size when screen size changes*/
