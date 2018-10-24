@@ -109,7 +109,7 @@ namespace TreasureHuntWebApp.Pages.AngryTerm
             }
             else
             {
-                return RedirectToPage("/WinnyWinny/Index");
+                return RedirectToPage("./YayouDidIt");
             }
         }
     }
