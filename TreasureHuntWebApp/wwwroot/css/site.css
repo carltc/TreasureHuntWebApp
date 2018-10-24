@@ -129,7 +129,7 @@ html, body, body-content {
 
 .scoreBoardTableHeadings {
     color: #94ff66;
-    text-shadow: 1px 1px 1px #4cff00,-1px -1px 1px #4cff00,1px -1px 1px #4cff00;
+    text-shadow: 0px 0px 15px #4cff00;
 }
 
 .scoreBoardDigits {
@@ -144,27 +144,28 @@ html, body, body-content {
 
 #row1 {
     color: #fff09d;
-    text-shadow: 1px 1px 1px #ffe65c,-1px -1px 1px #ffe65c,1px -1px 1px #ffe65c;
+    text-shadow: 0px 0px 20px #ffe65c;
 }
 
 #row2 {
     color: #ffc06f;
-    text-shadow: 1px 1px 1px #ffa736,-1px -1px 1px #ffa736,1px -1px 1px #ffa736;
+    text-shadow: 0px 0px 15px #ffa736;
 }
 
 #row3 {
-    color: #ffaf83;
-    text-shadow: 1px 1px 1px #fe762c,-1px -1px 1px #fe762c,1px -1px 1px #fe762c;
+    color: #ff8f51;
+    text-shadow: 0px 0px 20px #ff9f6b;
 }
 
 #row4 {
-    color: #ff8f6f;
-    text-shadow: 1px 1px 1px #fe4c19,-1px -1px 1px #fe4c19,1px -1px 1px #fe4c19;
+    color: #ff683d;
+    text-shadow: 0px 0px 15px #ff9374;
 }
 
 .scoreBoardRow {
-    color: #ff6b6b;
-    text-shadow: 1px 1px 1px #ff0000,-1px -1px 1px #ff0000,1px -1px 1px #ff0000;
+    /*color: #ff6b6b;*/
+    color: #ff3232;
+    text-shadow: 0px 0px 20px #ff6a6a;
 }
 
 .huntLinkSection {
