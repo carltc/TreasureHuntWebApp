@@ -7,44 +7,49 @@
 
 <div class="scoreBoard">
     <section class="scoreBoardSection">
-        <table class="scoreBoardTable" cellpadding="1">
-            <tr class="scoreBoardTableHeadings">
-                <th><div class="scoreBoardDigits" style="text-align:center">Rank</div></th>
-                <th><div class="scoreBoardDigits">Player Name</div></th>
-                <th><div class="scoreBoardDigits" style="text-align:center">Score</div></th>
+    <table class="scoreBoardTable" cellpadding="1">
+        <colgroup>
+            <col span="1" style="width:20%">
+            <col span="1" style="width:50%">
+            <col span="1" style="width:30%">
+        </colgroup>
+        <tr class="scoreBoardTableHeadings">
+            <th class="scoreBoardCell"><div class="scoreBoardDigits" style="text-align:center">Rank</div></th>
+            <th class="scoreBoardCell"><div class="scoreBoardDigits">Player Name</div></th>
+            <th class="scoreBoardCell"><div class="scoreBoardDigits" style="text-align:center">Score</div></th>
+        </tr>
+        @foreach (var item in Model.ScoreboardResults)
+        {
+            string rowName = "row" + item.ID.ToString();
+            <tr class="scoreBoardRow" id="@rowName">
+                <td class="scoreBoardCell">
+                    <div class="scoreBoardDigits" style="text-align:right">
+                        @Html.DisplayFor(modelItem => item.ID)
+                    </div>
+                </td>
+                <td class="scoreBoardCell">
+                    <div class="scoreBoardDigits">
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </div>
+                </td>
+                <td class="scoreBoardCell">
+                    <div class="scoreBoardDigits" style="text-align:center">
+                        @Model.PadNumber((int)item.Score, 6)
+                    </div>
+                </td>
             </tr>
-            @foreach (var item in Model.ScoreboardResults)
-            {
-                string rowName = "row" + item.ID.ToString();
-                <tr class="scoreBoardRow" id="@rowName">
-                    <td>
-                        <div class="scoreBoardDigits" style="text-align:right">
-                            @Html.DisplayFor(modelItem => item.ID)
-                        </div>
-                    </td>
-                    <td>
-                        <div class="scoreBoardDigits">
-                            @Html.DisplayFor(modelItem => item.Name)
-                        </div>
-                    </td>
-                    <td>
-                        <div class="scoreBoardDigits" style="text-align:center">
-                            @Model.PadNumber((int)item.Score, 6)
-                        </div>
-                    </td>
-                </tr>
-            }
-        </table>
+        }
+    </table>
     </section>
 </div>
 
 <div class="huntLinkSection">
     <table class="huntLinkTable">
         <tr style="width:100%">
-            <td class="huntLinkCell" style="width:70%; font-size: 20pt;">
+            <td class="huntLinkCell">
                 <a href="/Questions">Hunt 1</a>
             </td>
-            <td class="huntLinkCell" style="width:30%; text-align: left">
+            <td class="huntLinkRank">
                 1st : @{ if (Model.Hunt1Winners.Count() > 0) { @Html.DisplayFor(modelItem => Model.Hunt1Winners[0].Name); } else {<text>- - -</text>  } } <br>
                 2nd : @{ if (Model.Hunt1Winners.Count() > 1) { @Html.DisplayFor(modelItem => Model.Hunt1Winners[1].Name); } else {<text>- - -</text>  } } <br>
                 3rd : @{ if (Model.Hunt1Winners.Count() > 2) { @Html.DisplayFor(modelItem => Model.Hunt1Winners[2].Name); } else {<text>- - -</text>  } } <br>
@@ -57,10 +62,10 @@
 <div class="huntLinkSection">
     <table class="huntLinkTable">
         <tr style="width:100%">
-            <td class="huntLinkCell" style="width:70%; font-size: 20pt;">
+            <td class="huntLinkCell">
                 <a href="/AskResponses">Hunt 2</a>
             </td>
-            <td class="huntLinkCell" style="width:30%; text-align: left">
+            <td class="huntLinkRank">
                 1st : @{ if (Model.Hunt2Winners.Count() > 0) { @Html.DisplayFor(modelItem => Model.Hunt2Winners[0].Name); } else {<text>- - -</text>  } } <br>
                 2nd : @{ if (Model.Hunt2Winners.Count() > 1) { @Html.DisplayFor(modelItem => Model.Hunt2Winners[1].Name); } else {<text>- - -</text>  } } <br>
                 3rd : @{ if (Model.Hunt2Winners.Count() > 2) { @Html.DisplayFor(modelItem => Model.Hunt2Winners[2].Name); } else {<text>- - -</text>  } } <br>
@@ -73,7 +78,7 @@
 <div class="huntLinkSection">
     <table class="huntLinkTable">
         <tr style="width:100%">
-            <td class="huntLinkCell" style="width:70%; font-size: 20pt;">
+            <td class="huntLinkCell">
                 Hunt 3
                 <p id="CountDown"></p>
 
@@ -108,7 +113,7 @@
                     }, 1000);
                 </script>
             </td>
-            <td class="huntLinkCell" style="width:30%; text-align: left">
+            <td class="huntLinkRank">
                 1st : @{ if (Model.Hunt3Winners.Count() > 0) { @Html.DisplayFor(modelItem => Model.Hunt3Winners[0].Name); } else {<text>- - -</text>  } } <br>
                 2nd : @{ if (Model.Hunt3Winners.Count() > 1) { @Html.DisplayFor(modelItem => Model.Hunt3Winners[1].Name); } else {<text>- - -</text>  } } <br>
                 3rd : @{ if (Model.Hunt3Winners.Count() > 2) { @Html.DisplayFor(modelItem => Model.Hunt3Winners[2].Name); } else {<text>- - -</text>  } } <br>
