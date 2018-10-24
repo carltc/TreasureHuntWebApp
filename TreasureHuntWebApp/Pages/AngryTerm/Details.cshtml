@@ -1,0 +1,37 @@
+﻿@page
+@model TreasureHuntWebApp.Pages.AngryTerm.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CrossWord</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CrossWord.Letter)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CrossWord.Letter)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CrossWord.Row)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CrossWord.Row)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CrossWord.Column)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CrossWord.Column)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.CrossWord.ID">Edit</a> |
+    <a asp-page="./ReplaceCharacters">Back to List</a>
+</div>

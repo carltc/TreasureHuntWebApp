@@ -183,6 +183,41 @@ html, body, body-content {
     text-align: center;
 }
 
+.crossWordInput {
+    border: solid;
+    border-color: #000000;
+    color: #000000;
+    text-shadow: 0 0 0 gray;
+    text-align: center;
+    font-size: 15pt;
+    height: 40px;
+    width: 40px;
+    padding: 0pt;
+    margin: 0pt;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.blackBox {
+    border: solid;
+    border-color: #000000;
+    color: #000000;
+    background-color: #000000;
+    height: 40px;
+    width: 40px;
+    padding: 0pt;
+    margin: 0pt;
+}
+
+.crossWordCell {
+    border: none;
+}
+
+.crossWordRow {
+    border: none;
+}
+
 /* Change font size when screen size changes*/
 @media screen and (max-width: 1000px) {
     .TreasureHuntTitle {
