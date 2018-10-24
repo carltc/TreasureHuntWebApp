@@ -32,9 +32,11 @@ namespace TreasureHuntWebApp
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            
+            services.AddDistributedMemoryCache();
+            services.AddSession(s => s.IdleTimeout = TimeSpan.FromMinutes(30));
+            services.AddHttpContextAccessor();
 
             services.AddDbContext<TreasureHuntWebAppContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("Mashdown_Questions")));
@@ -57,6 +59,8 @@ namespace TreasureHuntWebApp
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+
+            app.UseSession();
             app.UseMvc();
         }
     }
