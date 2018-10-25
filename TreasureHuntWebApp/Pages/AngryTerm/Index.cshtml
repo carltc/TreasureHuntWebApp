@@ -5,9 +5,8 @@
 @inject IHttpContextAccessor HttpContextAccessor
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "CrossWord with a Twist";
 }
-
 <script src="/lib/jquery/dist/jquery.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
@@ -15,15 +14,22 @@
     });
 </script>
 
-@{ 
+<h2 style="text-align:center;">CrossWord With A Twist</h2>
+
+@{
     if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("wrongCount")))
     {
-        <p>Number of wrong characters: @HttpContextAccessor.HttpContext.Session.GetString("wrongCount")</p>
+        <p style="margin: auto; text-align:center;">
+            Number of wrong characters:
+            <span style="color: #ff0000">
+                @HttpContextAccessor.HttpContext.Session.GetString("wrongCount")
+            </span>
+        </p>
     }
 }
 
 <form method="post" autocomplete="on">
-    <table class="table" style="width:auto; margin: auto; margin-top:50pt;">
+    <table class="table" style="width:auto; margin: auto;">
         <tbody>
             <tr>
                 <td class="crossWord"></td>
