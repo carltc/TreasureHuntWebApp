@@ -49,7 +49,7 @@ body {
 }
 
 .clueTitle {
-    font-size: 50px;
+    font-size: 2em;
     padding: 0pt;
     padding-top: 40pt;
     padding-bottom: 40pt;
@@ -58,6 +58,19 @@ body {
 .question {
     font-size: 20px;
     padding: 30pt;
+}
+
+.questionInput {
+    width: 1em;
+    border: none;
+    border-bottom: solid;
+    border-color: #ff0000;
+    color: #ff0000;
+    background-color: transparent;
+    text-align: center;
+    padding: 0pt;
+    margin: 2pt;
+    text-transform: uppercase;
 }
 
 .answer {
@@ -278,7 +291,7 @@ html, body, body-content {
     }
 
     .clueTitle {
-        font-size: 35px;
+        font-size: 1.5em;
         padding: 0pt;
         padding-top: 30pt;
         padding-bottom: 30pt;
@@ -317,7 +330,7 @@ html, body, body-content {
     }
 
     .clueTitle {
-        font-size: 20px;
+        font-size: 1em;
         padding: 0pt;
         padding-top: 15pt;
         padding-bottom: 15pt;
@@ -361,7 +374,7 @@ html, body, body-content {
 /* Change font size when screen size changes*/
 @media screen and (max-width: 480px) {
     .clueTitle {
-        font-size: 12px;
+        font-size: 0.5em;
         padding: 0pt;
         padding-top: 5pt;
         padding-bottom: 10pt;
