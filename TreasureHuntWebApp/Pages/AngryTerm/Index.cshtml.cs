@@ -68,6 +68,8 @@ namespace TreasureHuntWebApp.Pages.AngryTerm
             }
 
             bool wrong = false;
+            int wrongCount = 0;
+            int trueCount = 0;
 
             //_context.Temp = Temp;
             //_context.SaveChanges();
@@ -94,10 +96,12 @@ namespace TreasureHuntWebApp.Pages.AngryTerm
                         if (Char.ToLowerInvariant(checkLetter) == Char.ToLowerInvariant(letter))
                         {
                             wrong = false;
+                            trueCount++;
                         }
                         else
                         {
                             wrong = true;
+                            wrongCount++;
                         }
                     }
                 }
@@ -105,6 +109,7 @@ namespace TreasureHuntWebApp.Pages.AngryTerm
 
             if (wrong)
             {
+                HttpContext.Session.SetString("wrongCount", wrongCount.ToString());
                 return Page();
             }
             else
