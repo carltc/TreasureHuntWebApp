@@ -216,6 +216,12 @@ html, body, body-content {
     white-space: nowrap;
 }
 
+.huntButton {
+    background-color: transparent;
+    color: #337ab7;
+    border: none;
+}
+
 .crossWordInput {
     border: solid;
     border-color: #000000;
@@ -280,6 +286,7 @@ html, body, body-content {
     margin: auto;
     vertical-align: middle !important;
     padding: 5pt !important;
+    white-space:nowrap;
 }
 
 /* Change font size when screen size changes*/
@@ -318,6 +325,23 @@ html, body, body-content {
     .scoreBoardDigits {
         padding-left: 17pt;
         padding-right: 17pt;
+    }
+
+    .crossWordInput {
+        height: 30px;
+        width: 30px;
+        font-size: 8pt;
+    }
+
+    .blackBox {
+        height: 30px;
+        width: 30px;
+        font-size: 8pt;
+    }
+
+    .crossWordClue {
+        font-size: 8pt;
+        padding: 2pt !important;
     }
 }
 
@@ -378,5 +402,20 @@ html, body, body-content {
         padding: 0pt;
         padding-top: 5pt;
         padding-bottom: 10pt;
+    }
+
+    .crossWordInput {
+        height: 20px;
+        width: 20px;
+    }
+
+    .blackBox {
+        height: 20px;
+        width: 20px;
+    }
+
+    .crossWordClue {
+        font-size: 6pt;
+        padding: 1pt !important;
     }
 }

@@ -21,6 +21,8 @@ namespace TreasureHuntWebApp.Pages
             _context = context;
         }
 
+        public string hiddenLink = "/AngryTerm/Index";
+
         public string PadNumber(int input, int padCount)
         {
             string inputString = input.ToString();
@@ -152,6 +154,25 @@ namespace TreasureHuntWebApp.Pages
                 .Select(grouping => grouping.FirstOrDefault())
                 .OrderBy(item => item.WinTime)
                 .ToList();
+        }
+
+        public IActionResult OnPost(string button)
+        {
+            if (button == "Hunt3")
+            {
+                DateTime releaseTime = new DateTime(2018, 10, 26, 6, 0, 0);
+                DateTime timeNow = DateTime.Now;
+
+                if (timeNow > releaseTime)
+                {
+                    return RedirectToPage(hiddenLink);
+                }
+                else
+                {
+                    return RedirectToPage("/Index");
+                }
+            }
+            return RedirectToPage("/Index");
         }
     }
 }

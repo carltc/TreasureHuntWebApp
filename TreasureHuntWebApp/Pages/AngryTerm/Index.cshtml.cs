@@ -30,36 +30,6 @@ namespace TreasureHuntWebApp.Pages.AngryTerm
         [BindProperty]
         public CrossWord CrossWord { get; set; }
 
-        //public void OnGet()
-        //{
-            //var rMax = (from max in _context.CrossWord.OrderByDescending(i => i.Row)
-            //            select new { max }).First();
-            //var cMax = (from max in _context.CrossWord.OrderByDescending(i => i.Column)
-            //            select new { max }).First();
-
-            //for (int i = 0; i < cMax.max.Column; i++)
-            //{
-            //    for (int j = 0; j < rMax.max.Row; j++)
-            //    {
-            //        string cellID = "r" + (j + 1).ToString() + "c" + (i + 1).ToString();
-            //        var word = HttpContext.Session.GetString(cellID);
-            //    }
-            //}
-
-            //if (_context.Temp == null)
-            //{
-            //    Temp = "          "
-            //    + "          "
-            //    + "          "
-            //    + "          "
-            //    + "          ";
-            //}
-            //else
-            //{
-            //    Temp = _context.Temp;
-            //}
-        //}
-
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
@@ -70,10 +40,7 @@ namespace TreasureHuntWebApp.Pages.AngryTerm
             bool wrong = false;
             int wrongCount = 0;
             int trueCount = 0;
-
-            //_context.Temp = Temp;
-            //_context.SaveChanges();
-
+            
             var rMax = (from max in _context.CrossWord.OrderByDescending(i => i.Row)
                     select new { max }).First();
             var cMax = (from max in _context.CrossWord.OrderByDescending(i => i.Column)
@@ -95,7 +62,6 @@ namespace TreasureHuntWebApp.Pages.AngryTerm
                                            select lRow.Letter).FirstOrDefault();
                         if (Char.ToLowerInvariant(checkLetter) == Char.ToLowerInvariant(letter))
                         {
-                            wrong = false;
                             trueCount++;
                         }
                         else

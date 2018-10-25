@@ -27,7 +27,6 @@
         // Output the result in an element with id="demo"
         document.getElementById("CountDown").innerHTML = days + "d " + hours + "h "
             + minutes + "m " + seconds + "s ";
-        document.getElementById("linkTitle").hidden = true;
 
         // If the count down is over, write some text
         if (distance < 0) {
@@ -35,8 +34,8 @@
             document.getElementById("nonLinkTitle").hidden = true;
             document.getElementById("CountDown").hidden = true;
             document.getElementById("CountDown").innerHTML = "EXPIRED";
-            document.getElementById("linkTitle").hidden = false;
-            var a = document.getElementById("linkTitle").href = "./AngryTerm";
+
+            document.getElementById("linkForm").hidden = false;
         }
     }, 1000);
 </script>
@@ -115,8 +114,10 @@
     <table class="huntLinkTable">
         <tr style="width:100%">
             <td class="huntLinkCell">
+                <form method="post" id="linkForm" hidden="hidden">
+                    <input class="huntButton" type="submit" name="button" value="Hunt3" />
+                </form>
                 <p id="nonLinkTitle">Hunt 3</p>
-                <a id="linkTitle" hidden="hidden">Hunt 3</a>
                 <p id="CountDown"></p>
             </td>
             <td class="huntLinkRank">
