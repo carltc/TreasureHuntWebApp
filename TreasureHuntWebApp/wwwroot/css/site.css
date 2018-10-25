@@ -136,8 +136,6 @@ html, body, body-content {
 
 .scoreBoardDigits {
     border: 1pt;
-    border: solid;
-    border-color: #808080;
     margin: 5pt;
     padding-left: 5pt;
     padding-right: 5pt;
@@ -238,6 +236,37 @@ html, body, body-content {
 
 .crossWordRow {
     border: none;
+}
+
+.crossWord {
+    border: none !important;
+    padding: 0pt !important;
+    margin: auto;
+    text-align: center;
+}
+
+.crossWord-Top {
+    vertical-align: bottom !important;
+    white-space: nowrap;
+}
+
+.crossWord-Bottom {
+    vertical-align: top !important;
+    white-space: nowrap;
+}
+
+.crossWord-Left {
+    text-align: right !important;
+}
+
+.crossWord-Right {
+    text-align: left !important;
+}
+
+.crossWordClue {
+    margin: auto;
+    vertical-align: middle !important;
+    padding: 5pt !important;
 }
 
 /* Change font size when screen size changes*/
