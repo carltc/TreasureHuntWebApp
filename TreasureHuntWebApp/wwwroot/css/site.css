@@ -330,13 +330,11 @@ html, body, body-content {
     .crossWordInput {
         height: 30px;
         width: 30px;
-        font-size: 8pt;
     }
 
     .blackBox {
         height: 30px;
         width: 30px;
-        font-size: 8pt;
     }
 
     .crossWordClue {
@@ -404,18 +402,52 @@ html, body, body-content {
         padding-bottom: 10pt;
     }
 
+    .crossWord {
+        font-size: 5pt;
+        vertical-align: middle;
+    }
+
     .crossWordInput {
-        height: 20px;
-        width: 20px;
+        height: 15px;
+        width: 15px;
+        font-size: 5pt;
+        vertical-align: middle;
     }
 
     .blackBox {
-        height: 20px;
-        width: 20px;
+        height: 15px;
+        width: 15px;
+        font-size: 5pt;
+        vertical-align: middle;
     }
 
     .crossWordClue {
-        font-size: 6pt;
+        font-size: 4pt;
         padding: 1pt !important;
     }
+
+    .scoreBoardSection {
+        font-size: 10pt;
+    }
+
+    .scoreBoardTable {
+        line-height: 10pt;
+    }
+
+    .scoreBoardDigits {
+        padding-left: 0pt;
+        padding-right: 0pt;
+    }
+
+    .huntLinkCell {
+        font-size: 10pt;
+        padding: 5pt;
+    }
+
+    .huntLinkRank {
+        font-size: 8pt;
+        padding: 5pt;
+        width: 100px;
+    }
+
 }
