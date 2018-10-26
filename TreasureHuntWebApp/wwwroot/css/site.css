@@ -209,11 +209,15 @@ html, body, body-content {
     padding: 20pt;
     text-align: left;
     font-size: 12pt;
-    width: 200px;
+    width: 260px;
     max-width: 1px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.countDown {
+    font-size: 20pt;
 }
 
 .huntButton {
@@ -389,7 +393,7 @@ html, body, body-content {
     .huntLinkRank {
         font-size: 8pt;
         padding: 5pt;
-        width: 133px;
+        width: 150px;
     }
 }
 
@@ -445,9 +449,13 @@ html, body, body-content {
     }
 
     .huntLinkRank {
-        font-size: 8pt;
+        font-size: 5pt;
         padding: 5pt;
         width: 100px;
+    }
+
+    .countDown {
+        font-size: 5pt;
     }
 
 }
