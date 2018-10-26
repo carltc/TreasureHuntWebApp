@@ -1,0 +1,41 @@
+﻿@page
+@model TreasureHuntWebApp.Pages.winnersModel
+
+@{
+    ViewData["Title"] = "winners";
+}
+
+<h2>Winners of Hunt @Model.huntID</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Rank
+            </th>
+            <th>
+                Name
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int count = 0; }
+        @foreach (var item in Model.Winner)
+        {
+            count++;
+            <tr>
+                <td>
+                    @count
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<form action="./Index">
+    <input type="submit" value="Go Home" class="form-control askInput" />
+</form>
