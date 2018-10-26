@@ -21,7 +21,7 @@ namespace TreasureHuntWebApp.Pages
             _context = context;
         }
 
-        public string hiddenLink = "/AngryTerm/Index";
+        public string hiddenLink = "/Dungeon/Index";
 
         public string PadNumber(int input, int padCount)
         {
@@ -41,8 +41,51 @@ namespace TreasureHuntWebApp.Pages
         public IList<Winner> Hunt3Winners { get; set; }
         public IList<Winner> Hunt4Winners { get; set; }
 
+        public IActionResult OnPost(string button)
+        {
+            if (button == "Hunt4")
+            {
+                DateTime releaseTime = new DateTime(2018, 11, 2, 6, 0, 0);
+                DateTime timeNow = DateTime.Now;
+
+                if (timeNow > releaseTime)
+                {
+                    return RedirectToPage(hiddenLink);
+                }
+                else
+                {
+                    return RedirectToPage("/Index");
+                }
+            }
+            return RedirectToPage("/Index");
+        }
+
         public void OnGet()
         {
+            Hunt1Winners = _context.Winner.Where(field => field.HuntID == 2)
+                .GroupBy(item => item.Name)
+                .Select(grouping => grouping.FirstOrDefault())
+                .OrderBy(item => item.WinTime)
+                .ToList();
+
+            Hunt2Winners = _context.Winner.Where(field => field.HuntID == 1)
+                .GroupBy(item => item.Name)
+                .Select(grouping => grouping.FirstOrDefault())
+                .OrderBy(item => item.WinTime)
+                .ToList();
+
+            Hunt3Winners = _context.Winner.Where(field => field.HuntID == 3)
+                .GroupBy(item => item.Name)
+                .Select(grouping => grouping.FirstOrDefault())
+                .OrderBy(item => item.WinTime)
+                .ToList();
+
+            Hunt4Winners = _context.Winner.Where(field => field.HuntID == 4)
+                .GroupBy(item => item.Name)
+                .Select(grouping => grouping.FirstOrDefault())
+                .OrderBy(item => item.WinTime)
+                .ToList();
+
             string sqlQuery = ""
                 + "DECLARE @tableName VARCHAR(MAX) = 'x'; "
                 + "DECLARE @type INT = 0; "
@@ -130,49 +173,6 @@ namespace TreasureHuntWebApp.Pages
             
             var scoreBoardResults = _context.Scoreboard.FromSql(sqlQuery);
             ScoreboardResults = scoreBoardResults.ToList();
-
-            Hunt1Winners = _context.Winner.Where(field => field.HuntID == 2)
-                .GroupBy(item => item.Name)
-                .Select(grouping => grouping.FirstOrDefault())
-                .OrderBy(item => item.WinTime)
-                .ToList();
-
-            Hunt2Winners = _context.Winner.Where(field => field.HuntID == 1)
-                .GroupBy(item => item.Name)
-                .Select(grouping => grouping.FirstOrDefault())
-                .OrderBy(item => item.WinTime)
-                .ToList();
-
-            Hunt3Winners = _context.Winner.Where(field => field.HuntID == 3)
-                .GroupBy(item => item.Name)
-                .Select(grouping => grouping.FirstOrDefault())
-                .OrderBy(item => item.WinTime)
-                .ToList();
-
-            Hunt4Winners = _context.Winner.Where(field => field.HuntID == 4)
-                .GroupBy(item => item.Name)
-                .Select(grouping => grouping.FirstOrDefault())
-                .OrderBy(item => item.WinTime)
-                .ToList();
-        }
-
-        public IActionResult OnPost(string button)
-        {
-            if (button == "Hunt3")
-            {
-                DateTime releaseTime = new DateTime(2018, 10, 26, 6, 0, 0);
-                DateTime timeNow = DateTime.Now;
-
-                if (timeNow > releaseTime)
-                {
-                    return RedirectToPage(hiddenLink);
-                }
-                else
-                {
-                    return RedirectToPage("/Index");
-                }
-            }
-            return RedirectToPage("/Index");
         }
     }
 }
