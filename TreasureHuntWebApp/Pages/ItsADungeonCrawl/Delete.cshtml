@@ -1,0 +1,70 @@
+﻿@page
+@model TreasureHuntWebApp.Pages.ItsADungeonCrawl.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Dungeon</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Dungeon.WorldID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dungeon.WorldID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Dungeon.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dungeon.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Dungeon.NorthID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dungeon.NorthID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Dungeon.EastID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dungeon.EastID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Dungeon.SouthID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dungeon.SouthID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Dungeon.WestID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dungeon.WestID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Dungeon.Storyline)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dungeon.Storyline)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Dungeon.ItemID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dungeon.ItemID)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Dungeon.ID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

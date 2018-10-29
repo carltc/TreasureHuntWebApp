@@ -1,0 +1,70 @@
+﻿@page
+@model TreasureHuntWebApp.Pages.ItsADungeonCrawl.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Dungeon</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Dungeon.ID" />
+            <div class="form-group">
+                <label asp-for="Dungeon.WorldID" class="control-label"></label>
+                <input asp-for="Dungeon.WorldID" class="form-control" />
+                <span asp-validation-for="Dungeon.WorldID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dungeon.Name" class="control-label"></label>
+                <input asp-for="Dungeon.Name" class="form-control" />
+                <span asp-validation-for="Dungeon.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dungeon.NorthID" class="control-label"></label>
+                <input asp-for="Dungeon.NorthID" class="form-control" />
+                <span asp-validation-for="Dungeon.NorthID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dungeon.EastID" class="control-label"></label>
+                <input asp-for="Dungeon.EastID" class="form-control" />
+                <span asp-validation-for="Dungeon.EastID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dungeon.SouthID" class="control-label"></label>
+                <input asp-for="Dungeon.SouthID" class="form-control" />
+                <span asp-validation-for="Dungeon.SouthID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dungeon.WestID" class="control-label"></label>
+                <input asp-for="Dungeon.WestID" class="form-control" />
+                <span asp-validation-for="Dungeon.WestID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dungeon.Storyline" class="control-label"></label>
+                <input asp-for="Dungeon.Storyline" class="form-control" />
+                <span asp-validation-for="Dungeon.Storyline" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dungeon.ItemID" class="control-label"></label>
+                <input asp-for="Dungeon.ItemID" class="form-control" />
+                <span asp-validation-for="Dungeon.ItemID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

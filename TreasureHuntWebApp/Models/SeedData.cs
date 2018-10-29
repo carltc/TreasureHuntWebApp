@@ -349,6 +349,150 @@ namespace TreasureHuntWebApp.Models
                     );
                     context.SaveChanges();
                 }
+
+                // Look for dungeons
+                if (!context.Dungeon.Any())
+                {
+                    // Add Medieval Dungeon
+
+                    //context.Dungeon.AddRange(
+                    //    new Dungeon // ID 1
+                    //    {
+                    //        WorldID = 3,
+                    //        Name = "Start",
+                    //        NorthID = 7,
+                    //        EastID = 2,
+                    //        Storyline = "You land with a bang on a cold, hard floor. You look around the dark dingy room, lit only by torches. You see 2 old wooden doors ahead of you which look unlocked..."
+                    //    },
+                    //    new Dungeon // ID 2
+                    //    {
+                    //        WorldID = 3,
+                    //        Name = "Sleepy Head",
+                    //        NorthID = 8,
+                    //        EastID = 3,
+                    //        WestID = 1,
+                    //        Storyline = "Hurrrgggghhhhh! A loud grunt startles you as you enter the room. Running away from the sound into the room, you turn as the door bangs shut and the giant troll that was sleeping behind it stands up. Not fazed by this, you take an aggressive stance and prepare to attack the troll.",
+                    //        ItemID = 1 // Monster ID == 1
+                    //    },
+                    //    new Dungeon // ID 3
+                    //    {
+                    //        WorldID = 3,
+                    //        NorthID = 9,
+                    //        EastID = 4,
+                    //        WestID = 2
+                    //    },
+                    //    new Dungeon // ID 4
+                    //    {
+                    //        WorldID = 3,
+                    //        NorthID = 10,
+                    //        EastID = 5,
+                    //        WestID = 3
+                    //    },
+                    //    new Dungeon // ID 5
+                    //    {
+                    //        WorldID = 3,
+                    //        NorthID = 11,
+                    //        EastID = 6,
+                    //        WestID = 4
+                    //    },
+                    //    new Dungeon // ID 6
+                    //    {
+                    //        WorldID = 3,
+                    //        NorthID = 12,
+                    //        WestID = 5
+                    //    },
+                    //    new Dungeon // ID 7
+                    //    {
+                    //        WorldID = 3,
+                    //        NorthID = 13,
+                    //        EastID = 8,
+                    //        SouthID = 1
+                    //    },
+                    //    new Dungeon // ID 8
+                    //    {
+                    //        WorldID = 3,
+                    //        NorthID = 14,
+                    //        EastID = 9,
+                    //        SouthID = 2,
+                    //        WestID = 7
+                    //    },
+                    //    new Dungeon // ID 9
+                    //    {
+                    //        WorldID = 3,
+                    //        NorthID = 15,
+                    //        EastID = 10,
+                    //        SouthID = 3,
+                    //        WestID = 8
+                    //    },
+                    //    new Dungeon // ID 10
+                    //    {
+                    //        WorldID = 3,
+                    //        NorthID = 16,
+                    //        EastID = 11,
+                    //        SouthID = 4,
+                    //        WestID = 9
+                    //    },
+                    //    new Dungeon // ID 11
+                    //    {
+                    //        WorldID = 3,
+                    //        NorthID = 17,
+                    //        EastID = 12,
+                    //        SouthID = 5,
+                    //        WestID = 10
+                    //    },
+                    //    new Dungeon // ID 12
+                    //    {
+                    //        WorldID = 3,
+                    //        NorthID = 18,
+                    //        SouthID = 6,
+                    //        WestID = 11
+                    //    },
+                    //    new Dungeon // ID 13
+                    //    {
+                    //        WorldID = 3,
+                    //        NorthID = 19,
+                    //        EastID = 14,
+                    //        SouthID = 7
+                    //    }
+                    //    );
+
+                    for (int j = 1; j <= 6; j++)
+                    {
+                        for (int i = 1; i <= 6; i++)
+                        {
+                            int id = i + ((j - 1) * 6);
+                            int northID = id + 6;
+                            int eastID = id + 1;
+                            int southID = id - 6;
+                            int westID = id - 1;
+
+                            Dungeon dungeon = new Dungeon();
+                            dungeon.WorldID = 3;
+                            dungeon.Name = "Pit";
+                            dungeon.Storyline = "You fell in a pit.";
+                            dungeon.ItemID = 0;
+
+                            if (i > 1){ dungeon.WestID = westID; }
+                            if (i < 6) { dungeon.EastID = eastID; }
+                            if (j > 1) { dungeon.SouthID = southID; }
+                            if (j < 6) { dungeon.NorthID = northID; }
+
+                            if (id == 1)
+                            {
+                                dungeon.Name = "Start";
+                                dungeon.Storyline = "You land with a bang on a cold, hard floor. You look around the dark dingy room, lit only by torches. You see 2 old wooden doors ahead of you which look unlocked...";
+                            }
+                            else if (id == 2)
+                            {
+                                dungeon.Name = "Sleepy Head";
+                                dungeon.Storyline = "Hurrrgggghhhhh! A loud grunt startles you as you enter the room. Running away from the sound into the room, you turn as the door bangs shut and the giant troll that was sleeping behind it stands up. Not fazed by this, you take an aggressive stance and prepare to attack the troll.";
+                            }
+
+                            context.Dungeon.Add(dungeon);
+                            context.SaveChanges();
+                        }
+                    }
+                }
             }
         }
     }
