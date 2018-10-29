@@ -1,8 +1,52 @@
 ﻿@page
 @model TreasureHuntWebApp.Pages.ItsADungeonCrawl.TheIMPortalModel
 @{
-    ViewData["Title"] = "TheIMPortal";
+    ViewData["Title"] = "The IM-Portals";
 }
 
-<h2>TheIMPortal</h2>
+<script src="/lib/jquery/dist/jquery.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".portalImage").click(function () {
+            var commandName = $(this).attr("value");
+            var hiddenInput = $("input[name=portal]");
+            hiddenInput.val(commandName);
+        });
+    });
+</script>
+
+<div style="margin:auto; text-align: center">
+    <p class="importalSign">IM-Portals</p>
+
+    <p class="importalSign importalSign2">DO NOT TOUCH</p>
+    <br />
+    <p>You walk over to 3 eery, shimmering, plasmoid discs suspended in mid air.</p>
+    <p>A large sign above them indicates that touching them would be a bad idea...</p>
+
+    <table style="width: 100%;">
+        <tr style="max-width: 500px;">
+            <td>
+                <h3>1</h3>
+                <form method="post">
+                    <input type="hidden" name="portal" alt="Submit" value="blank" />
+                    <input type="image" src="~/DungeonGraphics/portal-8bit.png" alt="Submit" class="portalImage" value="importal1">
+                </form>
+            </td>
+            <td>
+                <h3>2</h3>
+                <form method="post">
+                    <input type="image" src="~/DungeonGraphics/portal2-8bit.png" alt="Submit" class="portalImage" value="importal2">
+                    <input type="hidden" name="portal" />
+                </form>
+            </td>
+            <td>
+                <h3>3</h3>
+                <form method="post">
+                    <input type="image" src="~/DungeonGraphics/portal3-8bit.png" alt="Submit" class="portalImage" value="importal3">
+                    <input type="hidden" name="portal" />
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
 

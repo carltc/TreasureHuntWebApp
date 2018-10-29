@@ -9,9 +9,13 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
 {
     public class TheLaboratoryModel : PageModel
     {
-        public void OnGet()
+        public IActionResult OnPost(string button)
         {
-
+            if (button == "Check out the IM-Portals")
+            {
+                return RedirectToPage("./TheIMPortal");
+            }
+            return Page();
         }
     }
 }

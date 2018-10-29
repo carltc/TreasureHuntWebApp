@@ -9,9 +9,21 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
 {
     public class TheIMPortalModel : PageModel
     {
-        public void OnGet()
+        public IActionResult OnPost(string portal)
         {
-
+            if (portal == "importal1")
+            {
+                return RedirectToPage("./TropicalDungeon");
+            }
+            else if (portal == "importal2")
+            {
+                return RedirectToPage("./SpaceDungeon");
+            }
+            else if (portal == "importal3")
+            {
+                return RedirectToPage("./MedievalDungeon");
+            }
+            return Page();
         }
     }
 }

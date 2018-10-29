@@ -293,6 +293,30 @@ html, body, body-content {
     white-space:nowrap;
 }
 
+.importalSign {
+    max-width: 400px;
+    margin: auto;
+    border: solid;
+    border-color: black;
+    border-width: 1pt;
+    font-size: 2em;
+}
+
+.importalSign2 {
+    border-color: red;
+    border-width: 5pt;
+    font-weight: bolder;
+}
+
+.portalImage {
+    height: 150px;
+    margin: auto;
+}
+
+.portalButton {
+    font-size: 1.5em;
+}
+
 /* Change font size when screen size changes*/
 @media screen and (max-width: 1000px) {
     .TreasureHuntTitle {
@@ -395,6 +419,15 @@ html, body, body-content {
         padding: 5pt;
         width: 150px;
     }
+
+    .portalImage {
+        height: 100px;
+        margin: auto;
+    }
+
+    .portalButton {
+        font-size: 1em;
+    }
 }
 
 /* Change font size when screen size changes*/
@@ -456,6 +489,15 @@ html, body, body-content {
 
     .countDown {
         font-size: 5pt;
+    }
+
+    .portalImage {
+        height: 50px;
+        margin: auto;
+    }
+
+    .portalButton {
+        font-size: 0.5em;
     }
 
 }
