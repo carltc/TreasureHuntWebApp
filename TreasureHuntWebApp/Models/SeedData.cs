@@ -379,13 +379,130 @@ namespace TreasureHuntWebApp.Models
                             if (id == 1)
                             {
                                 dungeon.Name = "Start";
-                                dungeon.Storyline = "You wake up dazed and confused on a cold, hard floor. You look around you see a dark dingy room, lit only by torches. There are 2 old wooden doors ahead of you which look unlocked...";
+                                dungeon.Storyline = "You wake up dazed and confused on a cold, hard floor. You look around and see a dark dingy room, lit only by torches. There are 2 old wooden doors ahead of you which look unlocked...";
                             }
                             else if (id == 2)
                             {
                                 dungeon.Name = "Sleepy Head";
                                 dungeon.Storyline = "Hurrrgggghhhhh! A loud grunt startles you as you enter the room. Running away from the sound into the room, you turn as the door bangs shut and the giant troll that was sleeping behind it stands up. Not fazed by this, you take an aggressive stance and prepare to attack the troll.";
                                 dungeon.ItemID = 1; // monster
+                            }
+                            else if (id == 3)
+                            {
+                                dungeon.Name = "Empty Room";
+                                dungeon.Storyline = "You enter a dark room. You look around and notice more wooden doors...";
+                            }
+                            else if (id == 4)
+                            {
+                                dungeon.Name = "Empty Room";
+                                dungeon.Storyline = "You enter a dark room. You look around and notice more wooden doors...";
+                            }
+                            else if (id == 5)
+                            {
+                                dungeon.Name = "Empty Room";
+                                dungeon.Storyline = "You enter a dark room. You look around and notice more wooden doors...";
+                            }
+                            else if (id == 7)
+                            {
+                                dungeon.Name = "Empty Room";
+                                dungeon.Storyline = "You enter a dark room. You look around and notice more wooden doors...";
+                            }
+                            else if (id == 9)
+                            {
+                                dungeon.Name = "Empty Room";
+                                dungeon.Storyline = "You enter a dark room. You look around and notice more wooden doors...";
+                            }
+                            else if (id == 11)
+                            {
+                                dungeon.Name = "Empty Room";
+                                dungeon.Storyline = "You enter a dark room. You look around and notice more wooden doors...";
+                            }
+                            else if (id == 12)
+                            {
+                                dungeon.Name = "Empty Room";
+                                dungeon.Storyline = "You enter a dark room. You look around and notice more wooden doors...";
+                            }
+                            else if (id == 13)
+                            {
+                                dungeon.Name = "Empty Room";
+                                dungeon.Storyline = "You enter a dark room. You look around and notice more wooden doors...";
+                            }
+                            else if (id == 15)
+                            {
+                                dungeon.Name = "Empty Room";
+                                dungeon.Storyline = "You enter a dark room. You look around and notice more wooden doors...";
+                            }
+                            else if (id == 18)
+                            {
+                                dungeon.Name = "Empty Room";
+                                dungeon.Storyline = "You enter a dark room. You look around and notice more wooden doors...";
+                            }
+                            else if (id == 19)
+                            {
+                                dungeon.Name = "Empty Room";
+                                dungeon.Storyline = "You enter a dark room. You look around and notice more wooden doors...";
+                            }
+                            else if (id == 20)
+                            {
+                                dungeon.Name = "Empty Room";
+                                dungeon.Storyline = "You enter a dark room. You look around and notice more wooden doors...";
+                            }
+                            else if (id == 21)
+                            {
+                                dungeon.Name = "Empty Room";
+                                dungeon.Storyline = "You enter a dark room. You look around and notice more wooden doors...";
+                            }
+                            else if (id == 23)
+                            {
+                                dungeon.Name = "Throne Room";
+                                dungeon.Storyline = "At the centre of the room there is a great throne. Sitting proudly on the old dusty seat is a small furry creature. This must be a Klorg pup that the Professor mentioned. You notice that is wearing a collar with a small green flashing light. You approach the creature but it does not move. The light keeps flashing, getting faster and more urgent. You reach out...";
+                                dungeon.ItemID = 5; // find Klorg here
+                            }
+                            else if (id == 24)
+                            {
+                                dungeon.Name = "Monster";
+                                dungeon.Storyline = "Across the room you notice a large monster.";
+                                dungeon.ItemID = 1; // monster
+                            }
+                            else if (id == 25)
+                            {
+                                dungeon.Name = "Monster";
+                                dungeon.Storyline = "Across the room you notice a large monster.";
+                                dungeon.ItemID = 1; // monster
+                            }
+                            else if (id == 27)
+                            {
+                                dungeon.Name = "Empty Room";
+                                dungeon.Storyline = "You enter a dark room. You look around and notice more wooden doors...";
+                            }
+                            else if (id == 30)
+                            {
+                                dungeon.Name = "Empty Room";
+                                dungeon.Storyline = "You enter a dark room. You look around and notice more wooden doors...";
+                            }
+                            else if (id == 31)
+                            {
+                                dungeon.Name = "The Library";
+                                dungeon.Storyline = "The room is stacked with old parchments and scrolls. You notice one which has no dust on it, as if it has been recently moved. Upon further examination you notice it is a map.";
+                                dungeon.ItemID = 2; // map
+                            }
+                            else if (id == 33)
+                            {
+                                dungeon.Name = "Empty Room";
+                                dungeon.Storyline = "The room is empty except for a solitary figure in the centre. You approach cautiously and realise it is an old stone statue of a knight. 'Here lies Sir Teyste, Keeper of the Yellow Sword'. After reading this you notice that the stone sword is in fact slightly yellow and covered in a fine layer of grey dust. You reach out and take the sword, immediately noticing a sharp taste in your mouth. 'Time to get out of here!' you think to yourself.";
+                                dungeon.ItemID = 3; // sword
+                            }
+                            else if (id == 35)
+                            {
+                                dungeon.Name = "Map Maker Grave";
+                                dungeon.Storyline = "As soon as you open the door you are hit by a thick smell with hints of rum and paper. Peering into the room you see a large chest, and propped up against it is a rotting skeleton. You walk closer and notice a small sheaf of parchment attached to a bottle of rum. After taking a swig *burp* you read the note: 'If you are reading this then I have a long since escaped this dungeon and am off galavanting and spending the loot. Unless the Professor got to it first...'.";
+                                dungeon.ItemID = 3; // sword
+                            }
+                            else if (id == 36)
+                            {
+                                dungeon.Name = "Empty Room";
+                                dungeon.Storyline = "You enter a dark room. You look around and notice more wooden doors...";
+                                dungeon.ItemID = 3; // sword
                             }
 
                             context.Dungeon.Add(dungeon);

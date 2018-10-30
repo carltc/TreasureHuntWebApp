@@ -20,12 +20,32 @@
             var commandName = $(this).attr("value");
             var hiddenInput = $("input[name=weapon]");
             hiddenInput.val(commandName);
+        }); $("#mapLogo").click(function () {
+            $content = $("#map");
+            //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
+            $content.slideToggle(500, function () {
+                //execute this after slideToggle is done
+                //change text of header based on visibility of content div
+                //$content.text(function () {
+                //change text based on condition
+                //return $content.is(":visible") ? "Collapse" : "Expand";
+                //});
+            });
+
         });
     });
 </script>
 
 <table class="dungeonImageHeader">
     <tr>
+        @{
+            if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Map")))
+            {
+                <td>
+                    <img id="mapLogo" class="bit8Image flipH" style="height: 100%; padding: 5pt;" src="~/DungeonGraphics/map.png" />
+                </td>
+            }
+        }
         <td>
             <img class="bit8Image flipH" style="width: 100%; padding: 5pt;" src="~/DungeonGraphics/torch.png" />
         </td>
@@ -35,9 +55,40 @@
         <td>
             <img class="bit8Image" style="width: 100%; padding: 5pt;" src="~/DungeonGraphics/torch.png" />
         </td>
+        @{
+            if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Sword")))
+            {
+                <td>
+                    <img class="bit8Image" style="height: 100%; padding: 5pt;" src="~/DungeonGraphics/sword.jpg" />
+                </td>
+            }
+        }
     </tr>
 </table>
+@{
+    if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Map")))
+    {
+        <div id="map" style="display: none; text-align: center; margin: auto;">
+            <img class="bit8Image" style="width: 60%; padding: 5pt;" src="~/DungeonGraphics/mapLarge-8bit.png" />
+        </div>
+    }
+}
 <br />
+@{
+    if (Model.Dungeon[0].ID == 23)
+    {
+        <div style="text-align: center; margin: auto;">
+            <img class="bit8Image" style="width: 40%; padding: 5pt;" src="~/DungeonGraphics/klorg-8bit.png" />
+        </div>
+    }
+    else
+    if (Model.Dungeon[0].ID == 35)
+    {
+        <div style="text-align: center; margin: auto;">
+            <img class="bit8Image" style="width: 40%; padding: 5pt;" src="~/DungeonGraphics/skeleton.jpg" />
+        </div>
+    }
+}
 <p style="text-align: center; width: 100%; max-width: 400px; margin: auto">
     @Html.DisplayFor(model => Model.Dungeon[0].Storyline)
 </p>
@@ -53,15 +104,18 @@
                         <input type="image" src="~/DungeonGraphics/pit.jpg" alt="Submit" class="door portalImage bit8Image" value="1">
                     </form>
                 </td>
+                HttpContextAccessor.HttpContext.Session.Remove("Sword");
+                HttpContextAccessor.HttpContext.Session.Remove("Map");
             }
-            else if (Model.Dungeon[0].ItemID == 1)
+            else if (Model.Dungeon[0].ItemID == 1 && String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Monster" + Model.Dungeon[0].ID)))
             {
-                if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("sword")))
+                if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Sword")))
                 {
                     <td style="text-align: center;">
                         <form method="post">
                             <input type="hidden" name="door" alt="Submit" value="blank" />
-                            <input type="image" src="~/DungeonGraphics/sword.jpg" alt="Submit" class="door portalImage bit8Image" value="99">
+                            <input type="hidden" name="sword" alt="Submit" value="1" />
+                            <input type="image" src="~/DungeonGraphics/sword.jpg" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].ID)">
                         </form>
                     </td>
                 }
@@ -75,14 +129,26 @@
                     </td>
                 }
             }
+            else if (Model.Dungeon[0].ID == 23)
+            {
+                <td style="text-align: center;">
+                    <form method="post">
+                        <input type="hidden" name="door" alt="Submit" value="blank" />
+                        <input type="image" src="~/DungeonGraphics/collarPortal.png" alt="Submit" class="door portalImage bit8Image" value="0">
+                    </form>
+                </td>
+            }
             else if (Model.Dungeon[0].ID == 37)
             {
                 <td style="text-align: center;">
                     <form method="post">
                         <input type="hidden" name="door" alt="Submit" value="blank" />
                         <input type="image" src="~/DungeonGraphics/knockedOut.jpg" alt="Submit" class="door portalImage bit8Image" value="1">
+                        <p>(Maybe a weapon could help you fight a way past this monster)</p>
                     </form>
                 </td>
+                HttpContextAccessor.HttpContext.Session.Remove("Sword");
+                HttpContextAccessor.HttpContext.Session.Remove("Map");
             }
             else
             {

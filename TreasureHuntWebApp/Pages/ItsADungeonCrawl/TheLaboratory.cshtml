@@ -4,15 +4,49 @@
     ViewData["Title"] = "The Laboratory";
 }
 
-<div style="margin:auto; text-align: center">
-    <h2>Oh no!</h2>
-    <img class="bit8Image" style="width: 20%" src="~/DungeonGraphics/LeeMonquebe-8bit-lab.png" />
-    <p>The fiendish Klorg Pups have broken out of their cages.</p>
-    <p>I was researching their unique hunting abilities.</p>
-    <p>By the looks of things they escaped through my IM-Portals. </p>
-    <p>I'll deal with that later. Let me grab the points for you from the safe.</p>
-    <form method="post">
-        <input type="submit" name="button" value="Check out the IM-Portals" />
-    </form>
-</div>
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    int klorg1 = String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Klorg1")) ? 0 : 1;
+    int klorg2 = String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Klorg2")) ? 0 : 1;
+    int klorg3 = String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Klorg3")) ? 0 : 1;
+}
+
+@{
+    if (klorg1 + klorg2 + klorg3 <= 0)
+    {
+        <div style="margin:auto; text-align: center; width: 80%;">
+            <h2>Oh no!</h2>
+            <img class="bit8Image" style="max-width: 100px; width: 40%" src="~/DungeonGraphics/LeeMonquebe-8bit-lab.png" />
+            <p>The fiendish Klorg Pups have broken out of their cages.</p>
+            <p>I was researching their unique hunting abilities.</p>
+            <p>By the looks of things they escaped through my IM-Portals. </p>
+            <p>I'll deal with that later. Let me grab the points for you from the safe.</p>
+            <form method="post">
+                <input type="submit" name="button" value="Check out the IM-Portals" />
+            </form>
+        </div>
+    }
+    else if (klorg1 + klorg2 + klorg3 == 1)
+    {
+        <div style="margin:auto; text-align: center; width: 80%;">
+            <h2>Thank you so much!</h2>
+            <img class="bit8Image" style="max-width: 100px; width: 40%" src="~/DungeonGraphics/LeeMonquebe-8bit.png" />
+            <p>You managed to find your way back and you brought our young friend Rango back too.</p>
+            <p>Seeing as you handled yourself well in there I couldn't ask you to go through the other portals too and help bring back Limo and Grappy?</p>
+            <form method="post">
+                <input type="submit" name="button" value="Check out the IM-Portals" />
+            </form>
+        </div>
+    }
+    else if (klorg1 + klorg2 + klorg3 == 2)
+    {
+
+    }
+    else if (klorg1 + klorg2 + klorg3 >= 3)
+    {
+
+    }
+}
 
