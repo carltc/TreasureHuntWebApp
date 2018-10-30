@@ -21,7 +21,8 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
             }
             else if (portal == "importal3")
             {
-                return RedirectToPage("./MedievalDungeon");
+                return Redirect("./MedievalDungeon?dungeonID=1");
+                //return RedirectToPage("./MedievalDungeon","?dungeonID=1");
             }
             return Page();
         }

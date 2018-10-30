@@ -317,6 +317,28 @@ html, body, body-content {
     font-size: 1.5em;
 }
 
+.dungeonImageHeader {
+    max-width: 200px;
+    text-align: center;
+    margin: auto;
+    width: 100%;
+}
+
+.bit8Image {
+    image-rendering: optimizeSpeed; /* STOP SMOOTHING, GIVE ME SPEED  */
+    image-rendering: -moz-crisp-edges; /* Firefox                        */
+    image-rendering: pixelated; /* Chrome */
+    -ms-interpolation-mode: nearest-neighbor; /* IE8+                           */
+}
+
+.flipH {
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+    filter: FlipH;
+}
+
 /* Change font size when screen size changes*/
 @media screen and (max-width: 1000px) {
     .TreasureHuntTitle {
