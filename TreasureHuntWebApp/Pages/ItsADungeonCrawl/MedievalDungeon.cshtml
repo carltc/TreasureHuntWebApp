@@ -42,24 +42,24 @@
             if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Map")))
             {
                 <td>
-                    <img id="mapLogo" class="bit8Image flipH" style="height: 100%; padding: 5pt;" src="~/DungeonGraphics/map.png" />
+                    <img id="mapLogo" class="bit8Image flipH" style="max-width: 100px; height: 100%; padding: 5pt;" src="~/DungeonGraphics/map.png" />
                 </td>
             }
         }
         <td>
-            <img class="bit8Image flipH" style="width: 100%; padding: 5pt;" src="~/DungeonGraphics/torch.png" />
+            <img class="bit8Image flipH" style="max-width: 100px; width : 100%; padding: 5pt;" src="~/DungeonGraphics/torch.png" />
         </td>
         <td>
-            <img class="bit8Image" style="width: 100%; padding: 5pt;" src="~/DungeonGraphics/shield.png" />
+            <img class="bit8Image" style="max-width: 100px; width: 100%; padding: 5pt;" src="~/DungeonGraphics/shield.png" />
         </td>
         <td>
-            <img class="bit8Image" style="width: 100%; padding: 5pt;" src="~/DungeonGraphics/torch.png" />
+            <img class="bit8Image" style="max-width: 100px; width: 100%; padding: 5pt;" src="~/DungeonGraphics/torch.png" />
         </td>
         @{
             if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Sword")))
             {
                 <td>
-                    <img class="bit8Image" style="height: 100%; padding: 5pt;" src="~/DungeonGraphics/sword.jpg" />
+                    <img class="bit8Image" style="max-width: 100px; height: 100%; padding: 5pt;" src="~/DungeonGraphics/sword.jpg" />
                 </td>
             }
         }
