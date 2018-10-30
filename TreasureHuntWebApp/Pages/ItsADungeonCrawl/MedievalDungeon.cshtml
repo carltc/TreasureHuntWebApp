@@ -4,5 +4,126 @@
     ViewData["Title"] = "MedievalDungeon";
 }
 
-<h2>MedievalDungeon</h2>
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+
+<script src="/lib/jquery/dist/jquery.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".door").click(function () {
+            var commandName = $(this).attr("value");
+            var hiddenInput = $("input[name=door]");
+            hiddenInput.val(commandName);
+        });
+        $(".weapon").click(function () {
+            var commandName = $(this).attr("value");
+            var hiddenInput = $("input[name=weapon]");
+            hiddenInput.val(commandName);
+        });
+    });
+</script>
+
+<table class="dungeonImageHeader">
+    <tr>
+        <td>
+            <img class="bit8Image flipH" style="width: 100%; padding: 5pt;" src="~/DungeonGraphics/torch.png" />
+        </td>
+        <td>
+            <img class="bit8Image" style="width: 100%; padding: 5pt;" src="~/DungeonGraphics/shield.png" />
+        </td>
+        <td>
+            <img class="bit8Image" style="width: 100%; padding: 5pt;" src="~/DungeonGraphics/torch.png" />
+        </td>
+    </tr>
+</table>
+<br />
+<p style="text-align: center; width: 100%; max-width: 400px; margin: auto">
+    @Html.DisplayFor(model => Model.Dungeon[0].Storyline)
+</p>
+<br />
+<table style="width: 100%;">
+    <tr style="max-width: 500px;">
+        @{
+            if (Model.Dungeon[0].Name == "Pit")
+            {
+                <td style="text-align: center;">
+                    <form method="post">
+                        <input type="hidden" name="door" alt="Submit" value="blank" />
+                        <input type="image" src="~/DungeonGraphics/pit.jpg" alt="Submit" class="door portalImage bit8Image" value="1">
+                    </form>
+                </td>
+            }
+            else if (Model.Dungeon[0].ItemID == 1)
+            {
+                if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("sword")))
+                {
+                    <td style="text-align: center;">
+                        <form method="post">
+                            <input type="hidden" name="door" alt="Submit" value="blank" />
+                            <input type="image" src="~/DungeonGraphics/sword.jpg" alt="Submit" class="door portalImage bit8Image" value="99">
+                        </form>
+                    </td>
+                }
+                else
+                {
+                    <td style="text-align: center;">
+                        <form method="post">
+                            <input type="hidden" name="door" alt="Submit" value="blank" />
+                            <input type="image" src="~/DungeonGraphics/fist.jpg" alt="Submit" class="door portalImage bit8Image" value="37">
+                        </form>
+                    </td>
+                }
+            }
+            else if (Model.Dungeon[0].ID == 37)
+            {
+                <td style="text-align: center;">
+                    <form method="post">
+                        <input type="hidden" name="door" alt="Submit" value="blank" />
+                        <input type="image" src="~/DungeonGraphics/knockedOut.jpg" alt="Submit" class="door portalImage bit8Image" value="1">
+                    </form>
+                </td>
+            }
+            else
+            {
+                if (Model.Dungeon[0].NorthID != 0)
+                {
+                    <td style="text-align: center;">
+                        <form method="post">
+                            <input type="hidden" name="door" alt="Submit" value="blank" />
+                            <input type="image" src="~/DungeonGraphics/medievalDoor-8bit.png" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].NorthID)">
+                        </form>
+                    </td>
+                }
+                if (Model.Dungeon[0].EastID != 0)
+                {
+                    <td style="text-align: center;">
+                        <form method="post">
+                            <input type="hidden" name="door" alt="Submit" value="blank" />
+                            <input type="image" src="~/DungeonGraphics/medievalDoor-8bit.png" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].EastID)">
+                        </form>
+                    </td>
+                }
+                if (Model.Dungeon[0].SouthID != 0)
+                {
+                    <td style="text-align: center;">
+                        <form method="post">
+                            <input type="hidden" name="door" alt="Submit" value="blank" />
+                            <input type="image" src="~/DungeonGraphics/medievalDoor-8bit.png" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].SouthID)">
+                        </form>
+                    </td>
+                }
+                if (Model.Dungeon[0].WestID != 0)
+                {
+                    <td style="text-align: center;">
+                        <form method="post">
+                            <input type="hidden" name="door" alt="Submit" value="blank" />
+                            <input type="image" src="~/DungeonGraphics/medievalDoor-8bit.png" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].WestID)">
+                        </form>
+                    </td>
+                }
+            }
+        }
+    </tr>
+</table>
 
