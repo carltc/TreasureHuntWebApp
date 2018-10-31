@@ -1,0 +1,31 @@
+﻿@page
+@model TreasureHuntWebApp.Pages.OldWinnerEntry.IndexModel
+
+@{
+    ViewData["Title"] = "Winner";
+}
+
+@*@if (Model.Winner != null && Model.Winner.Count >= 1)
+{
+    <h2 align="center">Congratulations @Html.DisplayFor(modelItem => Model.Winner[0].Name)</h2>
+
+    <p align="center">
+        Check the points board for your updated score.
+    </p>
+    <div style="height:5pt"></div>
+    <form action="./Index">
+        <input type="submit" value="Go Home" class="form-control askInput" />
+    </form>
+}
+else
+{
+    <h2 align="center">Yay! You won!</h2>
+    <p>Please enter your name (make sure you always enter the same name for scoring to update properly).</p>
+    <form method="post">
+        <div class="form-group">
+            <input type="text" class="form-control askInput" name="winnerName" placeholder="Full Name...">
+            <div style="height:5pt"></div>
+            <input type="submit" class="form-control askInput" />
+        </div>
+    </form>
+}*@

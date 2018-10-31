@@ -28,7 +28,7 @@
             @{ System.Globalization.CultureInfo tempCulture = new System.Globalization.CultureInfo("en-GB");}
             @if (Model.Question != null && tempCulture.CompareInfo.IndexOf(Model.Question, "E N T", System.Globalization.CompareOptions.IgnoreCase) >= 0)
             {
-                <form action="./WinnyWinny">
+                <form action="./AskResponses/YouADidIt">
                     <input type="submit" value="Proceed" />
                 </form>
             }

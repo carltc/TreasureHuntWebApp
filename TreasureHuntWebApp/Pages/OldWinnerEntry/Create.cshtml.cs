@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TreasureHuntWebApp.Models;
 
-namespace TreasureHuntWebApp.Pages.WinnyWinny
+namespace TreasureHuntWebApp.Pages.OldWinnerEntry
 {
     public class CreateModel : PageModel
     {

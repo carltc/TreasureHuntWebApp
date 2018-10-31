@@ -7,13 +7,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using TreasureHuntWebApp.Models;
 
-namespace TreasureHuntWebApp.Pages.WinnyWinny
+namespace TreasureHuntWebApp.Pages.AngryTerm
 {
-    public class IndexModel : PageModel
+    public class YouADidIt : PageModel
     {
         private readonly TreasureHuntWebApp.Models.TreasureHuntWebAppContext _context;
 
-        public IndexModel(TreasureHuntWebApp.Models.TreasureHuntWebAppContext context)
+        public YouADidIt(TreasureHuntWebApp.Models.TreasureHuntWebAppContext context)
         {
             _context = context;
         }
@@ -22,17 +22,19 @@ namespace TreasureHuntWebApp.Pages.WinnyWinny
 
         public async Task<IActionResult> OnGetAsync(string winnerName)
         {
+            if (String.IsNullOrEmpty(winnerName))
+            {
+                return Page();
+            }
+            //else
+            //{
+            //winners = winners.Where(r => r.Name.Contains("asfasgsgdfdavADSVavsa"));
+            //}
+
             var winners = from w in _context.Winner
                           select w;
 
-            if (!String.IsNullOrEmpty(winnerName))
-            {
-                winners = winners.Where(r => r.Name.Contains(winnerName));
-            }
-            else
-            {
-                winners = winners.Where(r => r.Name.Contains("asfasgsgdfdavADSVavsa"));
-            }
+            winners = winners.Where(r => r.Name.Contains(winnerName));
             Winner = await winners.ToListAsync();
 
             if (Winner == null)

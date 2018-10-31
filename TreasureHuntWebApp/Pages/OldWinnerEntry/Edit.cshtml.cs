@@ -4,16 +4,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TreasureHuntWebApp.Models;
 
-namespace TreasureHuntWebApp.Pages.WinnyWinny
+namespace TreasureHuntWebApp.Pages.OldWinnerEntry
 {
-    public class DeleteModel : PageModel
+    public class EditModel : PageModel
     {
         private readonly TreasureHuntWebApp.Models.TreasureHuntWebAppContext _context;
 
-        public DeleteModel(TreasureHuntWebApp.Models.TreasureHuntWebAppContext context)
+        public EditModel(TreasureHuntWebApp.Models.TreasureHuntWebAppContext context)
         {
             _context = context;
         }
@@ -37,22 +38,37 @@ namespace TreasureHuntWebApp.Pages.WinnyWinny
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(int? id)
+        public async Task<IActionResult> OnPostAsync()
         {
-            if (id == null)
+            if (!ModelState.IsValid)
             {
-                return NotFound();
+                return Page();
             }
 
-            Winner = await _context.Winner.FindAsync(id);
+            _context.Attach(Winner).State = EntityState.Modified;
 
-            if (Winner != null)
+            try
             {
-                _context.Winner.Remove(Winner);
                 await _context.SaveChangesAsync();
             }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!WinnerExists(Winner.ID))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
-            return RedirectToPage("./ViewWinners");
+            return RedirectToPage("./Index");
+        }
+
+        private bool WinnerExists(int id)
+        {
+            return _context.Winner.Any(e => e.ID == id);
         }
     }
 }
