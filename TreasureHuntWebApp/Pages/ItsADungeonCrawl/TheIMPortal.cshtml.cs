@@ -13,11 +13,13 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
         {
             if (portal == "importal1")
             {
-                return RedirectToPage("./TropicalDungeon");
+                //return RedirectToPage("./TropicalDungeon");
+                return Redirect("./MedievalDungeon?dungeonID=1");
             }
             else if (portal == "importal2")
             {
-                return RedirectToPage("./SpaceDungeon");
+                //return RedirectToPage("./SpaceDungeon");
+                return Redirect("./MedievalDungeon?dungeonID=1");
             }
             else if (portal == "importal3")
             {
