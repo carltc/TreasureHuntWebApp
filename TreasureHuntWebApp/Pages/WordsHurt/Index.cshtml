@@ -1,0 +1,161 @@
+﻿@page
+@model TreasureHuntWebApp.Pages.WordsHurt.IndexModel
+@{
+    ViewData["Title"] = "Words words words";
+}
+
+<script src="/lib/jquery/dist/jquery.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.questionInput').focus(function () { $(this).val(''); showButton(); });
+        $("input").bind("input", function () {
+            var $this = $(this);
+            setTimeout(function () {
+                if ($this.val().length >= parseInt($this.attr("maxlength"), 10))
+                    $this.next("input").focus();
+            }, 0);
+        });
+    });
+    function OnSubmitForm() {
+        document.emailForm.action = getEmail();
+    }
+    function getEmail() {
+        return "mailto:" + document.getElementById("email1").value
+            + document.getElementById("email2").value
+            + document.getElementById("email3").value
+            + document.getElementById("email4").value
+            + document.getElementById("email5").value
+            + document.getElementById("email6").value
+            + document.getElementById("email7").value
+            + document.getElementById("email8").value
+            + document.getElementById("email9").value
+            + document.getElementById("email10").value
+            + document.getElementById("email11").value
+            + document.getElementById("email12").value
+            + document.getElementById("email13").value
+            + document.getElementById("email14").value
+            + document.getElementById("email15").value
+            + document.getElementById("email16").value
+            + document.getElementById("email17").value
+            + document.getElementById("email18").value
+            + document.getElementById("email19").value
+            + document.getElementById("email20").value
+            + document.getElementById("email21").value
+            + document.getElementById("email22").value
+            + document.getElementById("email23").value
+            + document.getElementById("email24").value
+            + document.getElementById("email25").value
+            + document.getElementById("email26").value
+            + document.getElementById("email27").value
+            + document.getElementById("email28").value
+            + document.getElementById("email29").value
+            + document.getElementById("email30").value
+            + "."
+            + document.getElementById("email31").value
+            + document.getElementById("email32").value
+            + document.getElementById("email33").value
+    }
+    function showButton() {
+        if (document.getElementById("email1").value
+            && document.getElementById("email2").value
+            && document.getElementById("email3").value
+            && document.getElementById("email4").value
+            && document.getElementById("email5").value
+            && document.getElementById("email6").value
+            && document.getElementById("email7").value
+            && document.getElementById("email8").value
+            && document.getElementById("email9").value
+            && document.getElementById("email10").value
+            && document.getElementById("email11").value
+            && document.getElementById("email12").value
+            && document.getElementById("email13").value
+            && document.getElementById("email14").value
+            && document.getElementById("email15").value
+            && document.getElementById("email16").value
+            && document.getElementById("email17").value
+            && document.getElementById("email18").value
+            && document.getElementById("email19").value
+            && document.getElementById("email20").value
+            && document.getElementById("email21").value
+            && document.getElementById("email22").value
+            && document.getElementById("email23").value
+            && document.getElementById("email24").value
+            && document.getElementById("email25").value
+            && document.getElementById("email26").value
+            && document.getElementById("email27").value
+            && document.getElementById("email28").value
+            && document.getElementById("email29").value
+            && document.getElementById("email30").value
+            && document.getElementById("email31").value
+            && document.getElementById("email32").value
+            && document.getElementById("email33").value) {
+            document.getElementById("emailButton").style.visibility = "visible";
+            document.getElementById("emailForm").style.height = "";
+        }
+        else {
+            document.getElementById("emailButton").style.visibility = "collapse";
+            document.getElementById("emailForm").style.height = "0pt";
+        }
+    }
+</script>
+
+<div>
+    <div class="clueTitle" style="text-align: center; width: 95%; margin: auto; vertical-align: middle;">
+        <font color="red">
+            <input class="questionInput" type="text" maxlength="1" id="email1" oninput="showButton()" />
+            <input class="questionInput" type="text" maxlength="1" id="email2" oninput="showButton()" />
+            <input class="questionInput" type="text" maxlength="1" id="email3" oninput="showButton()" />
+            <input class="questionInput" type="text" maxlength="1" id="email4" oninput="showButton()" />
+            <span style="color:#000000">/</span>
+            <input class="questionInput" type="text" maxlength="1" id="email5" oninput="showButton()" />
+            <input class="questionInput" type="text" maxlength="1" id="email6" oninput="showButton()" />
+            <input class="questionInput" type="text" maxlength="1" id="email7" oninput="showButton()" />
+            <input class="questionInput" type="text" maxlength="1" id="email8" oninput="showButton()" />
+            <input class="questionInput" type="text" maxlength="1" id="email9" oninput="showButton()" />
+            <span style="color:#000000">/</span>
+            <input class="questionInput" type="text" maxlength="1" id="email10" oninput="showButton()" />
+            <input class="questionInput" type="text" maxlength="1" id="email11" oninput="showButton()" />
+            <input class="questionInput" type="text" maxlength="1" id="email12" oninput="showButton()" />
+            <input class="questionInput" type="text" maxlength="1" id="email13" oninput="showButton()" />
+            <input class="questionInput" type="text" maxlength="1" id="email14" oninput="showButton()" />
+            <input class="questionInput" type="text" maxlength="1" id="email15" oninput="showButton()" />
+            <input class="questionInput" type="text" maxlength="1" id="email16" oninput="showButton()" />
+            <span style="color:#000000">/</span>
+            <input class="questionInput" type="text" maxlength="1" id="email17" oninput="showButton()" />
+            <input class="questionInput" type="text" maxlength="1" id="email18" oninput="showButton()" />
+            <input class="questionInput" type="text" maxlength="1" id="email19" oninput="showButton()" />
+            <input class="questionInput" type="text" maxlength="1" id="email20" oninput="showButton()" />
+            <input class="questionInput" type="text" maxlength="1" id="email21" oninput="showButton()" />
+            <input class="questionInput" type="text" maxlength="1" id="email22" oninput="showButton()" />
+            <span style="color:#000000">/</span>
+            <input class="questionInput" type="text" maxlength="1" id="email23" oninput="showButton()" />
+            <span style="color:#000000">/</span>
+            <input class="questionInput" type="text" maxlength="1" id="email24" oninput="showButton()" />
+            <input class="questionInput" type="text" maxlength="1" id="email25" oninput="showButton()" />
+            <input class="questionInput" type="text" maxlength="1" id="email26" oninput="showButton()" />
+            <input class="questionInput" type="text" maxlength="1" id="email27" oninput="showButton()" />
+            <input class="questionInput" type="text" maxlength="1" id="email28" oninput="showButton()" />
+            <input class="questionInput" type="text" maxlength="1" id="email29" oninput="showButton()" />
+            <input class="questionInput" type="text" maxlength="1" id="email30" oninput="showButton()" />
+            <span style="color:#000000">.</span>
+            <input class="questionInput" type="text" maxlength="1" id="email31" oninput="showButton()" />
+            <input class="questionInput" type="text" maxlength="1" id="email32" oninput="showButton()" />
+            <input class="questionInput" type="text" maxlength="1" id="email33" oninput="showButton()" />
+        </font>
+    </div>
+</div>
+<div style="text-align: center; margin: auto; padding-bottom: 10pt; height:0pt" id="emailForm">
+    <form name="emailForm" onsubmit="OnSubmitForm()">
+        <input type="submit" value="Send Email" class="btn btn-default" style="visibility:collapse" id="emailButton" />
+    </form>
+</div>
+
+<div style="text-align: center; max-width: 800px; margin: auto">
+    <p>Read, think on and aim to reply, this is the way to see good things, and remember that America can come in useful, however through houses of cards completing our Christmas, a Saint sends love to one whole planet.</p>
+    <p>Every year church service is not spicy so that a ratty couple: at the pulpit place which is</p>
+    <p>Third from centre, get married together. You get emotional when rats can type on shiny metal surfaces using the clever tools and book smarts someone taught them. Kill evil spirits to stop their</p>
+    <p>Word and dark magic spreading upon the sacred world.</p>
+    ​<p>From deep within originates evil, so Paddington Station is where: the secret address those spirits following us along</p>
+    <p>The long road to death hideaway. Email to kill an evil spirit, send resistance to</p>
+    <p>End this battle, the way ahead to freedom will get us all to our homes.</p>
+</div>
