@@ -10,8 +10,8 @@ using TreasureHuntWebApp.Models;
 namespace TreasureHuntWebApp.Migrations
 {
     [DbContext(typeof(TreasureHuntWebAppContext))]
-    [Migration("20181017142619_AddWinner")]
-    partial class AddWinner
+    [Migration("20181019142525_AddCrossword")]
+    partial class AddCrossword
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,6 +40,25 @@ namespace TreasureHuntWebApp.Migrations
                     b.ToTable("AskResponse");
                 });
 
+            modelBuilder.Entity("TreasureHuntWebApp.Models.CrossWord", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Column");
+
+                    b.Property<string>("Letter")
+                        .IsRequired()
+                        .HasConversion(new ValueConverter<string, string>(v => default(string), v => default(string), new ConverterMappingHints(size: 1)));
+
+                    b.Property<int>("Row");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("CrossWord");
+                });
+
             modelBuilder.Entity("TreasureHuntWebApp.Models.Question", b =>
                 {
                     b.Property<int>("ID")
@@ -65,17 +84,32 @@ namespace TreasureHuntWebApp.Migrations
                     b.ToTable("Question");
                 });
 
+            modelBuilder.Entity("TreasureHuntWebApp.Models.Scoreboard", b =>
+                {
+                    b.Property<long>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name");
+
+                    b.Property<long>("Score");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Scoreboard");
+                });
+
             modelBuilder.Entity("TreasureHuntWebApp.Models.Winner", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("HuntID");
+
                     b.Property<string>("Name");
 
                     b.Property<DateTime>("WinTime");
-
-                    b.Property<int>("HuntID");
 
                     b.HasKey("ID");
 

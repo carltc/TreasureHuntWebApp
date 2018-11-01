@@ -1,33 +1,31 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TreasureHuntWebApp.Migrations
 {
-    public partial class AddWinner : Migration
+    public partial class AddScoreboard : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Winner",
+                name: "Scoreboard",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
+                    ID = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true),
-                    WinTime = table.Column<DateTime>(nullable: false),
-                    HuntID = table.Column<int>(nullable: false)
+                    Score = table.Column<long>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Winner", x => x.ID);
+                    table.PrimaryKey("PK_Scoreboard", x => x.ID);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Winner");
+                name: "Scoreboard");
         }
     }
 }

@@ -10,8 +10,8 @@ using TreasureHuntWebApp.Models;
 namespace TreasureHuntWebApp.Migrations
 {
     [DbContext(typeof(TreasureHuntWebAppContext))]
-    [Migration("20181017142619_AddWinner")]
-    partial class AddWinner
+    [Migration("20181018142325_AddScoreboard")]
+    partial class AddScoreboard
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -65,17 +65,32 @@ namespace TreasureHuntWebApp.Migrations
                     b.ToTable("Question");
                 });
 
+            modelBuilder.Entity("TreasureHuntWebApp.Models.Scoreboard", b =>
+                {
+                    b.Property<long>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name");
+
+                    b.Property<long>("Score");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Scoreboard");
+                });
+
             modelBuilder.Entity("TreasureHuntWebApp.Models.Winner", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("HuntID");
+
                     b.Property<string>("Name");
 
                     b.Property<DateTime>("WinTime");
-
-                    b.Property<int>("HuntID");
 
                     b.HasKey("ID");
 

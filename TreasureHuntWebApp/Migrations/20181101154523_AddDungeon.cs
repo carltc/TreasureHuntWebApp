@@ -2,7 +2,7 @@
 
 namespace TreasureHuntWebApp.Migrations
 {
-    public partial class AddScoreboard : Migration
+    public partial class AddDungeon : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
