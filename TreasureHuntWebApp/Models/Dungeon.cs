@@ -21,5 +21,7 @@ namespace TreasureHuntWebApp.Models
         public string Storyline { get; set; }
 
         public int ItemID { get; set; }
+
+        public string Guidebook { get; set; }
     }
 }
