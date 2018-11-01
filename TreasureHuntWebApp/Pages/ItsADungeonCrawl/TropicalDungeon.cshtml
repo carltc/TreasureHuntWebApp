@@ -1,7 +1,7 @@
 ﻿@page
-@model TreasureHuntWebApp.Pages.ItsADungeonCrawl.MedievalDungeonModel
+@model TreasureHuntWebApp.Pages.ItsADungeonCrawl.TropicalDungeonModel
 @{
-    ViewData["Title"] = "MedievalDungeon";
+    ViewData["Title"] = "Tropical";
 }
 
 @using Microsoft.AspNetCore.Http
@@ -23,7 +23,7 @@
         });
         $("#mapLogo").click(function () {
             $content = $("#map");
-            $content.slideToggle(500, function () {});
+            $content.slideToggle(500, function () { });
         });
         $("#guidebookLogo").click(function () {
             $content = $("#guidebook");
@@ -49,13 +49,13 @@
             }
         }
         <td>
-            <img class="bit8Image flipH" style="max-width: 100px; width : 100%; padding: 5pt;" src="~/DungeonGraphics/torch.png" />
+            <img class="bit8Image flipH" style="max-width: 100px; width : 100%; padding: 5pt;" src="~/DungeonGraphics/coconuts.jpg" />
         </td>
         <td>
-            <img class="bit8Image" style="max-width: 100px; width: 100%; padding: 5pt;" src="~/DungeonGraphics/shield.png" />
+            <img class="bit8Image" style="max-width: 100px; width: 100%; padding: 5pt;" src="~/DungeonGraphics/tropicalDungeon.jpg" />
         </td>
         <td>
-            <img class="bit8Image" style="max-width: 100px; width: 100%; padding: 5pt;" src="~/DungeonGraphics/torch.png" />
+            <img class="bit8Image" style="max-width: 100px; width: 100%; padding: 5pt;" src="~/DungeonGraphics/coconuts.jpg" />
         </td>
         @{
             if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Sword")))
@@ -115,7 +115,7 @@
                 <td style="text-align: center;">
                     <form method="post">
                         <input type="hidden" name="door" alt="Submit" value="blank" />
-                        <input type="image" src="~/DungeonGraphics/pit.jpg" alt="Submit" class="door portalImage bit8Image" value="1">
+                        <input type="image" src="~/DungeonGraphics/quicksand.jpg" alt="Submit" class="door portalImage bit8Image" value="1">
                     </form>
                 </td>
                 HttpContextAccessor.HttpContext.Session.Remove("Sword");
@@ -168,17 +168,17 @@
             {
                 if (Model.Dungeon[0].NorthID != 0)
                 {
-                <td style="text-align: center;">
-                    @{ if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Compass")))
-                        {
-                            <text><div style="font-size: 2em">N</div></text>
+                    <td style="text-align: center;">
+                        @{ if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Compass")))
+                            {
+                                <text><div style="font-size: 2em">N</div></text>
+                            }
                         }
-                    }
-                    <form method="post">
-                        <input type="hidden" name="door" alt="Submit" value="blank" />
-                        <input type="image" src="~/DungeonGraphics/medievalDoor-8bit.png" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].NorthID)">
-                    </form>
-                </td>
+                        <form method="post">
+                            <input type="hidden" name="door" alt="Submit" value="blank" />
+                            <input type="image" src="~/DungeonGraphics/cave.jpg" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].NorthID)">
+                        </form>
+                    </td>
                 }
                 if (Model.Dungeon[0].EastID != 0)
                 {
@@ -190,7 +190,7 @@
                         }
                         <form method="post">
                             <input type="hidden" name="door" alt="Submit" value="blank" />
-                            <input type="image" src="~/DungeonGraphics/medievalDoor-8bit.png" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].EastID)">
+                            <input type="image" src="~/DungeonGraphics/cave.jpg" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].EastID)">
                         </form>
                     </td>
                 }
@@ -204,7 +204,7 @@
                         }
                         <form method="post">
                             <input type="hidden" name="door" alt="Submit" value="blank" />
-                            <input type="image" src="~/DungeonGraphics/medievalDoor-8bit.png" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].SouthID)">
+                            <input type="image" src="~/DungeonGraphics/cave.jpg" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].SouthID)">
                         </form>
                     </td>
                 }
@@ -218,7 +218,7 @@
                         }
                         <form method="post">
                             <input type="hidden" name="door" alt="Submit" value="blank" />
-                            <input type="image" src="~/DungeonGraphics/medievalDoor-8bit.png" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].WestID)">
+                            <input type="image" src="~/DungeonGraphics/cave.jpg" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].WestID)">
                         </form>
                     </td>
                 }

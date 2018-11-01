@@ -11,20 +11,21 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
     {
         public IActionResult OnPost(string portal)
         {
-            if (portal == "importal1")
+            //if (portal == "importal1")
+            //{
+            //    return Redirect("./TropicalDungeon?dungeonID=1");
+            //}
+            //else if (portal == "importal2")
+            //{
+            //    return Redirect("./SpaceDungeon?dungeonID=1");
+            //}
+            //else if (portal == "importal3")
+            //{
+            //    return Redirect("./MedievalDungeon?dungeonID=1");
+            //}
+            if (!String.IsNullOrEmpty(portal))
             {
-                //return RedirectToPage("./TropicalDungeon");
-                return Redirect("./MedievalDungeon?dungeonID=1");
-            }
-            else if (portal == "importal2")
-            {
-                //return RedirectToPage("./SpaceDungeon");
-                return Redirect("./MedievalDungeon?dungeonID=1");
-            }
-            else if (portal == "importal3")
-            {
-                return Redirect("./MedievalDungeon?dungeonID=1");
-                //return RedirectToPage("./MedievalDungeon","?dungeonID=1");
+                return Redirect("./TheHandover?portal=" + portal);
             }
             return Page();
         }

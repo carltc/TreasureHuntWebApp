@@ -10,11 +10,11 @@ using Microsoft.AspNetCore.Http;
 
 namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
 {
-    public class MedievalDungeonModel : PageModel
+    public class SpaceDungeonModel : PageModel
     {
         private readonly TreasureHuntWebApp.Models.TreasureHuntWebAppContext _context;
 
-        public MedievalDungeonModel(TreasureHuntWebApp.Models.TreasureHuntWebAppContext context)
+        public SpaceDungeonModel(TreasureHuntWebApp.Models.TreasureHuntWebAppContext context)
         {
             _context = context;
         }
@@ -52,11 +52,11 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
             {
                 if (sword.HasValue)
                 {
-                    return Redirect("./MedievalDungeon?dungeonID=" + door.ToString() + "&" + "fight=1");
+                    return Redirect("./SpaceDungeon?dungeonID=" + door.ToString() + "&" + "fight=1");
                 }
                 else if (door == "0") // Return to IM-Portals
                 {
-                    HttpContext.Session.SetString("Klorg3", "1");
+                    HttpContext.Session.SetString("Klorg2", "1");
                     return RedirectToPage("./TheLaboratory");
                 }
                 else if (door == "31") // Map room
@@ -67,7 +67,7 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
                 {
                     HttpContext.Session.SetString("Sword", "Yes");
                 }
-                return Redirect("./MedievalDungeon?dungeonID=" + door.ToString());
+                return Redirect("./SpaceDungeon?dungeonID=" + door.ToString());
             }
             return Page();
         }
