@@ -45,7 +45,7 @@ namespace TreasureHuntWebApp.Pages
         {
             if (button == "Hunt4")
             {
-                DateTime releaseTime = new DateTime(2018, 11, 2, 3, 0, 0);
+                DateTime releaseTime = new DateTime(2018, 11, 2, 5, 0, 0);
                 DateTime timeNow = DateTime.Now;
 
                 if (timeNow > releaseTime)

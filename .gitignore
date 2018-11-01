@@ -260,4 +260,5 @@ paket-files/
 __pycache__/
 *.pyc
 /CrossWordAnswers.PNG
-/TreasureHuntWebApp/wwwroot/documents/hunt4clue.txt
+/TreasureHuntWebApp/wwwroot/documents/
+/TreasureHuntWebApp/wwwroot/DungeonGraphics/
