@@ -38,13 +38,13 @@
             if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Guidebook")))
             {
                 <td>
-                    <img id="guidebookLogo" class="bit8Image" style="max-width: 100px; height: 100%; padding: 5pt;" src="~/DungeonGraphics/guidebook.jpg" />
+                    <img id="guidebookLogo" class="bit8Image" style="max-width: 50px; width: 100%; padding: 5pt;" src="~/DungeonGraphics/guidebook.jpg" />
                 </td>
             }
             if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Map")))
             {
                 <td>
-                    <img id="mapLogo" class="bit8Image flipH" style="max-width: 100px; height: 100%; padding: 5pt;" src="~/DungeonGraphics/map.png" />
+                    <img id="mapLogo" class="bit8Image flipH" style="max-width: 100px; width: 100%; padding: 5pt;" src="~/DungeonGraphics/map.png" />
                 </td>
             }
         }
@@ -61,13 +61,13 @@
             if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Sword")))
             {
                 <td>
-                    <img class="bit8Image" style="max-width: 100px; height: 100%; padding: 5pt;" src="~/DungeonGraphics/sword.jpg" />
+                    <img class="bit8Image" style="max-width: 50px; width: 100%; padding: 5pt;" src="~/DungeonGraphics/sword.jpg" />
                 </td>
             }
             if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Compass")))
             {
                 <td>
-                    <img class="bit8Image" style="max-width: 100px; height: 100%; padding: 5pt;" src="~/DungeonGraphics/compass.png" />
+                    <img class="bit8Image" style="max-width: 50px; width: 100%; padding: 5pt;" src="~/DungeonGraphics/compass.png" />
                 </td>
             }
         }
@@ -76,14 +76,18 @@
 @{
     if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Map")))
     {
-        <div id="map" style="display: none; text-align: center; margin: auto;">
-            <img class="bit8Image" style="width: 60%; padding: 5pt;" src="~/DungeonGraphics/mapLarge-8bit.png" />
+        <div id="map" style="display: none; text-align: center; margin: auto; width: 90%; max-width: 800px;">
+            <img class="bit8Image" style="padding: 5pt; width: 90%;" src="~/DungeonGraphics/mapLarge-8bit.png" />
         </div>
     }
     if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Guidebook")))
     {
-        <div id="guidebook" style="display: none; text-align: center; margin: auto;">
-            <p>Add guidebook here.</p>
+        <div id="guidebook" style="display: none; text-align: center; margin: auto; width: 90%; max-width: 800px;">
+            <div class="guideBook">
+                <h1 style="text-decoration:underline;">@Html.DisplayFor(model => Model.Dungeon[0].Name)</h1>
+                <p>@Html.DisplayFor(model => Model.Dungeon[0].Guidebook)</p>
+                <h4>@Html.DisplayFor(model => Model.Dungeon[0].ID)</h4>
+            </div>
         </div>
     }
 }
@@ -92,23 +96,23 @@
     if (Model.Dungeon[0].ID == 23)
     {
         <div style="text-align: center; margin: auto;">
-            <img class="bit8Image" style="width: 40%; padding: 5pt;" src="~/DungeonGraphics/klorg-8bit.png" />
+            <img class="bit8Image" style="width: 40%; max-width: 200px; padding: 5pt;" src="~/DungeonGraphics/klorg-8bit.png" />
         </div>
     }
     else
     if (Model.Dungeon[0].ID == 35)
     {
         <div style="text-align: center; margin: auto;">
-            <img class="bit8Image" style="width: 40%; padding: 5pt;" src="~/DungeonGraphics/skeleton.jpg" />
+            <img class="bit8Image" style="width: 40%; max-width: 200px; padding: 5pt;" src="~/DungeonGraphics/skeleton.jpg" />
         </div>
     }
 }
-<p style="text-align: center; width: 100%; max-width: 400px; margin: auto">
+<p style="text-align: center; width: 100%; max-width: 800px; margin: auto">
     @Html.DisplayFor(model => Model.Dungeon[0].Storyline)
 </p>
 <br />
-<table style="width: 100%;">
-    <tr style="max-width: 500px;">
+<table style="width: 90%;">
+    <tr style="max-width: 800px;">
         @{
             if (Model.Dungeon[0].Name == "Pit")
             {
@@ -145,7 +149,7 @@
             }
             else if (Model.Dungeon[0].ID == 23)
             {
-                <td style="text-align: center;">
+                <td style="text-align: center;  max-width: 200px;">
                     <form method="post">
                         <input type="hidden" name="door" alt="Submit" value="blank" />
                         <input type="image" src="~/DungeonGraphics/collarPortal.png" alt="Submit" class="door portalImage bit8Image" value="0">
