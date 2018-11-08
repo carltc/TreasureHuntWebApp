@@ -262,3 +262,10 @@ __pycache__/
 /CrossWordAnswers.PNG
 /TreasureHuntWebApp/wwwroot/documents/
 /TreasureHuntWebApp/wwwroot/DungeonGraphics/
+
+# Images
+*.png
+*.jpeg
+*.jpg
+*.bmp
+*.gif
