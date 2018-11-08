@@ -35,6 +35,7 @@ namespace TreasureHuntWebApp.Pages
         }
 
         public IList<Scoreboard> ScoreboardResults { get; set; }
+        //public List<Score> Scores { get; set; }
 
         public IList<Winner> Hunt1Winners { get; set; }
         public IList<Winner> Hunt2Winners { get; set; }
@@ -63,6 +64,12 @@ namespace TreasureHuntWebApp.Pages
 
         public void OnGet()
         {
+            var Scores = _context.Score
+                .GroupBy(item => item.Name)
+                .Select(g => new {Name = g.First(), Points = g.Sum(s => s.Points) })
+                .OrderBy(item => item.Points)
+                .ToList();
+
             Hunt1Winners = _context.Winner.Where(field => field.HuntID == 2)
                 .GroupBy(item => item.Name)
                 .Select(grouping => grouping.FirstOrDefault())
