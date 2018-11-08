@@ -20,5 +20,16 @@ namespace TreasureHuntWebApp.Models
         public int Points { get; set; }
 
         public DateTime EntryTime { get; set; }
+
+        public Score(string newName, int newPoints)
+        {
+            ID = 0;
+            Name = newName;
+            HuntID = 0;
+            QuestionID = 0;
+            ScoreType = 0;
+            Points = newPoints;
+            EntryTime = DateTime.Now;
+        }
     }
 }
