@@ -21,7 +21,7 @@ namespace TreasureHuntWebApp.Pages
             _context = context;
         }
 
-        public string hiddenLink = "/WordsHurt/Index";
+        public string hiddenLink = "/ChoicesChoices/Index";
 
         public string PadNumber(int input, int padCount)
         {
@@ -40,12 +40,13 @@ namespace TreasureHuntWebApp.Pages
         public IList<Winner> Hunt2Winners { get; set; }
         public IList<Winner> Hunt3Winners { get; set; }
         public IList<Winner> Hunt4Winners { get; set; }
+        public IList<Winner> Hunt5Winners { get; set; }
 
         public IActionResult OnPost(string button)
         {
             if (button == "Hunt4")
             {
-                DateTime releaseTime = new DateTime(2018, 11, 2, 5, 0, 0);
+                DateTime releaseTime = new DateTime(2018, 11, 9, 5, 0, 0);
                 DateTime timeNow = DateTime.Now;
 
                 if (timeNow > releaseTime)
@@ -81,6 +82,12 @@ namespace TreasureHuntWebApp.Pages
                 .ToList();
 
             Hunt4Winners = _context.Winner.Where(field => field.HuntID == 4)
+                .GroupBy(item => item.Name)
+                .Select(grouping => grouping.FirstOrDefault())
+                .OrderBy(item => item.WinTime)
+                .ToList();
+
+            Hunt5Winners = _context.Winner.Where(field => field.HuntID == 5)
                 .GroupBy(item => item.Name)
                 .Select(grouping => grouping.FirstOrDefault())
                 .OrderBy(item => item.WinTime)

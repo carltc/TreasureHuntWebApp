@@ -7,7 +7,7 @@
 
 <script>
     // Set the date we're counting down to
-    var countDownDate = new Date("Nov 2, 2018 06:00:00").getTime();
+    var countDownDate = new Date("Nov 9, 2018 06:00:00").getTime();
 
     // Update the count down every 1 second
     var x = setInterval(function () {
@@ -133,17 +133,34 @@
     <table class="huntLinkTable">
         <tr style="width:100%">
             <td class="huntLinkCell">
-                <form method="post" id="linkForm" hidden="hidden">
-                    <input class="huntButton" type="submit" name="button" value="Hunt4" />
-                </form>
-                <p id="nonLinkTitle">Hunt 4</p>
-                <p class="countDown" id="CountDown"></p>
+                <a href="/WordsHurt">Hunt 4</a>
             </td>
             <td class="huntLinkRank">
                 1st : @{ if (Model.Hunt4Winners.Count() > 0) { @Html.DisplayFor(modelItem => Model.Hunt4Winners[0].Name); } else {<text>- - -</text>  } } <br>
                 2nd : @{ if (Model.Hunt4Winners.Count() > 1) { @Html.DisplayFor(modelItem => Model.Hunt4Winners[1].Name); } else {<text>- - -</text>  } } <br>
                 3rd : @{ if (Model.Hunt4Winners.Count() > 2) { @Html.DisplayFor(modelItem => Model.Hunt4Winners[2].Name); } else {<text>- - -</text>  } } <br>
                 4th : @{ if (Model.Hunt4Winners.Count() > 3) { @Html.DisplayFor(modelItem => Model.Hunt4Winners[3].Name); } else {<text>- - -</text>  } } <br>
+                <a href="./winners?id=4">see more</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="huntLinkSection">
+    <table class="huntLinkTable">
+        <tr style="width:100%">
+            <td class="huntLinkCell">
+                <form method="post" id="linkForm" hidden="hidden">
+                    <input class="huntButton" type="submit" name="button" value="Hunt5" />
+                </form>
+                <p id="nonLinkTitle">Hunt 5</p>
+                <p class="countDown" id="CountDown"></p>
+            </td>
+            <td class="huntLinkRank">
+                1st : @{ if (Model.Hunt5Winners.Count() > 0) { @Html.DisplayFor(modelItem => Model.Hunt5Winners[0].Name); } else {<text>- - -</text>  } } <br>
+                2nd : @{ if (Model.Hunt5Winners.Count() > 1) { @Html.DisplayFor(modelItem => Model.Hunt5Winners[1].Name); } else {<text>- - -</text>  } } <br>
+                3rd : @{ if (Model.Hunt5Winners.Count() > 2) { @Html.DisplayFor(modelItem => Model.Hunt5Winners[2].Name); } else {<text>- - -</text>  } } <br>
+                4th : @{ if (Model.Hunt5Winners.Count() > 3) { @Html.DisplayFor(modelItem => Model.Hunt5Winners[3].Name); } else {<text>- - -</text>  } } <br>
                 <a href="./winners?id=4">see more</a>
             </td>
         </tr>
