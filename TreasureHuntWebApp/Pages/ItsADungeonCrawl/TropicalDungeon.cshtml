@@ -83,7 +83,7 @@
     if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Guidebook")))
     {
         <div id="guidebook" style="display: none; text-align: center; margin: auto;">
-            <p>Add guidebook here.</p>
+            <p>@Html.DisplayFor(model => Model.Dungeon[0].Guidebook)</p>
         </div>
     }
 }
