@@ -19,6 +19,7 @@ namespace TreasureHuntWebApp.Pages.AngryTerm
         }
 
         public IList<Winner> Winner { get; set; }
+        private int HuntID = 2;
 
         public async Task<IActionResult> OnGetAsync(string winnerName)
         {
@@ -26,10 +27,6 @@ namespace TreasureHuntWebApp.Pages.AngryTerm
             {
                 return Page();
             }
-            //else
-            //{
-            //winners = winners.Where(r => r.Name.Contains("asfasgsgdfdavADSVavsa"));
-            //}
 
             var winners = from w in _context.Winner
                           select w;
@@ -57,12 +54,36 @@ namespace TreasureHuntWebApp.Pages.AngryTerm
                     {
                         Name = winnerName,
                         WinTime = DateTime.Now,
-                        HuntID = 1
+                        HuntID = HuntID
                     }
                 );
-                await _context.SaveChangesAsync();
 
-                //return RedirectToPage("./WinnyWinny/WinnerResponsePage" + "?winnerName=" + winnerName);
+                if (!_context.Score.Where(field => field.Name == winnerName && field.HuntID == HuntID && field.QuestionID == 0).Any())
+                {
+                    int currentEntries = _context.Score.Where(field => field.HuntID == HuntID && field.QuestionID == 0).Count();
+
+                    int points = 0;
+                    if (currentEntries <= 0) { points = 100; }
+                    else if (currentEntries == 1) { points = 50; }
+                    else if (currentEntries == 2) { points = 25; }
+                    else if (currentEntries == 3) { points = 12; }
+                    else { points = 10; }
+
+                    _context.Score.AddRange(
+                        new Score
+                        {
+                            Name = winnerName,
+                            EntryTime = DateTime.Now,
+                            HuntID = HuntID,
+                            QuestionID = 0,
+                            ScoreType = 0,
+                            Points = points
+                        }
+                    );
+                }
+
+                await _context.SaveChangesAsync();
+                
                 return RedirectToAction("./", new { winnerName = winnerName });
             }
         }
