@@ -1,0 +1,31 @@
+﻿@page
+@model TreasureHuntWebApp.Pages.CrypticPicnic.PlusYourAgeModel
+@{
+    ViewData["Title"] = "Plus Your Age";
+}
+
+@if (Model.Winner != null && Model.Winner.Count >= 1)
+{
+    <h2 align="center">Congratulations @Html.DisplayFor(modelItem => Model.Winner[0].Name)</h2>
+
+    <p align="center">
+        Your points have been added to the scoreboard.
+    </p>
+    <div style="height:5pt"></div>
+    <form action="/Index">
+        <input type="submit" value="Go Home" class="form-control askInput" />
+    </form>
+}
+else
+{
+    <h1 align="center">Yay! You completed it!</h1>
+    <h3 align="center">Please enter your name as it appears in the Scoreboard for points to be added.</h3>
+    <form method="post">
+        <div class="form-group">
+            <input type="text" class="form-control askInput" name="winnerName" placeholder="Full Name...">
+            <div style="height:5pt"></div>
+            <input type="submit" class="form-control askInput" />
+        </div>
+    </form>
+}
+
