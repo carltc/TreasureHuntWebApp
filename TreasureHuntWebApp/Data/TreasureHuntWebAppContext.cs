@@ -25,5 +25,7 @@ namespace TreasureHuntWebApp.Models
         public DbSet<TreasureHuntWebApp.Models.CrossWord> CrossWord { get; set; }
 
         public DbSet<TreasureHuntWebApp.Models.Dungeon> Dungeon { get; set; }
+
+        public DbSet<TreasureHuntWebApp.Models.Choice> Choice { get; set; }
     }
 }

@@ -1,0 +1,70 @@
+﻿@page
+@model TreasureHuntWebApp.Pages.ChoicesChoices.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Choice</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Choice.Question)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Choice.Question)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Choice.Choice1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Choice.Choice1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Choice.Result1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Choice.Result1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Choice.Choice2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Choice.Choice2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Choice.Result2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Choice.Result2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Choice.Choice3)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Choice.Choice3)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Choice.Result3)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Choice.Result3)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Choice.CorrectAnswer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Choice.CorrectAnswer)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Choice.ID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

@@ -1,0 +1,67 @@
+﻿@page
+@model TreasureHuntWebApp.Pages.ChoicesChoices.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Choice</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Choice.Question)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Choice.Question)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Choice.Choice1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Choice.Choice1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Choice.Result1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Choice.Result1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Choice.Choice2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Choice.Choice2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Choice.Result2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Choice.Result2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Choice.Choice3)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Choice.Choice3)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Choice.Result3)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Choice.Result3)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Choice.CorrectAnswer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Choice.CorrectAnswer)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Choice.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

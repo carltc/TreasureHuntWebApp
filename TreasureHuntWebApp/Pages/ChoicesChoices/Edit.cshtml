@@ -1,0 +1,70 @@
+﻿@page
+@model TreasureHuntWebApp.Pages.ChoicesChoices.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Choice</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Choice.ID" />
+            <div class="form-group">
+                <label asp-for="Choice.Question" class="control-label"></label>
+                <input asp-for="Choice.Question" class="form-control" />
+                <span asp-validation-for="Choice.Question" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Choice.Choice1" class="control-label"></label>
+                <input asp-for="Choice.Choice1" class="form-control" />
+                <span asp-validation-for="Choice.Choice1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Choice.Result1" class="control-label"></label>
+                <input asp-for="Choice.Result1" class="form-control" />
+                <span asp-validation-for="Choice.Result1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Choice.Choice2" class="control-label"></label>
+                <input asp-for="Choice.Choice2" class="form-control" />
+                <span asp-validation-for="Choice.Choice2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Choice.Result2" class="control-label"></label>
+                <input asp-for="Choice.Result2" class="form-control" />
+                <span asp-validation-for="Choice.Result2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Choice.Choice3" class="control-label"></label>
+                <input asp-for="Choice.Choice3" class="form-control" />
+                <span asp-validation-for="Choice.Choice3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Choice.Result3" class="control-label"></label>
+                <input asp-for="Choice.Result3" class="form-control" />
+                <span asp-validation-for="Choice.Result3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Choice.CorrectAnswer" class="control-label"></label>
+                <input asp-for="Choice.CorrectAnswer" class="form-control" />
+                <span asp-validation-for="Choice.CorrectAnswer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
