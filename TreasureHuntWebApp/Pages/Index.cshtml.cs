@@ -21,7 +21,7 @@ namespace TreasureHuntWebApp.Pages
             _context = context;
         }
 
-        public string hiddenLink = "/ChoicesChoices/Index";
+        public string hiddenLink = "/CrypticPicnic/Index";
 
         public string PadNumber(int input, int padCount)
         {
@@ -45,7 +45,7 @@ namespace TreasureHuntWebApp.Pages
 
         public IActionResult OnPost(string button)
         {
-            if (button == "Hunt4")
+            if (button == "Hunt5")
             {
                 DateTime releaseTime = new DateTime(2018, 11, 9, 5, 0, 0);
                 DateTime timeNow = DateTime.Now;
