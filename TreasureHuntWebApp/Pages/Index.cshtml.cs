@@ -35,7 +35,7 @@ namespace TreasureHuntWebApp.Pages
         }
 
         public IList<Scoreboard> ScoreboardResults { get; set; }
-        //public List<Score> Scores { get; set; }
+        public List<Score> Scores { get; set; }
 
         public IList<Winner> Hunt1Winners { get; set; }
         public IList<Winner> Hunt2Winners { get; set; }
@@ -64,7 +64,7 @@ namespace TreasureHuntWebApp.Pages
 
         public void OnGet()
         {
-            var Scores = _context.Score
+            var scores = _context.Score
                 .GroupBy(item => item.Name)
                 .Select(g => new {Name = g.First(), Points = g.Sum(s => s.Points) })
                 .OrderBy(item => item.Points)
@@ -184,8 +184,25 @@ namespace TreasureHuntWebApp.Pages
                 + "DECLARE @fourthPortion NVARCHAR(MAX) = 'ORDER BY Score DESC' "
                 + "SET @fullSQLstatement = @fullSQLstatement + @fourthPortion; "
                 + "EXEC(@fullSQLstatement)";
-            
-            var scoreBoardResults = _context.Scoreboard.FromSql(sqlQuery);
+
+            string sqlQueryScore = "SELECT MIN(ID) AS ID, " +
+                "Name, MAX(HuntID) AS HuntID, " +
+                "MIN(QuestionID) AS QuestionID, " +
+                "MIN(ScoreType) AS ScoreType, " +
+                "Sum(Points) AS Points, " +
+                "MIN(EntryTime) AS EntryTime " +
+                "FROM Score " +
+                "GROUP BY Name " +
+                "ORDER BY ID";
+
+            string sqlQueryScoreboard = "SELECT CAST(ROW_NUMBER() OVER(ORDER BY SUM(Points) DESC) AS BIGINT) AS ID, " +
+                "Name, " +
+                "CAST(SUM(Points) AS BIGINT) AS Score " +
+                "FROM Score " +
+                "GROUP BY Name " +
+                "ORDER BY Score DESC";
+
+            var scoreBoardResults = _context.Scoreboard.FromSql(sqlQueryScoreboard);
             ScoreboardResults = scoreBoardResults.ToList();
         }
     }
