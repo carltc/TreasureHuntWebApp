@@ -23,35 +23,49 @@ namespace TreasureHuntWebApp.Pages.ChoicesChoices
         public String PreviousResult { get; set; }
         public int CurrentChoice = 0;
 
-        public async Task OnGetAsync(int? cID, int? pR)
+        public async Task<IActionResult> OnGetAsync(int? cID, int? pR)
         {
-            if (!String.IsNullOrEmpty(HttpContext.Session.GetString("PlayerName")))
+            string playerName = HttpContext.Session.GetString("PlayerName");
+            if (!String.IsNullOrEmpty(playerName))
             {
                 if (cID.HasValue)
                 {
                     int choiceID = (int)cID;
-                    var choices = from choice in _context.Choice
-                                  where choice.ID == choiceID
-                                  select choice;
-                    Choice = await choices.ToListAsync();
 
-                    CurrentChoice = choiceID;
-                
-                    if (pR.HasValue && choiceID > 1)
+                    var scores = from score in _context.Score
+                                 where score.Name == playerName && score.HuntID == 6 && score.QuestionID == choiceID
+                                 select score;
+                    if (scores.Count() > 0)
                     {
-                        var previousResults = from choice in _context.Choice
-                                              where choice.ID == choiceID - 1
-                                              select choice;
-                        var tempPR = await choices.ToListAsync();
-                        if (pR == 1) { PreviousResult = tempPR[0].Result1; }
-                        else if (pR == 2) { PreviousResult = tempPR[0].Result2; }
-                        else if (pR == 3) { PreviousResult = tempPR[0].Result3; }
-                        else { PreviousResult = ""; }
+                        choiceID++;
+                        return Redirect("./TheLabyrinth?cID=" + choiceID.ToString());
                     }
                     else
                     {
-                        PreviousResult = "";
+                        var choices = from choice in _context.Choice
+                                      where choice.ID == choiceID
+                                      select choice;
+                        Choice = await choices.ToListAsync();
+
+                        CurrentChoice = choiceID;
+                
+                        if (pR.HasValue && choiceID > 1)
+                        {
+                            var previousResults = from choice in _context.Choice
+                                                  where choice.ID == choiceID - 1
+                                                  select choice;
+                            var tempPR = await previousResults.ToListAsync();
+                            if (pR == 1) { PreviousResult = tempPR[0].Result1; }
+                            else if (pR == 2) { PreviousResult = tempPR[0].Result2; }
+                            else if (pR == 3) { PreviousResult = tempPR[0].Result3; }
+                            else { PreviousResult = ""; }
+                        }
+                        else
+                        {
+                            PreviousResult = "";
+                        }
                     }
+
                 }
                 else
                 {
@@ -60,12 +74,48 @@ namespace TreasureHuntWebApp.Pages.ChoicesChoices
                     PreviousResult = "";
                 }
             }
+
+            return null;
         }
 
         public IActionResult OnPost(string door, int choice)
         {
-            if (!String.IsNullOrEmpty(door))
+            if (!String.IsNullOrEmpty(door) && choice > 0)
             {
+                var choices = from choiceTable in _context.Choice
+                              where choiceTable.ID == choice
+                              select choiceTable;
+                Choice = choices.ToList();
+                if (Choice[0].CorrectAnswer == int.Parse(door))
+                {
+                    _context.Score.AddRange(
+                        new Score
+                        {
+                            Name = HttpContext.Session.GetString("PlayerName"),
+                            EntryTime = DateTime.Now,
+                            HuntID = 6,
+                            QuestionID = choice,
+                            ScoreType = 0,
+                            Points = 10
+                        }
+                    );
+                }
+                else
+                {
+                    _context.Score.AddRange(
+                        new Score
+                        {
+                            Name = HttpContext.Session.GetString("PlayerName"),
+                            EntryTime = DateTime.Now,
+                            HuntID = 6,
+                            QuestionID = choice,
+                            ScoreType = 0,
+                            Points = 0
+                        }
+                    );
+                }
+                _context.SaveChanges();
+
                 choice++;
                 return Redirect("./TheLabyrinth?cID=" + choice.ToString() + "&pR=" + door);
             }
