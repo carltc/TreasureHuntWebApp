@@ -1,0 +1,68 @@
+﻿@page
+@model TreasureHuntWebApp.Pages.ChoicesChoices.TheLabyrinthModel
+@{
+    ViewData["Title"] = "The Labyrinth";
+}
+
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+<script src="/lib/jquery/dist/jquery.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".door").click(function () {
+            var commandName = $(this).attr("value");
+            var hiddenInput = $("input[name=door]");
+            hiddenInput.val(commandName);
+        });
+    });
+</script>
+
+<table class="dungeonImageHeader">
+    <tr>
+        @{
+            if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Player")))
+            {
+                <td>
+                    @{String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Player"))}
+                </td>
+            }
+        }
+    </tr>
+</table>
+
+<br />
+
+<p style="text-align: center; width: 100%; max-width: 800px; margin: auto">
+    @Html.DisplayFor(model => Model.Choice[0].Question)
+</p>
+<br />
+<table style="width: 90%;">
+    <tr style="max-width: 800px;">
+        @{
+            <td style="text-align: center;">
+                <form method="post">
+                    <input type="hidden" name="door" alt="Submit" value="blank" />
+                    <input type="image" src="~/DungeonGraphics/medievalDoor-8bit.png" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Choice[0].Choice1)">
+                </form>
+            </td>
+
+            <td style="text-align: center;">
+                <form method="post">
+                    <input type="hidden" name="door" alt="Submit" value="blank" />
+                    <input type="image" src="~/DungeonGraphics/medievalDoor-8bit.png" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Choice[0].Choice2)">
+                </form>
+            </td>
+
+            <td style="text-align: center;">
+                <form method="post">
+                    <input type="hidden" name="door" alt="Submit" value="blank" />
+                    <input type="image" src="~/DungeonGraphics/medievalDoor-8bit.png" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Choice[0].Choice3)">
+                </form>
+            </td>
+        }
+    </tr>
+</table>
+
+
+
