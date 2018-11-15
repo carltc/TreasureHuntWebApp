@@ -8,6 +8,8 @@
 @inject IHttpContextAccessor HttpContextAccessor
 
 <div style="margin:auto; text-align: center; width: 80%;">
+    <p>@Html.DisplayFor(pR => Model.PreviousResult)</p>
+    <br />
     <h2>Congratulations!</h2>
     <img class="bit8Image" style="max-width: 100px; width: 40%" src="~/DungeonGraphics/LeeMonquebe-8bit.png" />
     @{string playerName = HttpContextAccessor.HttpContext.Session.GetString("PlayerName");}

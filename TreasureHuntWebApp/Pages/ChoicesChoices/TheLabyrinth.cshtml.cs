@@ -77,7 +77,14 @@ namespace TreasureHuntWebApp.Pages.ChoicesChoices
                 }
                 else if (cID > 10)
                 {
-                    return Redirect("./ChoicesMade");
+                    if (pR.HasValue)
+                    {
+                        return Redirect("./ChoicesMade?pR=" + pR.ToString());
+                    }
+                    else
+                    {
+                        return Redirect("./ChoicesMade");
+                    }
                 }
                 else
                 {
