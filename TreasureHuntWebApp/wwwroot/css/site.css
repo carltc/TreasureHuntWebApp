@@ -409,6 +409,10 @@ html, body, body-content {
 
 /* Change font size when screen size changes*/
 @media screen and (max-width: 720px) {
+    p {
+        font-size: 10px;
+    }
+
     .TreasureHuntTitle {
         font-size: 10px;
         padding: 10pt;

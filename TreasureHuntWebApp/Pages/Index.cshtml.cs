@@ -21,7 +21,7 @@ namespace TreasureHuntWebApp.Pages
             _context = context;
         }
 
-        public string hiddenLink = "/CrypticPicnic/Index";
+        public string hiddenLink = "/ChoicesChoices/Index";
 
         public string PadNumber(int input, int padCount)
         {
@@ -41,12 +41,13 @@ namespace TreasureHuntWebApp.Pages
         public IList<Score> Hunt3Winners { get; set; }
         public IList<Score> Hunt4Winners { get; set; }
         public IList<Score> Hunt5Winners { get; set; }
+        public IList<Score> Hunt6Winners { get; set; }
 
         public IActionResult OnPost(string button)
         {
-            if (button == "Hunt5")
+            if (button == "Hunt6")
             {
-                DateTime releaseTime = new DateTime(2018, 11, 9, 5, 0, 0);
+                DateTime releaseTime = new DateTime(2018, 11, 15, 5, 0, 0);
                 DateTime timeNow = DateTime.Now;
 
                 if (timeNow > releaseTime)
@@ -88,6 +89,12 @@ namespace TreasureHuntWebApp.Pages
                 .ToList();
 
             Hunt5Winners = _context.Score.Where(field => field.HuntID == 5)
+                .GroupBy(item => item.Name)
+                .Select(grouping => grouping.FirstOrDefault())
+                .OrderBy(item => item.EntryTime)
+                .ToList();
+
+            Hunt6Winners = _context.Score.Where(field => field.HuntID == 6)
                 .GroupBy(item => item.Name)
                 .Select(grouping => grouping.FirstOrDefault())
                 .OrderBy(item => item.EntryTime)
