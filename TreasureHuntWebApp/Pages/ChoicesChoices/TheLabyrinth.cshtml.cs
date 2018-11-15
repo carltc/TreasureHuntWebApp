@@ -19,21 +19,23 @@ namespace TreasureHuntWebApp.Pages.ChoicesChoices
             _context = context;
         }
 
+        public int HuntID = 6;
         public IList<Choice> Choice { get; set; }
         public String PreviousResult { get; set; }
         public int CurrentChoice = 0;
+        public int PlayerScore { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? cID, int? pR)
         {
             string playerName = HttpContext.Session.GetString("PlayerName");
             if (!String.IsNullOrEmpty(playerName))
             {
-                if (cID.HasValue)
+                if (cID.HasValue && cID > 0 && cID <= 10)
                 {
                     int choiceID = (int)cID;
 
                     var scores = from score in _context.Score
-                                 where score.Name == playerName && score.HuntID == 6 && score.QuestionID == choiceID
+                                 where score.Name == playerName && score.HuntID == HuntID && score.QuestionID == choiceID
                                  select score;
                     if (scores.Count() > 0)
                     {
@@ -48,6 +50,12 @@ namespace TreasureHuntWebApp.Pages.ChoicesChoices
                         Choice = await choices.ToListAsync();
 
                         CurrentChoice = choiceID;
+
+                        var playerScore = from pS in _context.Score
+                                          where pS.Name == playerName && pS.HuntID == HuntID && pS.Points == 0
+                                          select pS;
+
+                        PlayerScore = 100 - (playerScore.Count() * 10);
                 
                         if (pR.HasValue && choiceID > 1)
                         {
@@ -66,6 +74,10 @@ namespace TreasureHuntWebApp.Pages.ChoicesChoices
                         }
                     }
 
+                }
+                else if (cID > 10)
+                {
+                    return Redirect("./ChoicesMade");
                 }
                 else
                 {

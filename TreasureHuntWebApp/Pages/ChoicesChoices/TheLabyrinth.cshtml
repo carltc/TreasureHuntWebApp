@@ -26,6 +26,7 @@
                 <td>
                     @{string playerName = HttpContextAccessor.HttpContext.Session.GetString("PlayerName");}
                     @Html.DisplayFor(pN => playerName)
+                    <text><h2>@Html.DisplayFor(pS => Model.PlayerScore)/100</h2></text>
                 </td>
             }
         }

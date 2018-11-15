@@ -1,0 +1,49 @@
+﻿@page
+@model TreasureHuntWebApp.Pages.ChoicesChoices.ChoicesMadeModel
+@{
+    ViewData["Title"] = "Congratulations";
+}
+
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+<div style="margin:auto; text-align: center; width: 80%;">
+    <h2>Congratulations!</h2>
+    <img class="bit8Image" style="max-width: 100px; width: 40%" src="~/DungeonGraphics/LeeMonquebe-8bit.png" />
+    @{string playerName = HttpContextAccessor.HttpContext.Session.GetString("PlayerName");}
+    <p>You made it through the Labyrinth, @Html.DisplayFor(pN => playerName)</p>
+
+    @{
+        if (Model.PlayerScore > 0)
+        {
+            <p>You got a score of @Html.DisplayFor(pS => Model.PlayerScore)</p>
+            if (Model.PlayerScore < 20)
+            {
+                <p>Oooh, not very good. You either had a hankering for some dangerous adventure or you just didn't realise the correct path.</p>
+            }
+            else if (Model.PlayerScore < 50)
+            {
+                <p>Not very good eh. But you did at least make some correct decisions, albeit very few.</p>
+            }
+            else if (Model.PlayerScore < 80)
+            {
+                <p>Not bad. You got most of the decisions right. But it could have been better. Try harder on the next hunt eh?</p>
+            }
+            else if (Model.PlayerScore < 99)
+            {
+                <p>Wow. A top notch score. Just slipped up on 1 or 2 of the trickier ones eh?</p>
+            }
+            else if (Model.PlayerScore >= 100)
+            {
+                <p>Speechless, I am totally speechless. Never have we had anyone make all the choices correctly. Bravo my fellow hunter. Bravo.</p>
+            }
+        }
+    }
+
+    <p>I updated your points so go check them out in the lobby.</p>
+    <div style="height:5pt"></div>
+    <form action="/Index">
+        <input type="submit" value="Go Home" class="form-control askInput" />
+    </form>
+</div>
+
