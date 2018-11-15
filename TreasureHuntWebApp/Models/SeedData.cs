@@ -542,6 +542,125 @@ namespace TreasureHuntWebApp.Models
                     context.Dungeon.Add(dungeon);
                     context.SaveChanges();
                 }
+
+                // Look for choices
+                if (!context.Choice.Any())
+                {
+                    context.Choice.AddRange(
+                        new Choice
+                        {
+                            Question = "You are magically transported into a stone room. Before you are 3 doors...",
+                            Choice1 = "This door has a carving of a Ninja Assassin with many dangerous weapons.",
+                            Result1 = "Oh dear, poor choice. The Ninja Assassin assassinates you. Lose 10 points to be sewn back together. Should have gone with hungry lions which are probably dead or too weak to attack.",
+                            Choice2 = "This door has lion scratches all over and based on the feeding rota they haven't eaten in 3 months!",
+                            Result2 = "You open the door and see a Pride of Lions lying around, not moving. They look very skinny as you sneak by.",
+                            Choice3 = "This door has nothing but scorch marks all over and a bright glow can be seen through the crack underneath as smoke billows out.",
+                            Result3 = "Oh dear, poor choice. The die horribly in a large fire. Lose 10 points to rise from your ashes like a Phoenix. Should have gone with hungry lions which are probably dead or too weak to attack.",
+                            CorrectAnswer = 2
+                        },
+                        new Choice
+                        {
+                            Question = "Now you are faced by 3 more doors. They all look the same but the handles vary slightly...",
+                            Choice1 = "This handle is coated with HCL.",
+                            Result1 = "You smell burning skin as the acid wreaks havoc on your hand. Lose 10 points to have it healed. Should have gone with the table salt handle (NaCl).",
+                            Choice2 = "This handle is coated with H<sub>2</sub>SO<sub>4</sub>.",
+                            Result2 = "You smell burning skin as the acid wreaks havoc on your hand. Lose 10 points to have it healed. Should have gone with the table salt handle (NaCl).",
+                            Choice3 = "This handle is coated with NaCl.",
+                            Result3 = "You open the door, and before you go through, scrape off some salt to take home with you.",
+                            CorrectAnswer = 3
+                        },
+                        new Choice
+                        {
+                            Question = "You keep going and get to 3 more doors, each of which is slightly ajar. Behind each one you can see a snake with varying coloured lines...",
+                            Choice1 = "Yellow, red, yellow, black, yellow, red, yellow black.",
+                            Result1 = "You try to sneak past the snake but it bites you and you feel dizzy. Lose 10 points to get some anti-venom. Should have gone for a non-venomous snake.",
+                            Choice2 = "Yellow, black, yellow, black.",
+                            Result2 = "You try to sneak past the snake but it bites you and you feel dizzy. Lose 10 points to get some anti-venom. Should have gone for a non-venomous snake.",
+                            Choice3 = "Black, red, black, yellow, black, red, black, yellow, black.",
+                            Result3 = "You try to sneak past the snake but it bites you and it hurts but miraculously you don't die. You remember that these snakes are not venomous.",
+                            CorrectAnswer = 3
+                        },
+                        new Choice
+                        {
+                            Question = "As you get past the snake, you are suddenly shrunk down to 2cm tall and thrown into a blender. The timer says it will turn on in 60 seconds. In your mind you see 3 doors with choices of what to do...",
+                            Choice1 = "You could try to jump out.",
+                            Result1 = "You have clearly seen The Internship and remembered that the effects of gravity at that size would easily allow you to jump out. So that is what you do.",
+                            Choice2 = "You could lie down so the blades pass over you and hope to wait the blender out.",
+                            Result2 = "You lie down and the blades start spinning but they don't ever stop and you starve to death. Lose 10 points to be revived. If you have seen The Internship you would know that the effects of gravity at that size would easily allow you to jump out.",
+                            Choice3 = "You could take off all your clothes and try to make a grappling rope to assist you in your escape.",
+                            Result3 = "Start take all your clothes off and start tying them together but this takes too long and the blades start and cut you to pieces. Lose 10 points to be sewn back together. If you have seen The Internship you would know that the effects of gravity at that size would easily allow you to jump out.",
+                            CorrectAnswer = 1
+                        },
+                        new Choice
+                        {
+                            Question = "Now you are back to your normal size and again back to facing 3 doors...",
+                            Choice1 = "This door has a rotten flesh all over and a deep smell of Zombies.",
+                            Result1 = "You are pounced upon by a horde of Zombies, who turn you into one of them. Lose 10 points to be turned back to a human. Should have gone through the door with the cute pictures by Millicent of her Mummy with flowers.",
+                            Choice2 = "This door has weird pictures and symbols all over and the word MUMMY across the top.",
+                            Result2 = "You like the cute pictures of flowers and rainbows that Millicent drew for her Mummy. You go through and say 'Hi' to the duo who are preparing for sports day.",
+                            Choice3 = "This door is dripping in blood and a dark, eary, almost Vampire feel to it.",
+                            Result3 = "You are pounced upon by a swarm of bloodthirsty Vampires, who turn you into one of them. Lose 10 points to be turned back to a human. Should have gone through the door with the cute pictures by Millicent of her Mummy with flowers.",
+                            CorrectAnswer = 2
+                        },
+                        new Choice
+                        {
+                            Question = "It is getting cold now so you start to run to keep warm. Soon you come to a roundabout and immediately notice each exit is blocked by something. You see these as 3 metaphorical doors each guarded by a large Snow...",
+                            Choice1 = "Leopard",
+                            Result1 = "You attempt to run past but the leopard bites you and you get rabies. Lose 10 points to be healed. Should have run past that Snowman, could have grabbed the scarf and hat to stay warm.",
+                            Choice2 = "Fox",
+                            Result2 = "You attempt to run past but the fox bites you and you get rabies. Lose 10 points to be healed. Should have run past that Snowman, could have grabbed the scarf and hat to stay warm.",
+                            Choice3 = "Man",
+                            Result3 = "You run past the Snowman and seeing his nice hat and scarf, grab them to keep warm.",
+                            CorrectAnswer = 3
+                        },
+                        new Choice
+                        {
+                            Question = "You get tired of running now and arrive at 3 more doors where venomous creatures have been waiting many hours for you on their doormats. Above each one there is a large sign naming the creature...",
+                            Choice1 = "Black Mamba",
+                            Result1 = "You try to sneak past and are immediately set upon by the snake which bites you. Lose 10 points for anti-venom. Should have tried against the jellyfish. It had clearly evaporated by being out of water.",
+                            Choice2 = "Box Jellyfish",
+                            Result2 = "You notice that the jellyfish is not on the doormat, having probably evaporated by being out of water.",
+                            Choice3 = "Androctonus Scorpion",
+                            Result3 = "You try to sneak past and are immediately set upon by the scorpion which stings you. Lose 10 points for anti-venom. Should have tried against the jellyfish. It had clearly evaporated by being out of water.",
+                            CorrectAnswer = 2
+                        },
+                        new Choice
+                        {
+                            Question = "You realise you are now only a few doors away from completing the challenge so you press on. You arrive at a cocktail party where everything is too expensive. Blocking you escape are 3 people. You again see these people as 3 metaphorical doors...",
+                            Choice1 = "Donald Trump with a wig",
+                            Result1 = "You rush past Trump, but not before he is able to smother you with his wig. Lose 10 points for have to be revived. Should have walked past the dead body of Catro.",
+                            Choice2 = "David Cameron with a pigs head",
+                            Result2 = "You rush past Cameron, but he catches you and forces you to kiss the pig. You faint from the smell. Lose 10 points for have to be revived. Should have walked past the dead body of Catro.",
+                            Choice3 = "Fidel Castro with a cigar",
+                            Result3 = "You walk over Castro's body as he has been dead for a while and escape the party.",
+                            CorrectAnswer = 3
+                        },
+                        new Choice
+                        {
+                            Question = "You arrive at the penultimate set of doors and see the worst kind of wizard, a maths wizard. He tells you that behind 2 of the doors is certain death. You move towards opening door 1 but he stops you and says 'woowowow I will give you a clue'. He then tells you that door 2 is a death door and gives you the option to choose your door again.",
+                            Choice1 = "Door 1",
+                            Result1 = "Oh dear that was a foolish choice, you clearly haven't seen the film 21 or realised that there is a ⅔ probability that door 3 is the safe one and was the better option to choose. Lose 10 points to bribe Quirrel into getting some of that good Philosophers stone and bringing yourself back to life.",
+                            Choice2 = "Door 2",
+                            Result2 = "Oh dear that was a foolish choice, the maths wizard even told you that door 2 was a death door! You clearly haven't seen the film 21 or realised that there is a ⅔ probability that door 3 is the safe one and was the better option to choose. Lose 10 points to bribe Quirrel into getting some of that good Philosophers stone and bringing yourself back to life.",
+                            Choice3 = "Door 3",
+                            Result3 = "Well done. You have seen the film 21 and realised that there is a ⅔ probability that door 3 is the safe one and was the better option to choose.",
+                            CorrectAnswer = 3
+                        },
+                        new Choice
+                        {
+                            Question = "You reach the final challenge and out of the shadows a figure emerges. 'Hello, I'm Matt Ashdown' says the figure. Oh my goodness you think, how can I get away from this strange person without being rude. In your panic you can only think of 3 topics of conversation, and yes, you got it, 3 metaphorical doors appear in your mind...",
+                            Choice1 = "Money making schemes",
+                            Result1 = "'Do you know of any good money making schemes at all?' you ask. 'Oh yes, let me tell you about all of the ones I have been thinking of so far. In fact I have written them down as well, let me just get my folders and I can tell you all about then whilst you think of some right now on the spot…..'. You lose the will to live and give up your mission,forfeiting all of your points. (Just kidding!You only lose 10 points for wasting hours being lectured to about money making schemes).",
+                            Choice2 = "Collecting 50ps",
+                            Result2 = "'Did you know they are releasing a new 50p coin depicting the snowman for Christmas 2018' you ask. 'Oh really!?' Matt replies 'Thats so interesting, did you know I have been looking into 50ps a lot recently, what ones have you collected, ah don’t tell me, let me guess…..'. You lose the will to live and give up your mission, forfeiting all of your points. (Just kidding! You only lose 10 points for wasting hours being lectured to about 50ps).",
+                            Choice3 = "Football",
+                            Result3 = "'So which football team do you support?' you ask Matt. He burst into flames. Well done, you have reached the end of the labyrinth!",
+                            CorrectAnswer = 3
+                        }
+                    );
+
+                    context.SaveChanges();
+                }
             }
         }
     }
