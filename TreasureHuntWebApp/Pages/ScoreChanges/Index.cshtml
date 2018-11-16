@@ -1,0 +1,66 @@
+﻿@page
+@model TreasureHuntWebApp.Pages.ScoreChanges.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Score[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Score[0].HuntID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Score[0].QuestionID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Score[0].ScoreType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Score[0].Points)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Score[0].EntryTime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Score) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HuntID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScoreType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Points)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryTime)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

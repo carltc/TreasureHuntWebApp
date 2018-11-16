@@ -1,0 +1,58 @@
+﻿@page
+@model TreasureHuntWebApp.Pages.ScoreChanges.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Score</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Score.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Score.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Score.HuntID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Score.HuntID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Score.QuestionID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Score.QuestionID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Score.ScoreType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Score.ScoreType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Score.Points)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Score.Points)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Score.EntryTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Score.EntryTime)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Score.ID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

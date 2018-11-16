@@ -1,0 +1,55 @@
+﻿@page
+@model TreasureHuntWebApp.Pages.ScoreChanges.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Score</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Score.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Score.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Score.HuntID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Score.HuntID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Score.QuestionID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Score.QuestionID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Score.ScoreType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Score.ScoreType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Score.Points)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Score.Points)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Score.EntryTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Score.EntryTime)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Score.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
