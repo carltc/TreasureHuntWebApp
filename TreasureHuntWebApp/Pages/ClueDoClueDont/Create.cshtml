@@ -1,0 +1,49 @@
+﻿@page
+@model TreasureHuntWebApp.Pages.ClueDoClueDont.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Clue</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Clue.HuntID" class="control-label"></label>
+                <input asp-for="Clue.HuntID" class="form-control" />
+                <span asp-validation-for="Clue.HuntID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Clue.ClueType" class="control-label"></label>
+                <input asp-for="Clue.ClueType" class="form-control" />
+                <span asp-validation-for="Clue.ClueType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Clue.ClueText" class="control-label"></label>
+                <input asp-for="Clue.ClueText" class="form-control" />
+                <span asp-validation-for="Clue.ClueText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Clue.Cost" class="control-label"></label>
+                <input asp-for="Clue.Cost" class="form-control" />
+                <span asp-validation-for="Clue.Cost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

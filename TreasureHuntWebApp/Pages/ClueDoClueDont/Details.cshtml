@@ -1,0 +1,43 @@
+﻿@page
+@model TreasureHuntWebApp.Pages.ClueDoClueDont.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Clue</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Clue.HuntID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Clue.HuntID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Clue.ClueType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Clue.ClueType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Clue.ClueText)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Clue.ClueText)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Clue.Cost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Clue.Cost)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Clue.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

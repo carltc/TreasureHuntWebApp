@@ -29,5 +29,7 @@ namespace TreasureHuntWebApp.Models
         public DbSet<TreasureHuntWebApp.Models.Choice> Choice { get; set; }
 
         public DbSet<TreasureHuntWebApp.Models.Score> Score { get; set; }
+
+        public DbSet<TreasureHuntWebApp.Models.Clue> Clue { get; set; }
     }
 }
