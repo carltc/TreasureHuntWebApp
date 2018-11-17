@@ -15,6 +15,16 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script type="text/javascript">
+
+        function showHelp() {
+            $content = $("#helpSection");
+            $content.slideToggle(500, function () { });
+        }
+    </script>
+
 </head>
 <body>
     <nav class="navbar navbar navbar-fixed-top">
@@ -23,7 +33,26 @@
                 <a asp-page="/Index" class="navbar-brand" style="margin-left:0pt">
                     <img class="lemonCubeLogo" src="~/images/lemoncubeicon.svg" alt="LemonCube Logo">
                 </a>
+                <div style="margin: auto; text-align: right; vertical-align: middle;">
+                    <a href="javascript:;" onclick="showHelp(); return false;">Help</a>
+                </div>
             </div>
+        </div>
+
+        <div id="helpSection" style="display: none; text-align: center; margin: auto; width: 90%; max-width: 800px; margin-top: 30pt; background-color: white; border: solid; border-color: black; max-height: 400px; overflow-y: scroll;">
+            <p>This help section will briefly explain how LemonCube works as a website which may also help you in some of the hunts.</p>
+            <h3>URLs</h3>
+            <p>URLs are key to many of the hunts in LemonCube and therefore it is important to understand how they work. The main URL of LemonCube is:</p>
+            <p>lemoncube.azurewebsites.net</p>
+            <p>By going to this URL you will be taken to the main homepage (or 'lobby') of the site. To enter other pages on the site you have to add:</p>
+            <p>/<i>PageName</i></p>
+            <p>where <i>PageName</i> is the name of the page you are attempting to go to. If you want to go to a page within a page then you have to simply add the name of the sub-page such as:</p>
+            <p>/<i>PageName</i>/<i>SubPageName</i></p>
+            <p>where <i>SubPageName</i> is the name of the inner page you want. This process can be repeated for pages within pages within pages within pages etc.</p>
+            <p>Each hunt has a different unique codename which is used as the first page in the URL. This can be seen by going to some of the hunts and looking at the URL. Use the explanation from above to enter pages within hunts.</p>
+            <p>Finally, sometimes the final page name in the URL is followed by some more text, split by a <b>?</b> such as:</p>
+            <p>/<i>PageName</i>/<i>SubPageName</i><b>?</b>sometext=someothertext</p>
+            <p>This extra text can be diregarded as it is purely for the functionality of the site and pages.</p>
         </div>
     </nav>
 
