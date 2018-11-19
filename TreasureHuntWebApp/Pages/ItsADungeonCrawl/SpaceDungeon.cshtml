@@ -127,6 +127,7 @@
                 HttpContextAccessor.HttpContext.Session.Remove("Sword");
                 HttpContextAccessor.HttpContext.Session.Remove("Map");
                 HttpContextAccessor.HttpContext.Session.Remove("Cutter");
+                HttpContextAccessor.HttpContext.Session.SetString("Reset", "1");
             }
             else if (Model.Dungeon[0].ItemID == 1 && String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Monster" + Model.Dungeon[0].RoomID)))
             {
@@ -142,6 +143,7 @@
                 }
                 else
                 {
+                    HttpContextAccessor.HttpContext.Session.SetString("Reset", "1");
                     <td style="text-align: center;">
                         <form method="post">
                             <input type="hidden" name="door" alt="Submit" value="blank" />
@@ -171,6 +173,7 @@
                 HttpContextAccessor.HttpContext.Session.Remove("Sword");
                 HttpContextAccessor.HttpContext.Session.Remove("Map");
                 HttpContextAccessor.HttpContext.Session.Remove("Cutter");
+                HttpContextAccessor.HttpContext.Session.SetString("Reset", "1");
             }
             else
             {

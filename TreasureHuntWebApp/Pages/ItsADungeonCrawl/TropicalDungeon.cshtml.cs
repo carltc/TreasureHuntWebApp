@@ -22,8 +22,14 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
         public IList<Dungeon> Dungeon { get; set; }
         public int CurrentDungeonID { get; set; }
 
-        public async Task OnGetAsync(int? dungeonID,int? fight)
+        public IActionResult OnGet(int? dungeonID,int? fight)
         {
+            if (!String.IsNullOrEmpty(HttpContext.Session.GetString("Reset")))
+            {
+                HttpContext.Session.Remove("Reset");
+                return Redirect("./TropicalDungeon?dungeonID=2");
+            }
+
             var dungeons = from dungeon in _context.Dungeon
                            where dungeon.RoomID == dungeonID && dungeon.WorldID == 1
                            select dungeon;
@@ -48,7 +54,9 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
                 dungeons.FirstOrDefault().Storyline = "As soon as you emerge into the bay you are pounced upon by a little creature. The Korg pup was enticed out by the smell of the fish you are carrying. You see the Korg pup has a collar with a flashing light on it...";
             }
 
-            Dungeon = await dungeons.ToListAsync();
+            Dungeon = dungeons.ToList();
+
+            return Page();
         }
 
         public IActionResult OnPost(string door,int? sword, int? rod)

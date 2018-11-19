@@ -22,8 +22,14 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
         public IList<Dungeon> Dungeon { get; set; }
         public int CurrentDungeonID { get; set; }
 
-        public async Task OnGetAsync(int? dungeonID,int? fight)
+        public IActionResult OnGet(int? dungeonID,int? fight)
         {
+            if (!String.IsNullOrEmpty(HttpContext.Session.GetString("Reset")))
+            {
+                HttpContext.Session.Remove("Reset");
+                return Redirect("./TropicalDungeon?dungeonID=2");
+            }
+
             var dungeons = from dungeon in _context.Dungeon
                            where dungeon.RoomID == dungeonID && dungeon.WorldID == 2
                            select dungeon;
@@ -43,7 +49,9 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
                 dungeons.FirstOrDefault().Storyline = "On the floor lays your vanquished foe. You step over the monster towards the wooden doors, and hopefully, you think, a way out.";
             }
             
-            Dungeon = await dungeons.ToListAsync();
+            Dungeon = dungeons.ToList();
+
+            return Page();
         }
 
         public IActionResult OnPost(string door,int? sword)
