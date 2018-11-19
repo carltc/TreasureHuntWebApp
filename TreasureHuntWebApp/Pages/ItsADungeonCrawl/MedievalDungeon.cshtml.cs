@@ -27,7 +27,7 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
             if (!String.IsNullOrEmpty(HttpContext.Session.GetString("Reset")))
             {
                 HttpContext.Session.Remove("Reset");
-                return Redirect("./TropicalDungeon?dungeonID=2");
+                return Redirect("./MedievalDungeon?dungeonID=1");
             }
 
             var dungeons = from dungeon in _context.Dungeon
