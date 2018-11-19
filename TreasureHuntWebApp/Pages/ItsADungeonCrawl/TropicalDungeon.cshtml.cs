@@ -25,7 +25,7 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
         public async Task OnGetAsync(int? dungeonID,int? fight)
         {
             var dungeons = from dungeon in _context.Dungeon
-                           where dungeon.ID == dungeonID && dungeon.WorldID == 3
+                           where dungeon.ID == dungeonID && dungeon.WorldID == 1
                            select dungeon;
 
             CurrentDungeonID = dungeons.FirstOrDefault().ID;

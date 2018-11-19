@@ -171,7 +171,7 @@
                     <td style="text-align: center;">
                         @{ if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Compass")))
                             {
-                                <text><div style="font-size: 2em">N</div></text>
+                                <text><div style="font-size: 2em">@Html.DisplayFor(model => Model.Dungeon[0].NorthID)</div></text>
                             }
                         }
                         <form method="post">
@@ -185,7 +185,7 @@
                     <td style="text-align: center;">
                         @{ if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Compass")))
                             {
-                                <text><div style="font-size: 2em">E</div></text>
+                                <text><div style="font-size: 2em">@Html.DisplayFor(model => Model.Dungeon[0].EastID)</div></text>
                             }
                         }
                         <form method="post">
@@ -199,7 +199,7 @@
                     <td style="text-align: center;">
                         @{ if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Compass")))
                             {
-                                <text><div style="font-size: 2em">S</div></text>
+                                <text><div style="font-size: 2em">@Html.DisplayFor(model => Model.Dungeon[0].SouthID)</div></text>
                             }
                         }
                         <form method="post">
@@ -213,7 +213,7 @@
                     <td style="text-align: center;">
                         @{ if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Compass")))
                             {
-                                <text><div style="font-size: 2em">W</div></text>
+                                <text><div style="font-size: 2em">@Html.DisplayFor(model => Model.Dungeon[0].WestID)</div></text>
                             }
                         }
                         <form method="post">
