@@ -354,6 +354,335 @@ namespace TreasureHuntWebApp.Models
                 if (!context.Dungeon.Any())
                 {
                     Dungeon dungeon = new Dungeon();
+
+                    // Add Tropical Dungeon
+                    for (int j = 1; j <= 8; j++)
+                    {
+                        for (int i = 1; i <= 4; i++)
+                        {
+                            int id = i + ((j - 1) * 4);
+                            int northID = id + 4;
+                            int eastID = id + 1;
+                            int southID = id - 4;
+                            int westID = id - 1;
+
+                            dungeon = new Dungeon();
+                            dungeon.WorldID = 1;
+                            dungeon.Name = "Quicksand";
+                            dungeon.Storyline = "You stepped in quicksand.";
+                            dungeon.ItemID = 0;
+                            dungeon.Guidebook = "The island is fully of boggy, claggy quicksand. It sucks!";
+
+                            if (i > 1) { dungeon.WestID = westID; }
+                            if (i < 4) { dungeon.EastID = eastID; }
+                            if (j > 1) { dungeon.SouthID = southID; }
+                            if (j < 8) { dungeon.NorthID = northID; }
+
+                            if (id == 2)
+                            {
+                                dungeon.Name = "Sandy Beach";
+                                dungeon.Storyline = "As you regain consciousness, you spit out the gritty sand littering your mouth. Looking around you see an idealic beach with the waves gently lapping at the shore. A gentle breeze rustles the palm trees and draws your gaze upwards towards the mouths of 3 caves...";
+                                dungeon.Guidebook = "This sandy beach was once the site of a large beach party. The party goers would wake up, dazed and confused in the morning, remembering that their tents were located through the cave to the north.";
+                            }
+                            else if (id == 5)
+                            {
+                                dungeon.Name = "Haddock Bay";
+                                dungeon.Storyline = "Coming out of the cave mouth you see a rocky shoreline. Small pools lie close to the shore and large rocky outcrops with sheers cliffs stretch out into the sea. You can see large fish swimming around in the bay. They look tasty.";
+                                dungeon.ItemID = 4; // fish
+                                dungeon.Guidebook = "Haddock Bay was named after the plentiful supply of haddock that can be found in the bay. It was often rumoured that if you caught some fish, it could be used in various ways, such as enticing monsters and creatures.";
+                            }
+                            else if (id == 6)
+                            {
+                                dungeon.Name = "Cave Camp";
+                                dungeon.Storyline = "You walk into a large cavern, lit by smouldering campfires. It looks deserted but the glow of embers indicates that somebody was here recently. A large pile of fish bones lies to the west with a line of footprints strecthing off into a tunnel to the east. At the northern edge of the cavern lies a small dark tunnel.";
+                                dungeon.Guidebook = "Lord Emon had a dark sense of humour and designed his castle such that you had to walk through the dungeons to reach the main castle complex. This is also where he imprisoned the troll leader, King Sower.";
+                            }
+                            else if (id == 7)
+                            {
+                                dungeon.Name = "Sweenies Swamp";
+                                dungeon.Storyline = "Your nostrils are met with a damp, sweet smell. In front of you is a large pond and at the centre, lit by a single shaft of light from ceiling, is a tiny island with a single flower growing on it. You take a single step forwards and suddenly the cavern starts to rumble. The small island begins to rise from the pond, revealing, first, a gruesome face and then an equally gruesome body. The monster is covered in seaweed from head to toe and has an angry growl on it's face. It begins to move towards you and you prepare to fight...";
+                                dungeon.ItemID = 1; // monster
+                                dungeon.Guidebook = "The explorer Charles Sweenie is credited with the discovery of this swamp. It is rumoured that he was obsessed with the pond at the centre and he spent a lot of time researching and exploring it's depths. One day he disappeared and his body was never found. The water in the swamp flows in from the eastern cave tunnel and occasionally a fish swims in too.";
+                            }
+                            else if (id == 8)
+                            {
+                                dungeon.Name = "Tuna Shore";
+                                dungeon.Storyline = "Under your feet the hard cave floor turns to sand and you walk out onto a long beach. The remnants of old boat jettys stretch out into the sea and you can sea the giant fins dance about in the waves. At the northern end of the beach is a short tunnel through the cliffs to another shoreline. To the south lies a dark cave.";
+                                dungeon.ItemID = 4; // fish
+                                dungeon.Guidebook = "The fish in the sea at Tuna Shore are not actually Tuna, but instead hammerhead sharks. It was named after the tin cans found on the beach after the Royal Navy stayed here briefly during the Pirate Wars. They found out the hard way that that the southern cave was full of quicksand.";
+                            }
+                            else if (id == 10)
+                            {
+                                dungeon.Name = "Clammy Cavern";
+                                dungeon.Storyline = "Clams, clams, clams";
+                                dungeon.Guidebook = "";
+                            }
+                            else if (id == 12)
+                            {
+                                dungeon.Name = "Boring Beach";
+                                dungeon.Storyline = "";
+                                dungeon.Guidebook = "";
+                            }
+                            else if (id == 13)
+                            {
+                                dungeon.Name = "Pirate Cove";
+                                dungeon.Storyline = "";
+                                dungeon.ItemID = 3; // sowrd
+                                dungeon.Guidebook = "";
+                            }
+                            else if (id == 14)
+                            {
+                                dungeon.Name = "Stalagmite Staircase";
+                                dungeon.Storyline = "";
+                                dungeon.Guidebook = "";
+                            }
+                            else if (id == 16)
+                            {
+                                dungeon.Name = "Stoney Strand";
+                                dungeon.Storyline = "";
+                                dungeon.Guidebook = "";
+                            }
+                            else if (id == 18)
+                            {
+                                dungeon.Name = "Rock Monster";
+                                dungeon.Storyline = "";
+                                dungeon.ItemID = 1; // monster
+                                dungeon.Guidebook = "";
+                            }
+                            else if (id == 19)
+                            {
+                                dungeon.Name = "Fishermans Grave";
+                                dungeon.Storyline = "";
+                                dungeon.ItemID = 6; // fishing rod
+                                dungeon.Guidebook = "";
+                            }
+                            else if (id == 20)
+                            {
+                                dungeon.Name = "Crab Crevice";
+                                dungeon.Storyline = "";
+                                dungeon.ItemID = 1; // monster
+                                dungeon.Guidebook = "";
+                            }
+                            else if (id == 22)
+                            {
+                                dungeon.Name = "Crab King";
+                                dungeon.Storyline = "";
+                                dungeon.ItemID = 7; // big monster
+                                dungeon.Guidebook = "";
+                            }
+                            else if (id == 24)
+                            {
+                                dungeon.Name = "Cliffy Coast";
+                                dungeon.Storyline = "";
+                                dungeon.Guidebook = "";
+                            }
+                            else if (id == 26)
+                            {
+                                dungeon.Name = "Stalagtite Labyrinth";
+                                dungeon.Storyline = "";
+                                dungeon.Guidebook = "";
+                            }
+                            else if (id == 27)
+                            {
+                                dungeon.Name = "Pirate Camp";
+                                dungeon.Storyline = "";
+                                dungeon.ItemID = 2; // map
+                                dungeon.Guidebook = "";
+                            }
+                            else if (id == 28)
+                            {
+                                dungeon.Name = "Beach Castle";
+                                dungeon.Storyline = "";
+                                dungeon.Guidebook = "";
+                            }
+                            else if (id == 29)
+                            {
+                                dungeon.Name = "Boulder Bay";
+                                dungeon.Storyline = "";
+                                dungeon.ItemID = 5; // find Klorg here
+                                dungeon.Guidebook = "";
+                            }
+                            else if (id == 30)
+                            {
+                                dungeon.Name = "Pebble Beach";
+                                dungeon.Storyline = "";
+                                dungeon.Guidebook = "";
+                            }
+                            else if (id == 31)
+                            {
+                                dungeon.Name = "Sandy Sand";
+                                dungeon.Storyline = "";
+                                dungeon.Guidebook = "";
+                            }
+                            else if (id == 32)
+                            {
+                                dungeon.Name = "Penguin Point";
+                                dungeon.Storyline = "";
+                                dungeon.ItemID = 4; // fish
+                                dungeon.Guidebook = "";
+                            }
+
+                            context.Dungeon.Add(dungeon);
+                            context.SaveChanges();
+                        }
+                    }
+
+                    // Add Space Dungeon
+                    if (1==1)
+                    {
+                        //dungeon.Name = "Blackhole";
+                        //dungeon.Storyline = "You were sucked into a blackhole.";
+                        //dungeon.ItemID = 0;
+                        //dungeon.Guidebook = "After the space station explosion, many black holes opened up and cannot be removed. Luckily they all transport you back to the same singularity.";
+
+                        dungeon = new Dungeon();
+                        dungeon.WorldID = 2;
+                        dungeon.ItemID = 0;
+
+                        // Room 1
+                        dungeon.ID = 1;
+                        dungeon.Storyline = "";
+                        dungeon.ItemID = 0;
+                        dungeon.Guidebook = "";
+                        dungeon.NorthID = 15;
+                        dungeon.EastID = 12;
+                        context.Dungeon.Add(dungeon);
+
+                        // Room 2
+                        dungeon.ID = 2;
+                        dungeon.Storyline = "";
+                        dungeon.Guidebook = "";
+                        dungeon.NorthID = 14;
+                        dungeon.EastID = 16;
+                        dungeon.WestID = 12;
+                        context.Dungeon.Add(dungeon);
+
+                        // Room 3
+                        dungeon.ID = 3;
+                        dungeon.Storyline = "";
+                        dungeon.Guidebook = "";
+                        dungeon.NorthID = 10;
+                        dungeon.EastID = 9;
+                        dungeon.WestID = 16;
+                        context.Dungeon.Add(dungeon);
+
+                        // Room 4
+                        dungeon.ID = 4;
+                        dungeon.Storyline = "";
+                        dungeon.Guidebook = "";
+                        dungeon.NorthID = 5;
+                        dungeon.WestID = 9;
+                        context.Dungeon.Add(dungeon);
+
+                        // Room 5
+                        dungeon.ID = 5;
+                        dungeon.Storyline = "";
+                        dungeon.Guidebook = "";
+                        dungeon.NorthID = 3;
+                        dungeon.EastID = 15;
+                        dungeon.SouthID = 15;
+                        context.Dungeon.Add(dungeon);
+
+                        // Room 6
+                        dungeon.ID = 6;
+                        dungeon.Storyline = "";
+                        dungeon.Guidebook = "";
+                        dungeon.NorthID = 14;
+                        dungeon.EastID = 5;
+                        dungeon.SouthID = 14;
+                        dungeon.WestID = 15;
+                        context.Dungeon.Add(dungeon);
+
+                        // Room 7
+                        dungeon.ID = 7;
+                        dungeon.Storyline = "";
+                        dungeon.Guidebook = "";
+                        dungeon.NorthID = 12;
+                        dungeon.EastID = 9;
+                        dungeon.SouthID = 10;
+                        dungeon.WestID = 5;
+                        context.Dungeon.Add(dungeon);
+
+                        // Room 8
+                        dungeon.ID = 8;
+                        dungeon.Storyline = "";
+                        dungeon.Guidebook = "";
+                        dungeon.NorthID = 16;
+                        dungeon.SouthID = 5;
+                        dungeon.WestID = 9;
+                        context.Dungeon.Add(dungeon);
+
+                        // Room 9
+                        dungeon.ID = 9;
+                        dungeon.Storyline = "";
+                        dungeon.Guidebook = "";
+                        dungeon.NorthID = 6;
+                        dungeon.EastID = 8;
+                        dungeon.SouthID = 3;
+                        context.Dungeon.Add(dungeon);
+
+                        // Room 10
+                        dungeon.ID = 11;
+                        dungeon.Storyline = "";
+                        dungeon.Guidebook = "";
+                        dungeon.NorthID = 6;
+                        dungeon.EastID = 11;
+                        dungeon.SouthID = 14;
+                        dungeon.WestID = 8;
+                        context.Dungeon.Add(dungeon);
+
+                        // Room 11
+                        dungeon.ID = 11;
+                        dungeon.Storyline = "";
+                        dungeon.Guidebook = "";
+                        context.Dungeon.Add(dungeon);
+
+                        // Room 12
+                        dungeon.ID = 12;
+                        dungeon.Storyline = "";
+                        dungeon.Guidebook = "";
+                        dungeon.NorthID = 13;
+                        dungeon.SouthID = 16;
+                        dungeon.WestID = 1;
+                        context.Dungeon.Add(dungeon);
+
+                        // Room 13
+                        dungeon.ID = 13;
+                        dungeon.Storyline = "";
+                        dungeon.Guidebook = "";
+                        dungeon.EastID = 7;
+                        dungeon.SouthID = 6;
+                        context.Dungeon.Add(dungeon);
+
+                        // Room 14
+                        dungeon.ID = 14;
+                        dungeon.Storyline = "";
+                        dungeon.Guidebook = "";
+                        dungeon.EastID = 2;
+                        dungeon.SouthID = 6;
+                        dungeon.WestID = 7;
+                        context.Dungeon.Add(dungeon);
+
+                        // Room 15
+                        dungeon.ID = 15;
+                        dungeon.Storyline = "";
+                        dungeon.Guidebook = "";
+                        dungeon.EastID = 4;
+                        dungeon.SouthID = 1;
+                        dungeon.WestID = 2;
+                        context.Dungeon.Add(dungeon);
+
+                        // Room 16
+                        dungeon.ID = 16;
+                        dungeon.Storyline = "";
+                        dungeon.Guidebook = "";
+                        dungeon.SouthID = 13;
+                        dungeon.WestID = 4;
+                        context.Dungeon.Add(dungeon);
+
+                        context.SaveChanges();
+                    }
+
                     // Add Medieval Dungeon
                     for (int j = 1; j <= 6; j++)
                     {
