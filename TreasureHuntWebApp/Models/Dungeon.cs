@@ -9,6 +9,8 @@ namespace TreasureHuntWebApp.Models
     {
         public int ID { get; set; }
 
+        public int RoomID { get; set; }
+
         public int WorldID { get; set; }
 
         public string Name { get; set; }

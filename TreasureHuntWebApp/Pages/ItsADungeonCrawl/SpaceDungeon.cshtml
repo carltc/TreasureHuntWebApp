@@ -89,14 +89,14 @@
 }
 <br />
 @{
-    if (Model.Dungeon[0].ID == 23)
+    if (Model.Dungeon[0].RoomID == 23)
     {
         <div style="text-align: center; margin: auto;">
             <img class="bit8Image" style="width: 40%; padding: 5pt;" src="~/DungeonGraphics/klorg-8bit.png" />
         </div>
     }
     else
-    if (Model.Dungeon[0].ID == 35)
+    if (Model.Dungeon[0].RoomID == 35)
     {
         <div style="text-align: center; margin: auto;">
             <img class="bit8Image" style="width: 40%; padding: 5pt;" src="~/DungeonGraphics/skeleton.jpg" />
@@ -121,7 +121,7 @@
                 HttpContextAccessor.HttpContext.Session.Remove("Sword");
                 HttpContextAccessor.HttpContext.Session.Remove("Map");
             }
-            else if (Model.Dungeon[0].ItemID == 1 && String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Monster" + Model.Dungeon[0].ID)))
+            else if (Model.Dungeon[0].ItemID == 1 && String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Monster" + Model.Dungeon[0].RoomID)))
             {
                 if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Sword")))
                 {
@@ -129,7 +129,7 @@
                         <form method="post">
                             <input type="hidden" name="door" alt="Submit" value="blank" />
                             <input type="hidden" name="sword" alt="Submit" value="1" />
-                            <input type="image" src="~/DungeonGraphics/sword.jpg" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].ID)">
+                            <input type="image" src="~/DungeonGraphics/sword.jpg" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].RoomID)">
                         </form>
                     </td>
                 }
@@ -143,7 +143,7 @@
                     </td>
                 }
             }
-            else if (Model.Dungeon[0].ID == 23)
+            else if (Model.Dungeon[0].RoomID == 23)
             {
                 <td style="text-align: center;">
                     <form method="post">
@@ -152,7 +152,7 @@
                     </form>
                 </td>
             }
-            else if (Model.Dungeon[0].ID == 37)
+            else if (Model.Dungeon[0].RoomID == 37)
             {
                 <td style="text-align: center;">
                     <form method="post">

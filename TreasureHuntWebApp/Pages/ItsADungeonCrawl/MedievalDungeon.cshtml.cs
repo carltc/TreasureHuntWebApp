@@ -25,12 +25,12 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
         public async Task OnGetAsync(int? dungeonID,int? fight)
         {
             var dungeons = from dungeon in _context.Dungeon
-                           where dungeon.ID == dungeonID && dungeon.WorldID == 3
+                           where dungeon.RoomID == dungeonID && dungeon.WorldID == 3
                            select dungeon;
 
-            CurrentDungeonID = dungeons.FirstOrDefault().ID;
+            CurrentDungeonID = dungeons.FirstOrDefault().RoomID;
 
-            if (!String.IsNullOrEmpty(HttpContext.Session.GetString("Monster" + dungeons.FirstOrDefault().ID.ToString())))
+            if (!String.IsNullOrEmpty(HttpContext.Session.GetString("Monster" + dungeons.FirstOrDefault().RoomID.ToString())))
             {
                 dungeons.FirstOrDefault().ItemID = 0;
                 dungeons.FirstOrDefault().Storyline = "A slain monster lies on the cold floor, oozing bile and monster juices. You remember slaying this not long ago as you passed through.";
@@ -38,7 +38,7 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
 
             if (fight == 1) // Resolve successful fight
             {
-                HttpContext.Session.SetString("Monster" + dungeons.FirstOrDefault().ID.ToString(),"Slain");
+                HttpContext.Session.SetString("Monster" + dungeons.FirstOrDefault().RoomID.ToString(),"Slain");
                 dungeons.FirstOrDefault().ItemID = 0;
                 dungeons.FirstOrDefault().Storyline = "On the floor lays your vanquished foe. You step over the monster towards the wooden doors, and hopefully, you think, a way out.";
             }
