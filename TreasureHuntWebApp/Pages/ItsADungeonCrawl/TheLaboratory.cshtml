@@ -24,7 +24,7 @@
             <p>By the looks of things they escaped through my IM-Portals. </p>
             <p>I'll deal with that later. Let me grab the points for you from the safe.</p>
             <form method="post">
-                <input type="submit" name="button" value="Check out the IM-Portals" />
+                <input type="submit" name="button" value="Go to the IM-Portals" />
             </form>
         </div>
     }
@@ -36,17 +36,49 @@
             <p>You managed to find your way back and you brought our young friend Rango back too.</p>
             <p>Seeing as you handled yourself well in there I couldn't ask you to go through the other portals too and help bring back Limo and Grappy?</p>
             <form method="post">
-                <input type="submit" name="button" value="Check out the IM-Portals" />
+                <input type="submit" name="button" value="Go to the IM-Portals" />
             </form>
         </div>
     }
     else if (klorg1 + klorg2 + klorg3 == 2)
     {
-
+        <div style="margin:auto; text-align: center; width: 80%;">
+            <h2>Excellent!</h2>
+            <img class="bit8Image" style="max-width: 100px; width: 40%" src="~/DungeonGraphics/LeeMonquebe-8bit.png" />
+            <p>That's 2 pups back in their cages. Only 1 left. Are you able to go get that one too?</p>
+            <form method="post">
+                <input type="submit" name="button" value="Go to the IM-Portals" />
+            </form>
+        </div>
     }
     else if (klorg1 + klorg2 + klorg3 >= 3)
     {
+        if (Model.Winner != null && Model.Winner.Count >= 1)
+        {
+            <h2 align="center">Congratulations @Html.DisplayFor(modelItem => Model.Winner[0].Name)</h2>
 
+            <p align="center">
+                Your points have been added to the scoreboard.
+            </p>
+            <div style="height:5pt"></div>
+            <form action="/Index">
+                <input type="submit" value="Go Home" class="form-control askInput" />
+            </form>
+        }
+        else
+        {
+            <div style="margin:auto; text-align: center; width: 80%;">
+                <h2>That's it!</h2>
+                <img class="bit8Image" style="max-width: 100px; width: 40%" src="~/DungeonGraphics/LeeMonquebe-8bit.png" />
+                <p>All the Korg pups are home and no one got harmed. I hope the adventures weren't too difficult.</p>
+                <p>Now as promised I'll get you some points. Forgive me, but what was your name:</p>
+                <form method="post">
+                    <input type="text" class="form-control askInput" name="winnerName" placeholder="Name..." maxlength="30">
+                    <div style="height:5pt"></div>
+                    <input type="submit" name="button" value="Enter" />
+                </form>
+            </div>
+        }
     }
 }
 
