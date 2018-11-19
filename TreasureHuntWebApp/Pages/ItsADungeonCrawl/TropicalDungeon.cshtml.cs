@@ -43,10 +43,15 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
                 dungeons.FirstOrDefault().Storyline = "On the ground lays your vanquished foe. You step over the monster towards some caves, and hopefully, you think, a way out.";
             }
             
+            if (dungeonID == 29 && !String.IsNullOrEmpty(HttpContext.Session.GetString("Fish"))) // Entice Korg out with fish
+            {
+                dungeons.FirstOrDefault().Storyline = "As soon as you emerge into the bay you are pounced upon by a little creature. The Korg pup was enticed out by the smell of the fish you are carrying. You see the Korg pup has a collar with a flashing light on it...";
+            }
+
             Dungeon = await dungeons.ToListAsync();
         }
 
-        public IActionResult OnPost(string door,int? sword)
+        public IActionResult OnPost(string door,int? sword, int? rod)
         {
             if (!String.IsNullOrEmpty(door))
             {
@@ -66,6 +71,14 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
                 else if (door == "13") // Sword room
                 {
                     HttpContext.Session.SetString("Sword", "Yes");
+                }
+                else if (door == "19") // Rod room
+                {
+                    HttpContext.Session.SetString("Rod", "Yes");
+                }
+                else if (rod.HasValue) // Fishing catch
+                {
+                    HttpContext.Session.SetString("Fish", "Yes");
                 }
                 return Redirect("./TropicalDungeon?dungeonID=" + door.ToString());
             }

@@ -314,7 +314,7 @@ html, body, body-content {
 }
 
 .portalImage {
-    height: 150px;
+    height: 100px;
     margin: auto;
 }
 
@@ -461,7 +461,7 @@ html, body, body-content {
     }
 
     .portalImage {
-        height: 100px;
+        height: 70px;
         margin: auto;
     }
 
@@ -532,7 +532,7 @@ html, body, body-content {
     }
 
     .portalImage {
-        height: 50px;
+        height: 30px;
         margin: auto;
     }
 

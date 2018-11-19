@@ -38,13 +38,19 @@
             if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Guidebook")))
             {
                 <td>
-                    <img id="guidebookLogo" class="bit8Image" style="max-width: 100px; height: 100%; padding: 5pt;" src="~/DungeonGraphics/guidebook.jpg" />
+                    <img id="guidebookLogo" class="bit8Image" style="max-width: 100px; height: 100%;" src="~/DungeonGraphics/guidebook.jpg" />
                 </td>
             }
             if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Map")))
             {
                 <td>
-                    <img id="mapLogo" class="bit8Image flipH" style="max-width: 100px; height: 100%; padding: 5pt;" src="~/DungeonGraphics/map.png" />
+                    <img id="mapLogo" class="bit8Image flipH" style="max-width: 100px; height: 100%;" src="~/DungeonGraphics/map.png" />
+                </td>
+            }
+            if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Fish")))
+            {
+                <td>
+                    <img id="mapLogo" class="bit8Image" style="max-width: 100px; height: 100%;" src="~/DungeonGraphics/fish.png" />
                 </td>
             }
         }
@@ -61,13 +67,19 @@
             if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Sword")))
             {
                 <td>
-                    <img class="bit8Image" style="max-width: 100px; height: 100%; padding: 5pt;" src="~/DungeonGraphics/sword.jpg" />
+                    <img class="bit8Image" style="max-width: 100px; height: 100%;" src="~/DungeonGraphics/sword.jpg" />
                 </td>
             }
             if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Compass")))
             {
                 <td>
-                    <img class="bit8Image" style="max-width: 100px; height: 100%; padding: 5pt;" src="~/DungeonGraphics/compass.png" />
+                    <img class="bit8Image" style="max-width: 100px; height: 100%;" src="~/DungeonGraphics/compass.png" />
+                </td>
+            }
+            if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Rod")))
+            {
+                <td>
+                    <img class="bit8Image" style="max-width: 100px; height: 100%;" src="~/DungeonGraphics/fishingRod.png" />
                 </td>
             }
         }
@@ -89,17 +101,21 @@
 }
 <br />
 @{
-    if (Model.Dungeon[0].RoomID == 29)
+    if (Model.Dungeon[0].RoomID == 29 && !String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Fish")))
     {
         <div style="text-align: center; margin: auto;">
             <img class="bit8Image" style="width: 40%; padding: 5pt;" src="~/DungeonGraphics/klorg-8bit.png" />
         </div>
     }
     else
-    if (Model.Dungeon[0].RoomID == 19)
+    if (new List<int> { 5, 8, 32 }.IndexOf(Model.Dungeon[0].RoomID) != -1 && !String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Rod")))
     {
         <div style="text-align: center; margin: auto;">
-            <img class="bit8Image" style="width: 40%; padding: 5pt;" src="~/DungeonGraphics/skeleton.jpg" />
+            <form method="post">
+                <input type="hidden" name="door" alt="Submit" value="blank" />
+                <input type="hidden" name="rod" alt="Submit" value="1" />
+                <input type="image" src="~/DungeonGraphics/fishingRod.png" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].RoomID)">
+            </form>
         </div>
     }
 }
@@ -120,6 +136,7 @@
                 </td>
                 HttpContextAccessor.HttpContext.Session.Remove("Sword");
                 HttpContextAccessor.HttpContext.Session.Remove("Map");
+                HttpContextAccessor.HttpContext.Session.Remove("Rod");
             }
             else if (Model.Dungeon[0].ItemID == 1 && String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Monster" + Model.Dungeon[0].RoomID)))
             {
@@ -143,7 +160,7 @@
                     </td>
                 }
             }
-            else if (Model.Dungeon[0].RoomID == 29)
+            else if (Model.Dungeon[0].RoomID == 29 && !String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Fish")))
             {
                 <td style="text-align: center;">
                     <form method="post">
@@ -152,7 +169,7 @@
                     </form>
                 </td>
             }
-            else if (Model.Dungeon[0].RoomID == 0)
+            else if (Model.Dungeon[0].RoomID == 37)
             {
                 <td style="text-align: center;">
                     <form method="post">
@@ -163,6 +180,7 @@
                 </td>
                 HttpContextAccessor.HttpContext.Session.Remove("Sword");
                 HttpContextAccessor.HttpContext.Session.Remove("Map");
+                HttpContextAccessor.HttpContext.Session.Remove("Rod");
             }
             else
             {

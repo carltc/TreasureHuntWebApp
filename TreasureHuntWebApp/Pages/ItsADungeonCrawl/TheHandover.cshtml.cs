@@ -63,7 +63,7 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
 
             if (portNum == 1)
             {
-                return Redirect("./TropicalDungeon?dungeonID=1");
+                return Redirect("./TropicalDungeon?dungeonID=2");
             }
             else if (portNum == 2)
             {
