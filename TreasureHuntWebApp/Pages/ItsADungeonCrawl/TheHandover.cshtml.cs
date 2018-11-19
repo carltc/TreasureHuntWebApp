@@ -19,7 +19,7 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
             {
                 if (portal == "importal1")
                 {
-                    return Redirect("./TropicalDungeon?dungeonID=1");
+                    return Redirect("./TropicalDungeon?dungeonID=2");
                 }
                 else if (portal == "importal2")
                 {

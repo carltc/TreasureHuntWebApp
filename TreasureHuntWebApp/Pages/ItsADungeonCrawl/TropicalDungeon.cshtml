@@ -89,14 +89,14 @@
 }
 <br />
 @{
-    if (Model.Dungeon[0].RoomID == 23)
+    if (Model.Dungeon[0].RoomID == 29)
     {
         <div style="text-align: center; margin: auto;">
             <img class="bit8Image" style="width: 40%; padding: 5pt;" src="~/DungeonGraphics/klorg-8bit.png" />
         </div>
     }
     else
-    if (Model.Dungeon[0].RoomID == 35)
+    if (Model.Dungeon[0].RoomID == 19)
     {
         <div style="text-align: center; margin: auto;">
             <img class="bit8Image" style="width: 40%; padding: 5pt;" src="~/DungeonGraphics/skeleton.jpg" />
@@ -110,12 +110,12 @@
 <table style="width: 100%;">
     <tr style="max-width: 500px;">
         @{
-            if (Model.Dungeon[0].Name == "Pit")
+            if (Model.Dungeon[0].Name == "Quicksand")
             {
                 <td style="text-align: center;">
                     <form method="post">
                         <input type="hidden" name="door" alt="Submit" value="blank" />
-                        <input type="image" src="~/DungeonGraphics/quicksand.jpg" alt="Submit" class="door portalImage bit8Image" value="1">
+                        <input type="image" src="~/DungeonGraphics/quicksand.jpg" alt="Submit" class="door portalImage bit8Image" value="2">
                     </form>
                 </td>
                 HttpContextAccessor.HttpContext.Session.Remove("Sword");
@@ -143,7 +143,7 @@
                     </td>
                 }
             }
-            else if (Model.Dungeon[0].RoomID == 23)
+            else if (Model.Dungeon[0].RoomID == 29)
             {
                 <td style="text-align: center;">
                     <form method="post">
@@ -152,12 +152,12 @@
                     </form>
                 </td>
             }
-            else if (Model.Dungeon[0].RoomID == 37)
+            else if (Model.Dungeon[0].RoomID == 0)
             {
                 <td style="text-align: center;">
                     <form method="post">
                         <input type="hidden" name="door" alt="Submit" value="blank" />
-                        <input type="image" src="~/DungeonGraphics/knockedOut.jpg" alt="Submit" class="door portalImage bit8Image" value="1">
+                        <input type="image" src="~/DungeonGraphics/knockedOut.jpg" alt="Submit" class="door portalImage bit8Image" value="2">
                         <p>(Maybe a weapon could help you fight a way past this monster)</p>
                     </form>
                 </td>

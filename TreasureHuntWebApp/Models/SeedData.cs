@@ -531,7 +531,7 @@ namespace TreasureHuntWebApp.Models
                         }
 
                         dungeon = new Dungeon();
-                        dungeon.RoomID = 0;
+                        dungeon.RoomID = 37;
                         dungeon.WorldID = 1;
                         dungeon.Name = "Defeat";
                         dungeon.Storyline = "The monster defeated you. You are knocked unconscious and carried away.";
@@ -544,11 +544,6 @@ namespace TreasureHuntWebApp.Models
                     // Add Space Dungeon
                     if (1==1)
                     {
-                        //dungeon.Name = "Blackhole";
-                        //dungeon.Storyline = "You were sucked into a blackhole.";
-                        //dungeon.ItemID = 0;
-                        //dungeon.Guidebook = "After the space station explosion, many black holes opened up and cannot be removed. Luckily they all transport you back to the same singularity.";
-
                         dungeon = new Dungeon();
                         dungeon.WorldID = 2;
                         dungeon.ItemID = 0;
@@ -598,9 +593,10 @@ namespace TreasureHuntWebApp.Models
                                 WorldID = 2,
                                 RoomID = 5,
                                 Storyline = "",
+                                ItemID = 2, // map
                                 Guidebook = "",
                                 NorthID = 3,
-                                EastID = 15,
+                                EastID = 38,
                                 SouthID = 15
                             },
                             new Dungeon
@@ -608,10 +604,11 @@ namespace TreasureHuntWebApp.Models
                                 WorldID = 2,
                                 RoomID = 6,
                                 Storyline = "",
+                                ItemID = 8, // cutter
                                 Guidebook = "",
                                 NorthID = 14,
                                 EastID = 5,
-                                SouthID = 14,
+                                SouthID = 38,
                                 WestID = 15
                             },
                             new Dungeon
@@ -640,6 +637,7 @@ namespace TreasureHuntWebApp.Models
                                 WorldID = 2,
                                 RoomID = 9,
                                 Storyline = "",
+                                ItemID = 3, // sword
                                 Guidebook = "",
                                 NorthID = 6,
                                 EastID = 8,
@@ -650,6 +648,7 @@ namespace TreasureHuntWebApp.Models
                                 WorldID = 2,
                                 RoomID = 10,
                                 Storyline = "",
+                                ItemID = 1, // monster
                                 Guidebook = "",
                                 NorthID = 6,
                                 EastID = 11,
@@ -669,7 +668,7 @@ namespace TreasureHuntWebApp.Models
                                 RoomID = 12,
                                 Storyline = "",
                                 Guidebook = "",
-                                NorthID = 13,
+                                NorthID = 38,
                                 SouthID = 16,
                                 WestID = 1
                             },
@@ -690,7 +689,7 @@ namespace TreasureHuntWebApp.Models
                                 Guidebook = "",
                                 EastID = 2,
                                 SouthID = 6,
-                                WestID = 7
+                                WestID = 38
                             },
                             new Dungeon
                             {
@@ -698,7 +697,7 @@ namespace TreasureHuntWebApp.Models
                                 RoomID = 15,
                                 Storyline = "",
                                 Guidebook = "",
-                                EastID = 4,
+                                EastID = 38,
                                 SouthID = 1,
                                 WestID = 2
                             },
@@ -714,7 +713,7 @@ namespace TreasureHuntWebApp.Models
                         );
                         
                         dungeon = new Dungeon();
-                        dungeon.RoomID = 0;
+                        dungeon.RoomID = 37;
                         dungeon.WorldID = 2;
                         dungeon.Name = "Defeat";
                         dungeon.Storyline = "The monster defeated you. You are knocked unconscious and carried away.";
@@ -722,6 +721,18 @@ namespace TreasureHuntWebApp.Models
                         dungeon.NorthID = 1;
                         context.Dungeon.Add(dungeon);
                         context.SaveChanges();
+
+                        dungeon = new Dungeon();
+                        dungeon.RoomID = 38;
+                        dungeon.WorldID = 2;
+                        dungeon.Name = "Blackhole";
+                        dungeon.Storyline = "You were sucked into a blackhole.";
+                        dungeon.ItemID = 0;
+                        dungeon.Guidebook = "After the space station explosion, many black holes opened up and cannot be removed. Luckily they all transport you back to the same singularity.";
+                        dungeon.NorthID = 1;
+                        context.Dungeon.Add(dungeon);
+                        context.SaveChanges();
+
                     }
 
                     // Add Medieval Dungeon
@@ -907,7 +918,7 @@ namespace TreasureHuntWebApp.Models
                         }
 
                         dungeon = new Dungeon();
-                        dungeon.RoomID = 0;
+                        dungeon.RoomID = 37;
                         dungeon.WorldID = 3;
                         dungeon.Name = "Defeat";
                         dungeon.Storyline = "The monster defeated you. You are knocked unconscious and carried away.";

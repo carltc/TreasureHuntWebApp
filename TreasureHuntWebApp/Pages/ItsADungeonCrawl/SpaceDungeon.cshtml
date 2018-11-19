@@ -38,13 +38,13 @@
             if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Guidebook")))
             {
                 <td>
-                    <img id="guidebookLogo" class="bit8Image" style="max-width: 100px; height: 100%; padding: 5pt;" src="~/DungeonGraphics/guidebook.jpg" />
+                    <img id="guidebookLogo" class="bit8Image" style="max-width: 100px; height: 100%;" src="~/DungeonGraphics/guidebook.jpg" />
                 </td>
             }
             if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Map")))
             {
                 <td>
-                    <img id="mapLogo" class="bit8Image flipH" style="max-width: 100px; height: 100%; padding: 5pt;" src="~/DungeonGraphics/map.png" />
+                    <img id="mapLogo" class="bit8Image flipH" style="max-width: 100px; height: 100%;" src="~/DungeonGraphics/map.png" />
                 </td>
             }
         }
@@ -61,13 +61,19 @@
             if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Sword")))
             {
                 <td>
-                    <img class="bit8Image" style="max-width: 100px; height: 100%; padding: 5pt;" src="~/DungeonGraphics/sword.jpg" />
+                    <img class="bit8Image" style="max-width: 100px; height: 100%;" src="~/DungeonGraphics/spaceGun.png" />
                 </td>
             }
             if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Compass")))
             {
                 <td>
-                    <img class="bit8Image" style="max-width: 100px; height: 100%; padding: 5pt;" src="~/DungeonGraphics/compass.png" />
+                    <img class="bit8Image" style="max-width: 100px; height: 100%;" src="~/DungeonGraphics/compass.png" />
+                </td>
+            }
+            if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Cutter")))
+            {
+                <td>
+                    <img class="bit8Image" style="max-width: 100px; height: 100%;" src="~/DungeonGraphics/cutter.png" />
                 </td>
             }
         }
@@ -89,7 +95,7 @@
 }
 <br />
 @{
-    if (Model.Dungeon[0].RoomID == 23)
+    if (Model.Dungeon[0].RoomID == 11)
     {
         <div style="text-align: center; margin: auto;">
             <img class="bit8Image" style="width: 40%; padding: 5pt;" src="~/DungeonGraphics/klorg-8bit.png" />
@@ -110,7 +116,7 @@
 <table style="width: 100%;">
     <tr style="max-width: 500px;">
         @{
-            if (Model.Dungeon[0].Name == "Pit")
+            if (Model.Dungeon[0].RoomID == 38)
             {
                 <td style="text-align: center;">
                     <form method="post">
@@ -120,6 +126,7 @@
                 </td>
                 HttpContextAccessor.HttpContext.Session.Remove("Sword");
                 HttpContextAccessor.HttpContext.Session.Remove("Map");
+                HttpContextAccessor.HttpContext.Session.Remove("Cutter");
             }
             else if (Model.Dungeon[0].ItemID == 1 && String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Monster" + Model.Dungeon[0].RoomID)))
             {
@@ -129,7 +136,7 @@
                         <form method="post">
                             <input type="hidden" name="door" alt="Submit" value="blank" />
                             <input type="hidden" name="sword" alt="Submit" value="1" />
-                            <input type="image" src="~/DungeonGraphics/sword.jpg" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].RoomID)">
+                            <input type="image" src="~/DungeonGraphics/spaceGun.png" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].RoomID)">
                         </form>
                     </td>
                 }
@@ -143,7 +150,7 @@
                     </td>
                 }
             }
-            else if (Model.Dungeon[0].RoomID == 23)
+            else if (Model.Dungeon[0].RoomID == 11)
             {
                 <td style="text-align: center;">
                     <form method="post">
@@ -163,20 +170,47 @@
                 </td>
                 HttpContextAccessor.HttpContext.Session.Remove("Sword");
                 HttpContextAccessor.HttpContext.Session.Remove("Map");
+                HttpContextAccessor.HttpContext.Session.Remove("Cutter");
             }
             else
             {
                 if (Model.Dungeon[0].NorthID != 0)
                 {
                     <td style="text-align: center;">
-                        @{ if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Compass")))
+                        @{ 
+                            if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Compass")))
                             {
-                                <text><div style="font-size: 2em">@Html.DisplayFor(model => Model.Dungeon[0].NorthID)</div></text>
+                                if (Model.Dungeon[0].NorthID > 36 || Model.Dungeon[0].NorthID < 0)
+                                {
+                                    Random rnd = new Random();
+                                    int newID = rnd.Next(1, 16);
+                                    <text><div style="font-size: 2em">@Html.DisplayFor(model => newID)</div></text>
+                                }
+                                else
+                                {
+                                    <text><div style="font-size: 2em">@Html.DisplayFor(model => Model.Dungeon[0].NorthID)</div></text>
+                                }
                             }
                         }
                         <form method="post">
                             <input type="hidden" name="door" alt="Submit" value="blank" />
-                            <input type="image" src="~/DungeonGraphics/spacePortal.jpg" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].NorthID)">
+                            @{ 
+                                if (Model.Dungeon[0].RoomID == 3 || Model.Dungeon[0].RoomID == 4)
+                                {
+                                    if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Cutter")))
+                                    {
+                                    <input type="image" src="~/DungeonGraphics/spacePortal-slime.jpg" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].NorthID)">
+                                    }
+                                    else
+                                    {
+                                    <img class="door portalImage bit8Image" src="~/DungeonGraphics/spacePortal-slime.jpg" />
+                                    }
+                                }
+                                else
+                                {
+                                    <input type="image" src="~/DungeonGraphics/spacePortal.jpg" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].NorthID)">
+                                }
+                            }
                         </form>
                     </td>
                 }
@@ -185,7 +219,16 @@
                     <td style="text-align: center;">
                         @{ if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Compass")))
                             {
-                                <text><div style="font-size: 2em">@Html.DisplayFor(model => Model.Dungeon[0].EastID)</div></text>
+                                if (Model.Dungeon[0].EastID > 36 || Model.Dungeon[0].EastID < 0)
+                                {
+                                    Random rnd = new Random();
+                                    int newID = rnd.Next(1, 16);
+                                    <text><div style="font-size: 2em">@Html.DisplayFor(model => newID)</div></text>
+                                }
+                                else
+                                {
+                                    <text><div style="font-size: 2em">@Html.DisplayFor(model => Model.Dungeon[0].EastID)</div></text>
+                                }
                             }
                         }
                         <form method="post">
@@ -199,12 +242,37 @@
                     <td style="text-align: center;">
                         @{ if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Compass")))
                             {
-                                <text><div style="font-size: 2em">@Html.DisplayFor(model => Model.Dungeon[0].SouthID)</div></text>
+                                if (Model.Dungeon[0].SouthID > 36 || Model.Dungeon[0].SouthID < 0)
+                                {
+                                    Random rnd = new Random();
+                                    int newID = rnd.Next(1, 16);
+                                    <text><div style="font-size: 2em">@Html.DisplayFor(model => newID)</div></text>
+                                }
+                                else
+                                {
+                                    <text><div style="font-size: 2em">@Html.DisplayFor(model => Model.Dungeon[0].SouthID)</div></text>
+                                }
                             }
                         }
                         <form method="post">
                             <input type="hidden" name="door" alt="Submit" value="blank" />
-                            <input type="image" src="~/DungeonGraphics/spacePortal.jpg" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].SouthID)">
+                            @{ 
+                                if (Model.Dungeon[0].RoomID == 7)
+                                {
+                                    if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Cutter")))
+                                    {
+                                    <input type="image" src="~/DungeonGraphics/spacePortal-slime.jpg" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].SouthID)">
+                                    }
+                                    else
+                                    {
+                                    <img class="door portalImage bit8Image" src="~/DungeonGraphics/spacePortal-slime.jpg" />
+                                    }
+                                }
+                                else
+                                {
+                                    <input type="image" src="~/DungeonGraphics/spacePortal.jpg" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].SouthID)">
+                                }
+                            }
                         </form>
                     </td>
                 }
@@ -213,12 +281,37 @@
                     <td style="text-align: center;">
                         @{ if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Compass")))
                             {
-                                <text><div style="font-size: 2em">@Html.DisplayFor(model => Model.Dungeon[0].WestID)</div></text>
+                                if (Model.Dungeon[0].WestID > 36 || Model.Dungeon[0].WestID < 0)
+                                {
+                                    Random rnd = new Random();
+                                    int newID = rnd.Next(1, 16);
+                                    <text><div style="font-size: 2em">@Html.DisplayFor(model => newID)</div></text>
+                                }
+                                else
+                                {
+                                    <text><div style="font-size: 2em">@Html.DisplayFor(model => Model.Dungeon[0].WestID)</div></text>
+                                }
                             }
                         }
                         <form method="post">
                             <input type="hidden" name="door" alt="Submit" value="blank" />
-                            <input type="image" src="~/DungeonGraphics/spacePortal.jpg" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].WestID)">
+                            @{ 
+                                if (Model.Dungeon[0].RoomID == 16)
+                                {
+                                    if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Cutter")))
+                                    {
+                                    <input type="image" src="~/DungeonGraphics/spacePortal-slime.jpg" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].WestID)">
+                                    }
+                                    else
+                                    {
+                                    <img class="door portalImage bit8Image" src="~/DungeonGraphics/spacePortal-slime.jpg" />
+                                    }
+                                }
+                                else
+                                {
+                                    <input type="image" src="~/DungeonGraphics/spacePortal.jpg" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].WestID)">
+                                }
+                            }
                         </form>
                     </td>
                 }

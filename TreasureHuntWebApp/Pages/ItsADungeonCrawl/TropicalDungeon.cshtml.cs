@@ -40,7 +40,7 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
             {
                 HttpContext.Session.SetString("Monster" + dungeons.FirstOrDefault().RoomID.ToString(),"Slain");
                 dungeons.FirstOrDefault().ItemID = 0;
-                dungeons.FirstOrDefault().Storyline = "On the floor lays your vanquished foe. You step over the monster towards the wooden doors, and hopefully, you think, a way out.";
+                dungeons.FirstOrDefault().Storyline = "On the ground lays your vanquished foe. You step over the monster towards some caves, and hopefully, you think, a way out.";
             }
             
             Dungeon = await dungeons.ToListAsync();
@@ -59,11 +59,11 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
                     HttpContext.Session.SetString("Klorg1", "1");
                     return RedirectToPage("./TheLaboratory");
                 }
-                else if (door == "31") // Map room
+                else if (door == "27") // Map room
                 {
                     HttpContext.Session.SetString("Map", "Yes");
                 }
-                else if (door == "33") // Sword room
+                else if (door == "13") // Sword room
                 {
                     HttpContext.Session.SetString("Sword", "Yes");
                 }

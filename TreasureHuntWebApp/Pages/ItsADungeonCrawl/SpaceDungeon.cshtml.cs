@@ -59,11 +59,15 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
                     HttpContext.Session.SetString("Klorg2", "1");
                     return RedirectToPage("./TheLaboratory");
                 }
-                else if (door == "31") // Map room
+                else if (door == "5") // Map room
                 {
                     HttpContext.Session.SetString("Map", "Yes");
                 }
-                else if (door == "33") // Sword room
+                else if (door == "6") // Cutter room
+                {
+                    HttpContext.Session.SetString("Cutter", "Yes");
+                }
+                else if (door == "9") // Sword room
                 {
                     HttpContext.Session.SetString("Sword", "Yes");
                 }
