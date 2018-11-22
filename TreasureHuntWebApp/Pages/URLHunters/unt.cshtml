@@ -7,10 +7,15 @@
 @using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
 
+@{ string pName = HttpContextAccessor.HttpContext.Session.GetString("ParticipantName");}
+
 <hr />
 <div>
     <table style="width: 90%; margin: auto; text-align: center;">
         <tr style="width: 100%">
+            <td style="min-width: 50px; max-width: 100px;">
+                <p style="text-align:left">@Html.DisplayFor(c => pName)</p>
+            </td>
             <td style="width: auto">
                 @Html.DisplayFor(p => Model.URLHuntCount) people have started this hunt.
             </td>
@@ -22,12 +27,11 @@
 </div>
 <hr />
 <div style="margin:auto; text-align: center; width: 80%;">
-    @{ string pName = HttpContextAccessor.HttpContext.Session.GetString("ParticipantName");}
     <h2>Hello @Html.DisplayFor(n => pName)</h2>
     <img class="bit8Image" style="max-width: 100px; width: 40%" src="~/DungeonGraphics/LeeMonquebe-8bit.png" />
     <br />
     <br />
-    <p>This hunt will consist of adding/removing/manipulating stuff in website address after the main page name:</p>
+    <p>This hunt will consist of adding/removing/manipulating stuff in the website address after the main page name:</p>
     <p class="urlExample"><i><b>lemoncube.azurewebsites.net/urlhunters/________</b></i></p>
     <p>REMEMBER: some of the previous page name always remains in the new page name.</p>
     <br />

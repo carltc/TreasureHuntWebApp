@@ -4,10 +4,19 @@
     ViewData["Title"] = "Rash";
 }
 
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+
+@{ string pName = HttpContextAccessor.HttpContext.Session.GetString("ParticipantName");}
+
 <hr />
 <div>
     <table style="width: 90%; margin: auto; text-align: center;">
         <tr style="width: 100%">
+            <td style="min-width: 50px; max-width: 100px;">
+                <p style="text-align:left">@Html.DisplayFor(c => pName)</p>
+            </td>
             <td style="width: auto">
                 @Html.DisplayFor(p => Model.URLHuntCount) people have completed this page.
             </td>
