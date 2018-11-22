@@ -4,6 +4,9 @@
     ViewData["Title"] = "The IM-Portals";
 }
 
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
 <script src="/lib/jquery/dist/jquery.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
@@ -26,25 +29,58 @@
     <table style="width: 100%;">
         <tr style="max-width: 500px;">
             <td>
-                <h3>1</h3>
-                <form method="post">
-                    <input type="hidden" name="portal" alt="Submit" value="blank" />
-                    <input type="image" src="~/DungeonGraphics/portal-8bit.png" alt="Submit" class="portalImage" value="importal1">
-                </form>
+                @{
+                    if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Klorg1")))
+                    {
+                        <img class="bit8Image" src="~/DungeonGraphics/redLight.png" />
+                        <form method="post">
+                            <input type="hidden" name="portal" alt="Submit" value="blank" />
+                            <input type="image" src="~/DungeonGraphics/portal-8bit.png" alt="Submit" class="portalImage" value="importal1">
+                        </form>
+                    }
+                    else
+                    {
+                        <img class="bit8Image" src="~/DungeonGraphics/greenLight.png" />
+                        <br />
+                        <img class="portalImage" src="~/DungeonGraphics/portal-8bit.png" />
+                    }
+                }
             </td>
             <td>
-                <h3>2</h3>
-                <form method="post">
-                    <input type="image" src="~/DungeonGraphics/portal2-8bit.png" alt="Submit" class="portalImage" value="importal2">
-                    <input type="hidden" name="portal" />
-                </form>
+                @{
+                    if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Klorg2")))
+                    {
+                        <img class="bit8Image" src="~/DungeonGraphics/redLight.png" />
+                        <form method="post">
+                            <input type="image" src="~/DungeonGraphics/portal2-8bit.png" alt="Submit" class="portalImage" value="importal2">
+                            <input type="hidden" name="portal" />
+                        </form>
+                    }
+                    else
+                    {
+                        <img class="bit8Image" src="~/DungeonGraphics/greenLight.png" />
+                        <br />
+                        <img class="portalImage" src="~/DungeonGraphics/portal2-8bit.png" />
+                    }
+                }
             </td>
             <td>
-                <h3>3</h3>
-                <form method="post">
-                    <input type="image" src="~/DungeonGraphics/portal3-8bit.png" alt="Submit" class="portalImage" value="importal3">
-                    <input type="hidden" name="portal" />
-                </form>
+                @{
+                    if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Klorg3")))
+                    {
+                        <img class="bit8Image" src="~/DungeonGraphics/redLight.png" />
+                        <form method="post">
+                            <input type="image" src="~/DungeonGraphics/portal3-8bit.png" alt="Submit" class="portalImage" value="importal3">
+                            <input type="hidden" name="portal" />
+                        </form>
+                    }
+                    else
+                    {
+                        <img class="bit8Image" src="~/DungeonGraphics/greenLight.png" />
+                        <br />
+                        <img class="portalImage" src="~/DungeonGraphics/portal3-8bit.png" />
+                    }
+                }
             </td>
         </tr>
     </table>
