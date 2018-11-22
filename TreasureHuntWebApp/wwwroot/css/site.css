@@ -539,4 +539,8 @@ html, body, body-content {
     .portalButton {
         font-size: 0.5em;
     }
+
+    .urlExample {
+        font-size: 4pt;
+    }
 }

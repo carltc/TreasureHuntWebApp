@@ -1,0 +1,32 @@
+﻿@page
+@model TreasureHuntWebApp.Pages.URLHunters.JacobReesMoggModel
+@{
+    ViewData["Title"] = "JacobReesMogg";
+}
+
+<div style="margin:auto; text-align: center; width: 90%;">
+    <hr />
+    <div>
+        <table style="width: 90%; margin: auto; text-align: center;">
+            <tr style="width: 100%">
+                <td style="width: auto">
+                    @Html.DisplayFor(p => Model.URLHuntCount) people have finished the hunt.
+                </td>
+                <td style="min-width: 50px; max-width: 100px;">
+                    <p style="text-align:right">@Html.DisplayFor(c => c.QuestionID)/12</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <hr />
+    <h2 align="center">Congratulations @Html.DisplayFor(modelItem => Model.Winner[0].Name)</h2>
+
+    <p align="center">
+        Your points have been added to the scoreboard.
+    </p>
+    <div style="height:5pt"></div>
+    <form action="/Index">
+        <input type="submit" value="Go Home" class="form-control askInput" />
+    </form>
+</div>
+

@@ -1,0 +1,29 @@
+﻿@page
+@model TreasureHuntWebApp.Pages.URLHunters.SixDegreesOfKevinBaconModel
+@{
+    ViewData["Title"] = "SixDegreesOfKevinBacon";
+}
+
+<hr />
+<div>
+    <table style="width: 90%; margin: auto; text-align: center;">
+        <tr style="width: 100%">
+            <td style="width: auto">
+                @Html.DisplayFor(p => Model.URLHuntCount) people have completed this page.
+            </td>
+            <td style="min-width: 50px; max-width: 100px;">
+                <p style="text-align:right">@Html.DisplayFor(c => c.QuestionID)/12</p>
+            </td>
+        </tr>
+    </table>
+</div>
+<hr />
+<div style="margin:auto; text-align: center; width: 90%;">
+    <h4 style="text-align: left; max-width: 300px; margin: auto;">
+        You're close,<br />
+        So close.<br />
+        Getting your hunting dose!
+    </h4>
+    <img style="width:95%; max-width:500px;" src="~/URLHunt/question10.png" />
+</div>
+
