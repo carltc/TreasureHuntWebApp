@@ -318,6 +318,10 @@ html, body, body-content {
     margin: auto;
 }
 
+.portalLight {
+    height: 20px;
+}
+
 .portalButton {
     font-size: 1.5em;
 }
@@ -534,6 +538,10 @@ html, body, body-content {
     .portalImage {
         height: 30px;
         margin: auto;
+    }
+
+    .portalLight {
+        height: 6px;
     }
 
     .portalButton {
