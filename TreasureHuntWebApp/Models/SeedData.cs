@@ -417,47 +417,47 @@ namespace TreasureHuntWebApp.Models
                                 else if (id == 10)
                                 {
                                     dungeon.Name = "Clammy Cavern";
-                                    dungeon.Storyline = "Clams, clams, clams";
-                                    dungeon.Guidebook = "";
+                                    dungeon.Storyline = "You start to notice your hands gettings moist and clammy. At closer inspection you see that they are covered in thousands of tiny clams, secreting a sticky paste. You pardon the pun and look around...";
+                                    dungeon.Guidebook = "Clams, clams clams. Everywhere. I can't get out. Hopefully if you read this note, you know to go north or south, not east or west. It's too late for me. Save yourself.";
                                 }
                                 else if (id == 12)
                                 {
                                     dungeon.Name = "Boring Beach";
-                                    dungeon.Storyline = "";
-                                    dungeon.Guidebook = "";
+                                    dungeon.Storyline = "You arrive at an unimpressive stretch of plain sand. The trees are brown, dropping and remind you of cleaning the shower. You see more beaches to the north and south. Caves go back into the island to the west.";
+                                    dungeon.Guidebook = "I once spent an evening on this beach. Not much to write home about, so i wrote it here instead. Pretty boring really so not much to say. More fun to be had north of here.";
                                 }
                                 else if (id == 13)
                                 {
                                     dungeon.Name = "Pirate Cove";
-                                    dungeon.Storyline = "";
-                                    dungeon.ItemID = 3; // sowrd
-                                    dungeon.Guidebook = "";
+                                    dungeon.Storyline = "Ahead of you, sticking out of the sand is a large chest. From your childhood memories of watching Pirate shows and reading Treasure Island, you immediately recognise it for what it is. A Treasure Chest. But it seems locked. You need to pry it open somehow and looking around you pick up a large sword. You stick the blade into a small gap under the lid and attempt to open the chest. After several attempts you give up and for the first time notice the beauty of the sword you are holding. It is a long curved saber connecting to a gorgeous golden hilt embedded with multi-coloured jewels.";
+                                    dungeon.ItemID = 3; // sword
+                                    dungeon.Guidebook = "This cove was once the site of a large sea battle. Pirates from neighbouring factions wound up regrouping here after a large storm, and sighting each other in the morning, started a battle that would rage for 1 hour and 0 nights. All the ships sank and debris washed up on the shore. Some pirates survived but where caught in the quicksand covering the beach to the north and south.";
                                 }
                                 else if (id == 14)
                                 {
                                     dungeon.Name = "Stalagmite Staircase";
-                                    dungeon.Storyline = "";
-                                    dungeon.Guidebook = "";
+                                    dungeon.Storyline = "You come to a large cavern with very high ceilings. The entire floor is covered in stalagmites, or was it stalactites? You remember the old saying 'Hold on tight' that your dad used to say when going round corners in his car. Not useful here but whilst you stand there thinking, you notice a winding staircase cut into the rocks. The stalagmites have been hewn at various heights to create a way up to a ledge. Up there you see more passages leading off.";
+                                    dungeon.Guidebook = "Stalactites need to hold on tight lest they should fall and stalagmites might reach them should they grow really tall. With this mnemonic, Sir Dave Stalagmite created the world's first staircase cut into those rock thingys. He wanted to connect the northern rock caves to the pirate beach to the west.";
                                 }
                                 else if (id == 16)
                                 {
                                     dungeon.Name = "Stoney Strand";
-                                    dungeon.Storyline = "";
-                                    dungeon.Guidebook = "";
+                                    dungeon.Storyline = "The sand under your feet starts to become very big and stone like. You are now walking on a pebble beach and think 'Why would anyone ever spend time on a beach like this?' as you wince from the pain caused to your feet.";
+                                    dungeon.Guidebook = "Stoney Strand was named by a Swedish explorer who first landed here during the meatball famines of 1606. The King had sent out his best explorers to find another source of food, and stumbling across this beach, explorer Astrid Pebble brought back stones to feed the nation.";
                                 }
                                 else if (id == 18)
                                 {
-                                    dungeon.Name = "Rock Monster";
-                                    dungeon.Storyline = "";
+                                    dungeon.Name = "Rock Corridor";
+                                    dungeon.Storyline = "You are walking down a narrow rocky corridor when the sound of some rocks falling behind you break the silence. You spin around and see ripples spreading across a small puddle on the cave floor. Nothing else moves. You turn around and continue walking. CRASH. Spinning around again you are just in time to see a large figure move out from the wall and block the path back. It seems to be made of pure rock and immediately starts to move towards you...";
                                     dungeon.ItemID = 1; // monster
-                                    dungeon.Guidebook = "";
+                                    dungeon.Guidebook = "The rock corridors go on for miles beneath the island. Many brave travellers have been lost down here looking for a way out. Some people say that a great monster lives down here but no one has ever seen it and lived to tell the tale. A fisherman once disappeared down here and later people found notes scribbled on the wall indicating he went west.";
                                 }
                                 else if (id == 19)
                                 {
                                     dungeon.Name = "Fishermans Grave";
-                                    dungeon.Storyline = "";
+                                    dungeon.Storyline = "An ancient smell of rotting fish hits your nose and has you floundering. You brain reels at the odour. You look around the plaice and the sheer scale of it impresses you. In front you see a skeleton perched against a wall wearing only shoes, with the soles removed. You approach and see a bag at the skeletons side with 'Property of Rod' embroiderd on the flap. Inside you find a dead fish and a small rod. Maybe this can be used to catch some fish, you think.";
                                     dungeon.ItemID = 6; // fishing rod
-                                    dungeon.Guidebook = "";
+                                    dungeon.Guidebook = "Fishermans Grave was named ironically after explorers of the caves noticed that no fisherman had ever died in this cave. This was mainly due to the fact that no fisherman had ever stepped foot inside the cave. The caves to the north and south were probably more dangerous as they both contained quicksand.";
                                 }
                                 else if (id == 20)
                                 {
