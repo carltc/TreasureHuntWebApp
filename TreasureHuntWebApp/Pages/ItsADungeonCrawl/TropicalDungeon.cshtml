@@ -67,7 +67,7 @@
             if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Sword")))
             {
                 <td>
-                    <img class="bit8Image" style="max-width: 100px; height: 100%;" src="~/DungeonGraphics/sword.jpg" />
+                    <img class="bit8Image" style="max-width: 100px; height: 100%;" src="~/DungeonGraphics/saber.png" />
                 </td>
             }
             if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Compass")))
@@ -147,7 +147,7 @@
                         <form method="post">
                             <input type="hidden" name="door" alt="Submit" value="blank" />
                             <input type="hidden" name="sword" alt="Submit" value="1" />
-                            <input type="image" src="~/DungeonGraphics/sword.jpg" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].RoomID)">
+                            <input type="image" src="~/DungeonGraphics/saber.png" alt="Submit" class="door portalImage bit8Image" value="@Html.DisplayFor(model => Model.Dungeon[0].RoomID)">
                         </form>
                     </td>
                 }
