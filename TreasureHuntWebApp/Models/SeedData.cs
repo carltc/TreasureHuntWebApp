@@ -462,9 +462,9 @@ namespace TreasureHuntWebApp.Models
                                 else if (id == 20)
                                 {
                                     dungeon.Name = "Crab Crevice";
-                                    dungeon.Storyline = "";
+                                    dungeon.Storyline = "The ground beneath your feet starts to become more jagged and crunchy. Looking down you realise you are now walking on a thick layer of crustacean carcasses. Suddenly the entire area begins to shake and rising from the bodies of it's siblings, a giant crab appears in front of you, pincers snapping, readying itself for a fight...";
                                     dungeon.ItemID = 1; // monster
-                                    dungeon.Guidebook = "";
+                                    dungeon.Guidebook = "This crevice was once the home to thousands of tiny crabs, which survived by eating the seaweed that grew from the rocks. But one day a larger crab decided she was sick of seaweed and so she started to eat her brothers and sisters. She grew bigger and bigger until the crevice was too small. So she crawled out in search of more food and a bigger home. Unfortuantely the cave to the west was too hard to navigate and the shores north and south contained nothing so she just stayed here and ate crabs until the carcasses littered the beach.";
                                 }
                                 else if (id == 22)
                                 {
@@ -476,27 +476,27 @@ namespace TreasureHuntWebApp.Models
                                 else if (id == 24)
                                 {
                                     dungeon.Name = "Cliffy Coast";
-                                    dungeon.Storyline = "";
-                                    dungeon.Guidebook = "";
+                                    dungeon.Storyline = "The beach below your feet narrows until the waves are lapping at your feet whilst you skirt along the base of the cliffs. You see a gap in the rocks leading to a cave going west. Gaps in the rocks go north and south to bigger beaches.";
+                                    dungeon.Guidebook = "Not much to say about Cliffy Coast. It is a coast which is mainly made up of cliffs. Not much beach, just cliffs. There is a hidden cave which goes west, but no one who has gone in there has ever come out. The map makers hut is somewhere to the north and if you want crabs goes south.";
                                 }
                                 else if (id == 26)
                                 {
                                     dungeon.Name = "Stalagtite Labyrinth";
-                                    dungeon.Storyline = "";
-                                    dungeon.Guidebook = "";
+                                    dungeon.Storyline = "Stalagtites as tall as the cavern stretch from the ceiling almost to the floor. They are thick as tree trunks and create a series of pathways. You stumble through and manage to find 4 small cave mouths leading of in different directions...";
+                                    dungeon.Guidebook = "The stalagtites in this room hold on tight to prevent falling down and blocking all access through the cavern. A amp maker lives to the east. North and west lie beaches and to the south there is rumour of a giant monster.";
                                 }
                                 else if (id == 27)
                                 {
-                                    dungeon.Name = "Pirate Camp";
-                                    dungeon.Storyline = "";
+                                    dungeon.Name = "Map Maker's Hut";
+                                    dungeon.Storyline = "This cavern is unlike the others. It is light and there is a strong breeze blowing through. In the centre there stands a small hut. You go inside and see parchments and quills everywhere. Spread out on a large table is a hand drawn map. It appears to be of the island and cave systems. You take it and head outside, seeing more caves leading off in different directions...";
                                     dungeon.ItemID = 2; // map
-                                    dungeon.Guidebook = "";
+                                    dungeon.Guidebook = "A famous map maker one lived here. His name was Carto Guiseppe Raphy and he settled here after exploring the island and falling in love with it. He drew many maps of the island during his life but different areas changed so much he often had to re draw them. He lived in the northern most cave which was connected to beaches in the north and east.";
                                 }
                                 else if (id == 28)
                                 {
                                     dungeon.Name = "Beach Castle";
-                                    dungeon.Storyline = "";
-                                    dungeon.Guidebook = "";
+                                    dungeon.Storyline = "In front of you stands a giant structure and at closer examination you realise it is a large castle. Except it is not made of stone, wood or any normal building material but instead it is entirely out of beach. The beams are made of palm trees and the walls are sand lined with seaweed to create a brick-like texture. Shells line the parapets and coconuts form a perimeter around the outside. There appears to be no way in but you notice caves leading off north, south and west.";
+                                    dungeon.Guidebook = "Nobody knows when Beach Castle was built or who created it. It has always stood on the island, with no visible way in. It is a beautiful building but seems to serve no purpose. It lies to the east of the map makers hut. Maybe he can answer questions about it. The fish have been scared off by it and now reside to in waters off the northern beach at Penguin Point.";
                                 }
                                 else if (id == 29)
                                 {
