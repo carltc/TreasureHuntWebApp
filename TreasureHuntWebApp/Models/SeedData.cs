@@ -553,9 +553,9 @@ namespace TreasureHuntWebApp.Models
                             {
                                 WorldID = 2,
                                 RoomID = 1,
-                                Storyline = "",
+                                Storyline = "You wake up on a cold steel floor. Looking up you see what appears to be a space station. Behind you the teleporter that brought you looks inactive. Ahead of you are 2 more teleporters which look very active. The teleporters have 15 and 12 written above them.",
                                 ItemID = 0,
-                                Guidebook = "",
+                                Guidebook = "- entry not found -",
                                 NorthID = 15,
                                 EastID = 12
                             },
@@ -563,8 +563,8 @@ namespace TreasureHuntWebApp.Models
                             {
                                 WorldID = 2,
                                 RoomID = 2,
-                                Storyline = "",
-                                Guidebook = "",
+                                Storyline = "Identical looking room. More teleporters which have 14, 16 and 12 written above them.",
+                                Guidebook = "- entry not found -",
                                 NorthID = 14,
                                 EastID = 16,
                                 WestID = 12
@@ -573,8 +573,8 @@ namespace TreasureHuntWebApp.Models
                             {
                                 WorldID = 2,
                                 RoomID = 3,
-                                Storyline = "",
-                                Guidebook = "",
+                                Storyline = "Identical looking room. More teleporters which have 10, 9 and 16 written above them.",
+                                Guidebook = "- entry not found -",
                                 NorthID = 10,
                                 EastID = 9,
                                 WestID = 16
@@ -583,8 +583,8 @@ namespace TreasureHuntWebApp.Models
                             {
                                 WorldID = 2,
                                 RoomID = 4,
-                                Storyline = "",
-                                Guidebook = "",
+                                Storyline = "Identical looking room. More teleporters which have 9 and 5 written above them.",
+                                Guidebook = "- entry not found -",
                                 NorthID = 5,
                                 WestID = 9
                             },
@@ -592,9 +592,9 @@ namespace TreasureHuntWebApp.Models
                             {
                                 WorldID = 2,
                                 RoomID = 5,
-                                Storyline = "",
+                                Storyline = "Identical looking room. You find a digital map of the space station. More teleporters which have 3, 15 and 15 written above them.",
                                 ItemID = 2, // map
-                                Guidebook = "",
+                                Guidebook = "- entry not found -",
                                 NorthID = 3,
                                 EastID = 38,
                                 SouthID = 15
@@ -603,9 +603,9 @@ namespace TreasureHuntWebApp.Models
                             {
                                 WorldID = 2,
                                 RoomID = 6,
-                                Storyline = "",
+                                Storyline = "Identical looking room. You find a blow-torch. Maybe it can be used to cut through stuff.  More teleporters which have 14, 5, 14 and 15 written above them.",
                                 ItemID = 8, // cutter
-                                Guidebook = "",
+                                Guidebook = "- entry not found -",
                                 NorthID = 14,
                                 EastID = 5,
                                 SouthID = 38,
@@ -615,8 +615,8 @@ namespace TreasureHuntWebApp.Models
                             {
                                 WorldID = 2,
                                 RoomID = 7,
-                                Storyline = "",
-                                Guidebook = "",
+                                Storyline = "Identical looking room. More teleporters which have 12, 9, 10 and 5 written above them.",
+                                Guidebook = "- entry not found -",
                                 NorthID = 12,
                                 EastID = 9,
                                 SouthID = 10,
@@ -626,8 +626,8 @@ namespace TreasureHuntWebApp.Models
                             {
                                 WorldID = 2,
                                 RoomID = 8,
-                                Storyline = "",
-                                Guidebook = "",
+                                Storyline = "Identical looking room. More teleporters which have 16, 5 and 9 written above them.",
+                                Guidebook = "- entry not found -",
                                 NorthID = 16,
                                 SouthID = 5,
                                 WestID = 9
@@ -636,9 +636,9 @@ namespace TreasureHuntWebApp.Models
                             {
                                 WorldID = 2,
                                 RoomID = 9,
-                                Storyline = "",
+                                Storyline = "Identical looking room. You find a blaster pistol. Now you are ready if you encounter any monsters. More teleporters which have 6, 8 and 3 written above them.",
                                 ItemID = 3, // sword
-                                Guidebook = "",
+                                Guidebook = "- entry not found -",
                                 NorthID = 6,
                                 EastID = 8,
                                 SouthID = 3
@@ -647,9 +647,9 @@ namespace TreasureHuntWebApp.Models
                             {
                                 WorldID = 2,
                                 RoomID = 10,
-                                Storyline = "",
+                                Storyline = "This room is unlike the others. Suddenly lights on the walls start flashing and a high pitch whirring sounds erupts from the floor. Rising up a large robot appears in front of you...",
                                 ItemID = 1, // monster
-                                Guidebook = "",
+                                Guidebook = "- entry not found -",
                                 NorthID = 6,
                                 EastID = 11,
                                 SouthID = 14,
@@ -659,15 +659,15 @@ namespace TreasureHuntWebApp.Models
                             {
                                 WorldID = 2,
                                 RoomID = 11,
-                                Storyline = "",
-                                Guidebook = ""
+                                Storyline = "In the middle of the room you see a small Klorg pup, cowering and looking scared. You approach and notice the collar, with a flashing light...",
+                                Guidebook = "- entry not found -"
                             },
                             new Dungeon
                             {
                                 WorldID = 2,
                                 RoomID = 12,
-                                Storyline = "",
-                                Guidebook = "",
+                                Storyline = "Identical looking room. More teleporters which have 13, 16 and 1 written above them.",
+                                Guidebook = "- entry not found -",
                                 NorthID = 38,
                                 SouthID = 16,
                                 WestID = 1
@@ -676,8 +676,8 @@ namespace TreasureHuntWebApp.Models
                             {
                                 WorldID = 2,
                                 RoomID = 13,
-                                Storyline = "",
-                                Guidebook = "",
+                                Storyline = "Identical looking room. More teleporters which have 7 and 6 written above them.",
+                                Guidebook = "- entry not found -",
                                 EastID = 7,
                                 SouthID = 6
                             },
@@ -685,8 +685,8 @@ namespace TreasureHuntWebApp.Models
                             {
                                 WorldID = 2,
                                 RoomID = 14,
-                                Storyline = "",
-                                Guidebook = "",
+                                Storyline = "Identical looking room. More teleporters which have 2, 6 and 7 written above them.",
+                                Guidebook = "- entry not found -",
                                 EastID = 2,
                                 SouthID = 6,
                                 WestID = 38
@@ -695,8 +695,8 @@ namespace TreasureHuntWebApp.Models
                             {
                                 WorldID = 2,
                                 RoomID = 15,
-                                Storyline = "",
-                                Guidebook = "",
+                                Storyline = "Identical looking room. More teleporters which have 2, 4 and 1 written above them.",
+                                Guidebook = "- entry not found -",
                                 EastID = 38,
                                 SouthID = 1,
                                 WestID = 2
@@ -705,8 +705,8 @@ namespace TreasureHuntWebApp.Models
                             {
                                 WorldID = 2,
                                 RoomID = 16,
-                                Storyline = "",
-                                Guidebook = "",
+                                Storyline = "Identical looking room. More teleporters which have 13 and 4 written above them.",
+                                Guidebook = "- entry not found -",
                                 SouthID = 13,
                                 WestID = 4
                             }
@@ -716,7 +716,7 @@ namespace TreasureHuntWebApp.Models
                         dungeon.RoomID = 37;
                         dungeon.WorldID = 2;
                         dungeon.Name = "Defeat";
-                        dungeon.Storyline = "The monster defeated you. You are knocked unconscious and carried away.";
+                        dungeon.Storyline = "The monster defeated you. You are knocked unconscious and teleported away.";
                         dungeon.ItemID = 0;
                         dungeon.NorthID = 1;
                         context.Dungeon.Add(dungeon);
