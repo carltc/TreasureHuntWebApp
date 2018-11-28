@@ -89,7 +89,7 @@
     if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Map")))
     {
         <div id="map" style="display: none; text-align: center; margin: auto;">
-            <img class="bit8Image" style="width: 60%; padding: 5pt;" src="~/DungeonGraphics/mapLarge-8bit.png" />
+            <img class="bit8Image" style="width: 60%; padding: 5pt;" src="~/DungeonGraphics/tropicalMap-8bit.png" />
         </div>
     }
     if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Guidebook")))
@@ -104,7 +104,7 @@
     if (Model.Dungeon[0].RoomID == 29 && !String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Fish")))
     {
         <div style="text-align: center; margin: auto;">
-            <img class="bit8Image" style="width: 40%; padding: 5pt;" src="~/DungeonGraphics/klorg-8bit.png" />
+            <img class="bit8Image" style="max-width: 200px; width: 40%; padding: 5pt;" src="~/DungeonGraphics/klorg-8bit.png" />
         </div>
     }
     else
@@ -143,6 +143,7 @@
             {
                 if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Sword")))
                 {
+                    if ()
                     <td style="text-align: center;">
                         <form method="post">
                             <input type="hidden" name="door" alt="Submit" value="blank" />
