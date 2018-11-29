@@ -9,6 +9,11 @@
     src: url('../fonts/BlackCastle.ttf');
 }
 
+@font-face {
+    font-family: Tropical;
+    src: url('../fonts/Tropical.ttf');
+}
+
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification 
 for details on configuring this project to bundle and minify static web assets. */
 body {
@@ -336,6 +341,26 @@ html, body, body-content {
 .guideBook {
     font-family: BlackCastle;
     background-color: #ffe8b2;
+    border: ridge;
+    border-color: #b97600;
+    padding: 10pt;
+    font-size: 2em;
+}
+
+.guideBookSpace {
+    font-family: Digital;
+    background-color: #000000;
+    color: #00ff02;
+    border: ridge;
+    border-color: #808080;
+    padding: 10pt;
+    font-size: 2em;
+}
+
+.guideBookTropical {
+    font-family: Tropical;
+    background-color: #ffe8b2;
+    color: #000000;
     border: ridge;
     border-color: #b97600;
     padding: 10pt;

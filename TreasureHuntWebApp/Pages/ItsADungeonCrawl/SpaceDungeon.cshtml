@@ -88,8 +88,12 @@
     }
     if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Guidebook")))
     {
-        <div id="guidebook" style="display: none; text-align: center; margin: auto;">
-            <p>@Html.DisplayFor(model => Model.Dungeon[0].Guidebook)</p>
+        <div id="guidebook" style="display: none; text-align: center; margin: auto; width: 90%; max-width: 800px;">
+            <div class="guideBookSpace">
+                <h1 style="text-decoration:underline;">@Html.DisplayFor(model => Model.Dungeon[0].Name)</h1>
+                <p>@Html.DisplayFor(model => Model.Dungeon[0].Guidebook)</p>
+                <h4>@Html.DisplayFor(model => Model.Dungeon[0].RoomID)</h4>
+            </div>
         </div>
     }
 }
