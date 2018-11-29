@@ -123,7 +123,6 @@
                     </form>
                 </td>
                 HttpContextAccessor.HttpContext.Session.Remove("Sword");
-                HttpContextAccessor.HttpContext.Session.Remove("Map");
                 HttpContextAccessor.HttpContext.Session.SetString("Reset", "1");
             }
             else if (Model.Dungeon[0].ItemID == 1 && String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Monster" + Model.Dungeon[0].RoomID)))
@@ -168,7 +167,6 @@
                     </form>
                 </td>
                 HttpContextAccessor.HttpContext.Session.Remove("Sword");
-                HttpContextAccessor.HttpContext.Session.Remove("Map");
                 HttpContextAccessor.HttpContext.Session.SetString("Reset", "1");
             }
             else
