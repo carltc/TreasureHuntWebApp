@@ -137,7 +137,7 @@
                 HttpContextAccessor.HttpContext.Session.Remove("Sword");
                 HttpContextAccessor.HttpContext.Session.Remove("Map");
                 HttpContextAccessor.HttpContext.Session.Remove("Rod");
-                HttpContextAccessor.HttpContext.Session.SetString("Reset","1");
+                HttpContextAccessor.HttpContext.Session.SetString("Reset", "1");
             }
             else if (Model.Dungeon[0].ItemID == 1 && String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Monster" + Model.Dungeon[0].RoomID)))
             {
@@ -184,6 +184,35 @@
                 HttpContextAccessor.HttpContext.Session.Remove("Map");
                 HttpContextAccessor.HttpContext.Session.Remove("Rod");
                 HttpContextAccessor.HttpContext.Session.SetString("Reset", "1");
+            }
+            else if (Model.Dungeon[0].ItemID == 7)
+            {
+                if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Sword")))
+                {
+                    HttpContextAccessor.HttpContext.Session.SetString("Reset", "1");
+                    <td style="text-align: center;">
+                        <form method="post">
+                            <input type="hidden" name="door" alt="Submit" value="blank" />
+                            <input type="image" src="~/DungeonGraphics/saber.png" alt="Submit" class="door portalImage bit8Image" value="37">
+                        </form>
+                    </td>
+                }
+                else
+                {
+                    HttpContextAccessor.HttpContext.Session.SetString("Reset", "1");
+                    <td style="text-align: center;">
+                        <form method="post">
+                            <input type="hidden" name="door" alt="Submit" value="blank" />
+                            <input type="image" src="~/DungeonGraphics/fist.jpg" alt="Submit" class="door portalImage bit8Image" value="37">
+                        </form>
+                    </td>
+                }
+                <td style="text-align: center;">
+                    <form method="post">
+                        <input type="hidden" name="door" alt="Submit" value="blank" />
+                        <input type="image" src="~/DungeonGraphics/speed.png" alt="Submit" class="door portalImage bit8Image" value="18">
+                    </form>
+                </td>
             }
             else
             {

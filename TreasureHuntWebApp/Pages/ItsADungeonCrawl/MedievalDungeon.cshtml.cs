@@ -60,21 +60,26 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
             {
                 if (sword.HasValue)
                 {
+                    HttpContext.Session.Remove("Reset");
                     return Redirect("./MedievalDungeon?dungeonID=" + door.ToString() + "&" + "fight=1");
                 }
                 else if (door == "0") // Return to IM-Portals
                 {
+                    HttpContext.Session.Remove("Reset");
                     HttpContext.Session.SetString("Klorg3", "1");
                     return RedirectToPage("./TheLaboratory");
                 }
                 else if (door == "31") // Map room
                 {
+                    HttpContext.Session.Remove("Reset");
                     HttpContext.Session.SetString("Map", "Yes");
                 }
                 else if (door == "33") // Sword room
                 {
+                    HttpContext.Session.Remove("Reset");
                     HttpContext.Session.SetString("Sword", "Yes");
                 }
+                HttpContext.Session.Remove("Reset");
                 return Redirect("./MedievalDungeon?dungeonID=" + door.ToString());
             }
             return Page();

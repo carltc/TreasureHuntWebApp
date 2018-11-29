@@ -60,25 +60,31 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
             {
                 if (sword.HasValue)
                 {
+                    HttpContext.Session.Remove("Reset");
                     return Redirect("./SpaceDungeon?dungeonID=" + door.ToString() + "&" + "fight=1");
                 }
                 else if (door == "0") // Return to IM-Portals
                 {
+                    HttpContext.Session.Remove("Reset");
                     HttpContext.Session.SetString("Klorg2", "1");
                     return RedirectToPage("./TheLaboratory");
                 }
                 else if (door == "5") // Map room
                 {
+                    HttpContext.Session.Remove("Reset");
                     HttpContext.Session.SetString("Map", "Yes");
                 }
                 else if (door == "6") // Cutter room
                 {
+                    HttpContext.Session.Remove("Reset");
                     HttpContext.Session.SetString("Cutter", "Yes");
                 }
                 else if (door == "9") // Sword room
                 {
+                    HttpContext.Session.Remove("Reset");
                     HttpContext.Session.SetString("Sword", "Yes");
                 }
+                HttpContext.Session.Remove("Reset");
                 return Redirect("./SpaceDungeon?dungeonID=" + door.ToString());
             }
             return Page();

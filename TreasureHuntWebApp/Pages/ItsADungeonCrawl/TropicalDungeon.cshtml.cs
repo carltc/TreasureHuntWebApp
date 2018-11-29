@@ -65,29 +65,36 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
             {
                 if (sword.HasValue)
                 {
+                    HttpContext.Session.Remove("Reset");
                     return Redirect("./TropicalDungeon?dungeonID=" + door.ToString() + "&" + "fight=1");
                 }
                 else if (door == "0") // Return to IM-Portals
                 {
+                    HttpContext.Session.Remove("Reset");
                     HttpContext.Session.SetString("Klorg1", "1");
                     return RedirectToPage("./TheLaboratory");
                 }
                 else if (door == "27") // Map room
                 {
+                    HttpContext.Session.Remove("Reset");
                     HttpContext.Session.SetString("Map", "Yes");
                 }
                 else if (door == "13") // Sword room
                 {
+                    HttpContext.Session.Remove("Reset");
                     HttpContext.Session.SetString("Sword", "Yes");
                 }
                 else if (door == "19") // Rod room
                 {
+                    HttpContext.Session.Remove("Reset");
                     HttpContext.Session.SetString("Rod", "Yes");
                 }
                 else if (rod.HasValue) // Fishing catch
                 {
+                    HttpContext.Session.Remove("Reset");
                     HttpContext.Session.SetString("Fish", "Yes");
                 }
+                HttpContext.Session.Remove("Reset");
                 return Redirect("./TropicalDungeon?dungeonID=" + door.ToString());
             }
             return Page();

@@ -469,9 +469,9 @@ namespace TreasureHuntWebApp.Models
                                 else if (id == 22)
                                 {
                                     dungeon.Name = "Crab King";
-                                    dungeon.Storyline = "";
+                                    dungeon.Storyline = "You walk into a cavern with a thick stench of fish in the air. Before you there is a large pile of fish bones and atop sits a giant crab. It is wearing a large crown and a dopey expression on it's face. What do you do?";
                                     dungeon.ItemID = 7; // big monster
-                                    dungeon.Guidebook = "";
+                                    dungeon.Guidebook = "The Crab King used to live in the sea but washed up on this island after a giant storm. He met a sailor and how was convinced he was a penguin due to his fancy tuxedo. The crab king, well educated in the languages of men, eloquently argued that he was not a penguin and instead a fancily dressed crab.";
                                 }
                                 else if (id == 24)
                                 {
@@ -501,28 +501,28 @@ namespace TreasureHuntWebApp.Models
                                 else if (id == 29)
                                 {
                                     dungeon.Name = "Boulder Bay";
-                                    dungeon.Storyline = "";
+                                    dungeon.Storyline = "Before you lies a giant pile of boulders with some smaller boulders spread out to the south. There are small animal-like footprints leading into the rock formation but the gap is too small and you are unable to follow. Peering in you see a very scared looking creature, soaked in seawater and shivering. You can't reach it and it draws back, wide-eyed, as you attempt to reach it. Maybe you can entice it out with something?";
                                     dungeon.ItemID = 5; // find Klorg here
-                                    dungeon.Guidebook = "";
+                                    dungeon.Guidebook = "Boulder Bay was named after the large rocks that lie on the beach. The formation can be seen from space and some people argue it forms a large face. Dating the rocks shows they are older than the earth and therefore scientists believe they were brought by an ancient civilisation from another planet. The boulder piles create easy hiding spaces for smaller creatures escaping predators.";
                                 }
                                 else if (id == 30)
                                 {
                                     dungeon.Name = "Pebble Beach";
-                                    dungeon.Storyline = "";
-                                    dungeon.Guidebook = "";
+                                    dungeon.Storyline = "The beach you arrive at is entirely made out of small pebbles. Picking one up, you notice that these are not pebbles but instead very hard eggs. Without waiting to see what creature produced them you hurry onwards...";
+                                    dungeon.Guidebook = "This beach was named after the Pebble creature which lives here. It is a very docile creature which is scared of everything and therefore hides. It produces over 4000 eggs per week and therefore the beach is littered with them. They are very hard and pebble shaped, hence when the creature gets it's name.";
                                 }
                                 else if (id == 31)
                                 {
                                     dungeon.Name = "Sandy Sand";
-                                    dungeon.Storyline = "";
-                                    dungeon.Guidebook = "";
+                                    dungeon.Storyline = "You start to feel an itching in your trousers. Then in your shoes and then all over. Upon investigation you notice you are covered in sand everywhere. You look down and see the sand from the beach is rising up and sticking to you. There seems to be an extremely strong static charge which is attracting the sand to your body. 'Better leave quick before I am too covered in sand to move' you think as you hurry on...";
+                                    dungeon.Guidebook = "This beach has always had an extremely strong static charge and no one knows why. It makes it impossible to stay too long as the sand sticks to you and weighs you down. The fish stay away and go to the east for clearer oceans. The map maker lives to the south as his compasses are affected by the charge.";
                                 }
                                 else if (id == 32)
                                 {
                                     dungeon.Name = "Penguin Point";
-                                    dungeon.Storyline = "";
+                                    dungeon.Storyline = "You reach a corner of the island which stretches out into the sea with a single point at the tip. You see an abundance of fish and sea creatures swimming around, jumping out of the water and lounging around on the rocks. To the west lies more beaches.";
                                     dungeon.ItemID = 4; // fish
-                                    dungeon.Guidebook = "";
+                                    dungeon.Guidebook = "Penguin Point was named after a drunken sailor claimed he had had an argument with a penguin. Although the other sailors told him penguins had never been sighted here before, he insisted and explained how the penguin had rationally argument his point and convinced the sailor. When they asked what he had argued about with the penguin, he replied 'He kept telling me he was not a penguin but that he was instead a crab dressed very fancily'.'";
                                 }
 
                                 context.Dungeon.Add(dungeon);
