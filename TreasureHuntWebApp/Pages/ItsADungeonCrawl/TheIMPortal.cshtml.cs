@@ -26,7 +26,6 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
             if (!String.IsNullOrEmpty(portal))
             {
                 HttpContext.Session.Remove("Sword");
-                HttpContext.Session.Remove("Map");
                 return Redirect("./TheHandover?portal=" + portal);
             }
             return Page();
