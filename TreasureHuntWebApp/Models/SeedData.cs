@@ -398,7 +398,7 @@ namespace TreasureHuntWebApp.Models
                                 {
                                     dungeon.Name = "Cave Camp";
                                     dungeon.Storyline = "You walk into a large cavern, lit by smouldering campfires. It looks deserted but the glow of embers indicates that somebody was here recently. A large pile of fish bones lies to the west with a line of footprints strecthing off into a tunnel to the east. At the northern edge of the cavern lies a small dark tunnel.";
-                                    dungeon.Guidebook = "Lord Emon had a dark sense of humour and designed his castle such that you had to walk through the dungeons to reach the main castle complex. This is also where he imprisoned the troll leader, King Sower.";
+                                    dungeon.Guidebook = "This is where party goers would camp during the festivals held on the island. There was an abundant supply of fish to the west but they stayed clear of the eastern tunnel. Most partying was done to the north.";
                                 }
                                 else if (id == 7)
                                 {
