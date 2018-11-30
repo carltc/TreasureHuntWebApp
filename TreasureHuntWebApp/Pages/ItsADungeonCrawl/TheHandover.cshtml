@@ -32,6 +32,7 @@
     {
         HttpContextAccessor.HttpContext.Session.Remove("Compass");
         HttpContextAccessor.HttpContext.Session.Remove("Guidebook");
+        HttpContextAccessor.HttpContext.Session.Remove("Map");
     }
 }
 
@@ -61,14 +62,16 @@
 
 @{
     if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Compass"))
-        && !String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Guidebook")))
+        && !String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Guidebook"))
+        && !String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Map")))
     {
         <div style="text-align: center; margin: auto;">
             <p>Sorry, I have no more tools to give you this time.</p>
         </div>
     }
     else if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Compass"))
-        || !String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Guidebook")))
+        || !String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Guidebook"))
+        || !String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Map")))
     {
         <div style="text-align: center; margin: auto;">
             <p>Don't forget this other tool to help you on your search!</p>
@@ -103,6 +106,16 @@
                         <input type="hidden" name="portNum" value="0" />
                         <input type="hidden" name="tool" alt="Submit" value="blank" />
                         <input type="image" src="~/DungeonGraphics/guidebook.jpg" alt="Submit" class="tool portalImage bit8Image" value="Guidebook">
+                    </form>
+                </td>
+            }
+            if (String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Map")))
+            {
+                <td style="text-align: center;">
+                    <form method="post">
+                        <input type="hidden" name="portNum" value="0" />
+                        <input type="hidden" name="tool" alt="Submit" value="blank" />
+                        <input type="image" src="~/DungeonGraphics/map.png" alt="Submit" class="tool portalImage bit8Image" value="Map">
                     </form>
                 </td>
             }

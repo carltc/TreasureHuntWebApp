@@ -60,6 +60,10 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
             {
                 HttpContext.Session.SetString("Guidebook", "Yes");
             }
+            else if (tool == "Map")
+            {
+                HttpContext.Session.SetString("Map", "Yes");
+            }
 
             if (portNum == 1)
             {
