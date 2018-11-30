@@ -51,6 +51,49 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
             
             Dungeon = dungeons.ToList();
 
+            if (Dungeon[0].RoomID == 37 || Dungeon[0].RoomID == 38)
+            {
+                if (String.IsNullOrEmpty(HttpContext.Session.GetString("Blackhole")))
+                {
+                    HttpContext.Session.SetString("Blackhole", "1");
+                }
+                else
+                {
+                    int blackholeCount = int.Parse(HttpContext.Session.GetString("Blackhole"));
+                    try
+                    {
+                        blackholeCount++;
+                    }
+                    catch
+                    {
+                        blackholeCount = 1;
+                    }
+                    if (blackholeCount >= 3)
+                    {
+                        HttpContext.Session.Remove("Blackhole");
+                        if (String.IsNullOrEmpty(HttpContext.Session.GetString("Compass")))
+                        {
+                            HttpContext.Session.SetString("Compass", "Yes");
+                            Dungeon[0].Storyline = Dungeon[0].Storyline + " But just before you see a glinting compass and snag it, just managing to get it into your pocket.";
+                        }
+                        else if (String.IsNullOrEmpty(HttpContext.Session.GetString("Map")))
+                        {
+                            HttpContext.Session.SetString("Map", "Yes");
+                            Dungeon[0].Storyline = Dungeon[0].Storyline + " But just before you see a blueprint and snag it, just managing to get it into your pocket.";
+                        }
+                        else if (String.IsNullOrEmpty(HttpContext.Session.GetString("Guidebook")))
+                        {
+                            HttpContext.Session.SetString("Guidebook", "Yes");
+                            Dungeon[0].Storyline = Dungeon[0].Storyline + " But just before you see a digital display and snag it, just managing to get it into your pocket.";
+                        }
+                    }
+                    else
+                    {
+                        HttpContext.Session.SetString("Blackhole", blackholeCount.ToString());
+                    }
+                }
+            }
+
             return Page();
         }
 

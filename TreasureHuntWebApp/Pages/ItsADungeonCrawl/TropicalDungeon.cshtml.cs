@@ -56,6 +56,49 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
 
             Dungeon = dungeons.ToList();
 
+            if (Dungeon[0].Name == "Quicksand" || Dungeon[0].RoomID == 37)
+            {
+                if (String.IsNullOrEmpty(HttpContext.Session.GetString("Quicksand")))
+                {
+                    HttpContext.Session.SetString("Quicksand", "1");
+                }
+                else
+                {
+                    int quicksandCount = int.Parse(HttpContext.Session.GetString("Quicksand"));
+                    try
+                    {
+                        quicksandCount++;
+                    }
+                    catch
+                    {
+                        quicksandCount = 1;
+                    }
+                    if (quicksandCount >= 3)
+                    {
+                        HttpContext.Session.Remove("Quicksand");
+                        if (String.IsNullOrEmpty(HttpContext.Session.GetString("Compass")))
+                        {
+                            HttpContext.Session.SetString("Compass", "Yes");
+                            Dungeon[0].Storyline = Dungeon[0].Storyline + " But just before you see a glinting compass and snag it, just managing to get it into your pocket.";
+                        }
+                        else if (String.IsNullOrEmpty(HttpContext.Session.GetString("Map")))
+                        {
+                            HttpContext.Session.SetString("Map", "Yes");
+                            Dungeon[0].Storyline = Dungeon[0].Storyline + " But just before you see a scrap of paper and snag it, just managing to get it into your pocket.";
+                        }
+                        else if (String.IsNullOrEmpty(HttpContext.Session.GetString("Guidebook")))
+                        {
+                            HttpContext.Session.SetString("Guidebook", "Yes");
+                            Dungeon[0].Storyline = Dungeon[0].Storyline + " But just before you see a small book and snag it, just managing to get it into your pocket.";
+                        }
+                    }
+                    else
+                    {
+                        HttpContext.Session.SetString("Quicksand", quicksandCount.ToString());
+                    }
+                }
+            }
+
             return Page();
         }
 
