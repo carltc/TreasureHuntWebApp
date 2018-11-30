@@ -51,6 +51,49 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
 
             Dungeon = dungeons.ToList();
 
+            if (Dungeon[0].Name == "Pit" || Dungeon[0].RoomID == 37)
+            {
+                if (String.IsNullOrEmpty(HttpContext.Session.GetString("Pit")))
+                {
+                    HttpContext.Session.SetString("Pit", "1");
+                }
+                else
+                {
+                    int pitCount = int.Parse(HttpContext.Session.GetString("Pit"));
+                    try
+                    {
+                        pitCount++;
+                    }
+                    catch
+                    {
+                        pitCount = 1;
+                    }
+                    if (pitCount >= 3)
+                    {
+                        HttpContext.Session.Remove("Pit");
+                        if (String.IsNullOrEmpty(HttpContext.Session.GetString("Compass")))
+                        {
+                            HttpContext.Session.SetString("Compass", "Yes");
+                            Dungeon[0].Storyline = Dungeon[0].Storyline + " But just before you see a glinting compass and snag it, just managing to get it into your pocket.";
+                        }
+                        else if (String.IsNullOrEmpty(HttpContext.Session.GetString("Map")))
+                        {
+                            HttpContext.Session.SetString("Map", "Yes");
+                            Dungeon[0].Storyline = Dungeon[0].Storyline + " But just before you see a scrap of paper and snag it, just managing to get it into your pocket.";
+                        }
+                        else if (String.IsNullOrEmpty(HttpContext.Session.GetString("Guidebook")))
+                        {
+                            HttpContext.Session.SetString("Guidebook", "Yes");
+                            Dungeon[0].Storyline = Dungeon[0].Storyline + " But just before you see a small book and snag it, just managing to get it into your pocket.";
+                        }
+                    }
+                    else
+                    {
+                        HttpContext.Session.SetString("Pit", pitCount.ToString());
+                    }
+                }
+            }
+
             return Page();
         }
 
