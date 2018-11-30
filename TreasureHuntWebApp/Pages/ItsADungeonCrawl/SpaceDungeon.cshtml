@@ -90,8 +90,15 @@
     {
         <div id="guidebook" style="display: none; text-align: center; margin: auto; width: 90%; max-width: 800px;">
             <div class="guideBookSpace">
-                <h1 style="text-decoration:underline;">@Html.DisplayFor(model => Model.Dungeon[0].Name)</h1>
-                <p>@Html.DisplayFor(model => Model.Dungeon[0].Guidebook)</p>
+                <h1 style="text-decoration:underline;">Space Station Gamma</h1>
+                <p style="font-size: 0.5em">Space Station Gamma was built with portals between rooms. However the designer was not logical and rooms across the station are connected together.</p>
+                <p style="font-size: 0.5em"><font style="text-decoration: underline; font-size: 1.5em">BEWARE</font>: Some portals are rogue and change number randomly. These will send you into a blackhole!</p>
+                <p style="color: #0094ff">Blue - Gun</p>
+                <p style="color: #00bc18">Green - Map</p>
+                <p style="color: #ff0000">Red - Slime Cutter</p>
+                <p style="color: #808080">Grey - Monster</p>
+                <p style="color: #ebff00">Yellow - Control Room</p>
+                <p style="font-size: 0.5em"><font style="text-decoration: underline; font-size: 1.5em">NOTE</font>: Some doors are covered in ectoplasma and require a cutting tool to get through.</p>
                 <h4>@Html.DisplayFor(model => Model.Dungeon[0].RoomID)</h4>
             </div>
         </div>
