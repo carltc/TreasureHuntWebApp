@@ -35,6 +35,8 @@
             <img class="bit8Image" style="max-width: 100px; width: 40%" src="~/DungeonGraphics/LeeMonquebe-8bit.png" />
             <p>You managed to find your way back and you brought our young friend Rango back too.</p>
             <p>Seeing as you handled yourself well in there I couldn't ask you to go through the other portals too and help bring back Limo and Grappy?</p>
+            <p>And if you haven't already got them here are the maps for the final 2 portals.</p>
+            @{HttpContextAccessor.HttpContext.Session.SetString("Map","Yes");}
             <form method="post">
                 <input type="submit" name="button" value="Go to the IM-Portals" />
             </form>
