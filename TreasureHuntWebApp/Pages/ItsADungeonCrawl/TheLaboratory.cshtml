@@ -16,6 +16,13 @@
 @{
     if (klorg1 + klorg2 + klorg3 <= 0)
     {
+        HttpContextAccessor.HttpContext.Session.Remove("Sword");
+        HttpContextAccessor.HttpContext.Session.Remove("Map");
+        HttpContextAccessor.HttpContext.Session.Remove("Compass");
+        HttpContextAccessor.HttpContext.Session.Remove("Guidebook");
+        HttpContextAccessor.HttpContext.Session.Remove("Cutter");
+        HttpContextAccessor.HttpContext.Session.Remove("Rod");
+        HttpContextAccessor.HttpContext.Session.Remove("Fish");
         <div style="margin:auto; text-align: center; width: 80%;">
             <h2>Oh no!</h2>
             <img class="bit8Image" style="max-width: 100px; width: 40%" src="~/DungeonGraphics/LeeMonquebe-8bit-lab.png" />
@@ -36,7 +43,7 @@
             <p>You managed to find your way back and you brought our young friend Rango back too.</p>
             <p>Seeing as you handled yourself well in there I couldn't ask you to go through the other portals too and help bring back Limo and Grappy?</p>
             <p>And if you haven't already got them here are the maps for the final 2 portals.</p>
-            @{HttpContextAccessor.HttpContext.Session.SetString("Map","Yes");}
+            @{HttpContextAccessor.HttpContext.Session.SetString("Map", "Yes");}
             <form method="post">
                 <input type="submit" name="button" value="Go to the IM-Portals" />
             </form>
