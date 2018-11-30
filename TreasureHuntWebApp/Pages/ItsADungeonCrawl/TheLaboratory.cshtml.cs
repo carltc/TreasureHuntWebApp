@@ -20,7 +20,7 @@ namespace TreasureHuntWebApp.Pages.ItsADungeonCrawl
         }
 
         public IList<Winner> Winner { get; set; }
-        private int HuntID = 7;
+        private int HuntID = 8;
 
         public async Task<IActionResult> OnGetAsync(string winnerName)
         {
